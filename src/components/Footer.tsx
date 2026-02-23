@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram, Facebook, Star } from "lucide-react";
+import logo from "@/assets/logo.jpg";
 
 const Footer = () => {
   return (
@@ -26,8 +27,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <h3 className="font-heading text-2xl font-bold mb-2">SEE&KNOW</h3>
-            <p className="text-sm tracking-widest text-accent uppercase mb-4">Tours & Travels · Marrakech</p>
+            <img src={logo} alt="SEE&KNOW Tours & Travels" className="h-16 w-auto mb-2" />
+            <p className="text-sm tracking-widest text-accent uppercase mb-4">Marrakech, Morocco</p>
             <p className="font-body text-primary-foreground/60 text-sm leading-relaxed mb-4">
               Full-service Moroccan travel agency offering desert tours, mountain trips, coastal escapes, and cultural experiences across Morocco.
             </p>
