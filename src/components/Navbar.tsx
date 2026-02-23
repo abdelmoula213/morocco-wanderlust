@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
+import logo from "@/assets/logo.jpg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,13 +40,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex flex-col">
-            <span className="font-heading text-xl font-bold text-primary-foreground leading-none">
-              SEE&KNOW
-            </span>
-            <span className="font-body text-[9px] tracking-[0.25em] uppercase text-primary-foreground/70">
-              Tours & Travels
-            </span>
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="SEE&KNOW Tours & Travels" className="h-14 w-auto" />
           </Link>
 
           <div className="hidden lg:flex items-center gap-6">
