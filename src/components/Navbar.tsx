@@ -23,8 +23,9 @@ const Navbar = () => {
     { to: "/", label: "Home" },
     { to: "/sahara-desert-tour", label: "Sahara Tour" },
     { to: "/agafay-desert", label: "Agafay" },
-    { to: "/atlas-mountains", label: "Atlas Mountains" },
+    { to: "/atlas-mountains", label: "Imlil" },
     { to: "/ouzoud-waterfalls", label: "Ouzoud" },
+    { to: "/ourika-valley", label: "Ourika" },
     { to: "/essaouira", label: "Essaouira" },
   ];
 
@@ -48,7 +49,7 @@ const Navbar = () => {
             </div>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-5">
             {links.map((link) => (
               <Link
                 key={link.to}

@@ -2,27 +2,26 @@ import atlasImage from "@/assets/atlas-mountains.jpg";
 import BookingForm from "@/components/BookingForm";
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 
-const AtlasMountains = () => {
+const OurikaValley = () => {
   return (
     <>
       <section className="relative h-[60vh] min-h-[450px] flex items-end overflow-hidden">
-        <img src={atlasImage} alt="Atlas Mountains Imlil Morocco" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={atlasImage} alt="Ourika Valley Morocco" className="absolute inset-0 w-full h-full object-cover" />
         <div className="bg-hero-overlay absolute inset-0" />
         <div className="relative z-10 container mx-auto px-4 pb-12">
           <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 text-primary-foreground text-xs font-body px-3 py-1.5 rounded-full mb-4 backdrop-blur-sm">
-            <MapPin size={12} /> Imlil, Atlas Mountains
+            <MapPin size={12} /> 1 hour from Marrakech
           </div>
           <h1 className="font-heading text-3xl md:text-5xl font-bold text-primary-foreground mb-3">
-            Imlil Day Tour
+            Ourika Valley Tour
           </h1>
           <p className="font-body text-primary-foreground/80 text-lg max-w-2xl">
-            Guided mountain walk through the Atlas Mountains — waterfalls, Berber villages & breathtaking views.
+            A beautiful day trip to the green Ourika Valley — guided valley tour, waterfall walk & stunning nature.
           </p>
         </div>
       </section>
 
       <div className="container mx-auto px-4 py-16">
-        {/* Trust badges */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {["Hotel Pickup Included", "Pay on Arrival", "Tour Only"].map((b) => (
             <span key={b} className="flex items-center gap-2 bg-secondary text-secondary-foreground font-body text-sm px-4 py-2 rounded-full">
@@ -41,7 +40,7 @@ const AtlasMountains = () => {
               </div>
               <h3 className="font-heading text-lg font-bold text-foreground mb-4">What's Included</h3>
               <ul className="space-y-3 mb-6">
-                {["Guided mountain walk", "Visit to waterfalls", "Visit to Berber villages", "Hotel pickup & drop-off", "Comfortable transport"].map((item) => (
+                {["Guided valley tour", "Waterfall walk", "Hotel pickup & drop-off", "Comfortable transport"].map((item) => (
                   <li key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
                     <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" /> {item}
                   </li>
@@ -56,12 +55,6 @@ const AtlasMountains = () => {
                 ))}
               </ul>
             </div>
-
-            <div className="bg-secondary/60 rounded-xl p-4">
-              <p className="font-body text-sm text-muted-foreground text-center italic">
-                ℹ️ This is a tour-only experience. No lunch or dinner is included. You may purchase meals independently along the route.
-              </p>
-            </div>
           </div>
 
           <div className="lg:col-span-1">
@@ -72,7 +65,7 @@ const AtlasMountains = () => {
                   <p className="font-body text-xs text-muted-foreground">per person · Full Day · Pay on Arrival</p>
                 </div>
                 <a
-                  href="https://wa.me/212600000000?text=Hello!%20I%27d%20like%20to%20book%20the%20Imlil%20Day%20Tour%20(150%20DH)."
+                  href="https://wa.me/212600000000?text=Hello!%20I%27d%20like%20to%20book%20the%20Ourika%20Valley%20Tour%20(150%20DH)."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3.5 rounded-lg hover:bg-primary/90 transition-colors font-body mb-4"
@@ -89,4 +82,4 @@ const AtlasMountains = () => {
   );
 };
 
-export default AtlasMountains;
+export default OurikaValley;

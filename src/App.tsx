@@ -8,6 +8,7 @@ import SaharaDesertTour from "./pages/SaharaDesertTour";
 import AgafayDesert from "./pages/AgafayDesert";
 import AtlasMountains from "./pages/AtlasMountains";
 import OuzoudWaterfalls from "./pages/OuzoudWaterfalls";
+import OurikaValley from "./pages/OurikaValley";
 import Essaouira from "./pages/Essaouira";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/agafay-desert" element={<AgafayDesert />} />
             <Route path="/atlas-mountains" element={<AtlasMountains />} />
             <Route path="/ouzoud-waterfalls" element={<OuzoudWaterfalls />} />
+            <Route path="/ourika-valley" element={<OurikaValley />} />
             <Route path="/essaouira" element={<Essaouira />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

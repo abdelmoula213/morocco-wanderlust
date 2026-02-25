@@ -14,7 +14,6 @@ const BookingForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Build WhatsApp message
     const msg = encodeURIComponent(
       `Hello SEE&KNOW Tours!\n\nName: ${formData.name}\nEmail: ${formData.email}\nTour: ${formData.tour}\nDate: ${formData.date}\nGuests: ${formData.guests}\nMessage: ${formData.message}`
     );
@@ -69,11 +68,14 @@ const BookingForm = () => {
           className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
         >
           <option value="">Choose a tour...</option>
-          <option value="3-Day Sahara Desert Tour">3-Day Sahara Desert Tour</option>
-          <option value="Agafay Desert Tour">Agafay Desert Tour</option>
-          <option value="Atlas Mountains & Imlil">Atlas Mountains & Imlil</option>
-          <option value="Ouzoud Waterfalls">Ouzoud Waterfalls</option>
-          <option value="Essaouira Day Trip">Essaouira Day Trip</option>
+          <option value="3-Day Sahara Desert Tour - Standard (800 DH)">Sahara Tour - Standard (800 DH)</option>
+          <option value="3-Day Sahara Desert Tour - Luxury (2000 DH)">Sahara Tour - Luxury (2,000 DH)</option>
+          <option value="Agafay Desert - Standard (400 DH)">Agafay Desert - Standard (400 DH)</option>
+          <option value="Agafay Desert - Luxury (700 DH)">Agafay Desert - Luxury (700 DH)</option>
+          <option value="Imlil Day Tour (150 DH)">Imlil Day Tour (150 DH)</option>
+          <option value="Ouzoud Waterfalls (200 DH)">Ouzoud Waterfalls (200 DH)</option>
+          <option value="Ourika Valley (150 DH)">Ourika Valley (150 DH)</option>
+          <option value="Essaouira Day Trip (200 DH)">Essaouira Day Trip (200 DH)</option>
         </select>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
