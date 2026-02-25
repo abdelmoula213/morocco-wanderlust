@@ -11,6 +11,14 @@ const faqs = [
     a: "Yes! All our tours include free hotel pickup and drop-off from anywhere in Marrakech.",
   },
   {
+    q: "What is the difference between Standard and Luxury packages?",
+    a: "The difference is the category and comfort level of the accommodation. Standard includes standard desert camps or hotels, while Luxury includes premium camps or hotels with enhanced comfort. All other services (transport, camel trek, activities) remain the same.",
+  },
+  {
+    q: "Is lunch or dinner included in day tours?",
+    a: "Day tours (Imlil, Ouzoud, Ourika, Essaouira) are tour-only — lunch and dinner are NOT included. You may purchase meals independently along the route. The Sahara and Agafay tours include meals as specified in each package.",
+  },
+  {
     q: "What is your cancellation policy?",
     a: "Free cancellation up to 24 hours before the tour. Cancel anytime via WhatsApp for a full refund.",
   },

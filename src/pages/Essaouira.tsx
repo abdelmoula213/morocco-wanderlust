@@ -1,6 +1,6 @@
 import essaouiraImage from "@/assets/essaouira.jpg";
 import BookingForm from "@/components/BookingForm";
-import { CheckCircle, MapPin } from "lucide-react";
+import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 
 const Essaouira = () => {
   return (
@@ -16,43 +16,44 @@ const Essaouira = () => {
             Essaouira Day Trip
           </h1>
           <p className="font-body text-primary-foreground/80 text-lg max-w-2xl">
-            Escape to Morocco's charming Atlantic coastal town — historic medina, fresh seafood, beautiful beaches & argan oil.
+            Escape to Morocco's charming Atlantic coastal town — historic medina, fishing port & free time.
           </p>
         </div>
       </section>
 
       <div className="container mx-auto px-4 py-16">
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {["Hotel Pickup Included", "Pay on Arrival", "Tour Only"].map((b) => (
+            <span key={b} className="flex items-center gap-2 bg-secondary text-secondary-foreground font-body text-sm px-4 py-2 rounded-full">
+              <CheckCircle size={14} className="text-primary" /> {b}
+            </span>
+          ))}
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6">Tour Highlights</h2>
-            <div className="space-y-4 mb-12">
-              {[
-                { title: "Historic Medina", desc: "Explore the UNESCO-listed medina of Essaouira with its blue and white architecture, art galleries, and winding streets." },
-                { title: "Fishing Port", desc: "Visit the vibrant fishing port where fresh catch is brought in daily. Watch local fishermen at work and enjoy the atmosphere." },
-                { title: "Beach Time", desc: "Relax on Essaouira's beautiful windswept beach — popular for surfing, kite-surfing, and peaceful walks." },
-                { title: "Argan Oil Cooperative", desc: "Stop at a women's argan oil cooperative to learn about traditional production methods and purchase authentic products." },
-              ].map((h) => (
-                <div key={h.title} className="bg-card p-6 rounded-xl shadow-warm">
-                  <h3 className="font-heading text-lg font-bold text-card-foreground mb-2">{h.title}</h3>
-                  <p className="font-body text-sm text-muted-foreground">{h.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <h2 className="font-heading text-2xl font-bold text-foreground mb-4">What's Included</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {[
-                "Hotel pickup & drop-off",
-                "Air-conditioned transport",
-                "Argan cooperative visit",
-                "Free time in medina",
-                "English-speaking driver",
-                "Scenic route stops",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
-                  <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" /> {item}
-                </div>
-              ))}
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6">Tour Program</h2>
+            <div className="bg-card rounded-2xl p-6 shadow-warm mb-8">
+              <div className="flex flex-wrap gap-4 mb-6 font-body text-sm text-muted-foreground">
+                <span className="flex items-center gap-1"><Clock size={14} /> Departure: 9:00 AM</span>
+                <span className="flex items-center gap-1"><Clock size={14} /> Return: 5:00 PM</span>
+              </div>
+              <h3 className="font-heading text-lg font-bold text-foreground mb-4">What's Included</h3>
+              <ul className="space-y-3 mb-6">
+                {["Medina visit", "Port visit", "Free time for exploring & photos", "Hotel pickup & drop-off", "Air-conditioned transport"].map((item) => (
+                  <li key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
+                    <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" /> {item}
+                  </li>
+                ))}
+              </ul>
+              <h3 className="font-heading text-lg font-bold text-foreground mb-4">Not Included</h3>
+              <ul className="space-y-3">
+                {["Lunch", "Dinner", "Personal expenses"].map((item) => (
+                  <li key={item} className="flex items-start gap-2 font-body text-sm text-muted-foreground">
+                    <X size={14} className="text-destructive mt-0.5 shrink-0" /> {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
@@ -63,6 +64,14 @@ const Essaouira = () => {
                   <p className="font-heading text-3xl font-bold text-primary">200 DH</p>
                   <p className="font-body text-xs text-muted-foreground">per person · Full Day · Pay on Arrival</p>
                 </div>
+                <a
+                  href="https://wa.me/212600000000?text=Hello!%20I%27d%20like%20to%20book%20the%20Essaouira%20Day%20Trip%20(200%20DH)."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3.5 rounded-lg hover:bg-primary/90 transition-colors font-body mb-4"
+                >
+                  💬 Book on WhatsApp
+                </a>
                 <BookingForm />
               </div>
             </div>

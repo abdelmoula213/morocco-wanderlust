@@ -15,7 +15,7 @@ const tours = [
     image: saharaImage,
     title: "3-Day Sahara Desert Tour",
     description: "Marrakech → Ait Ben Haddou → Ouarzazate → Merzouga. Camel trek, night in Sahara camp.",
-    price: "From 1200 DH",
+    price: "From 800 DH",
     duration: "3 Days / 2 Nights",
     badge: "Most Popular",
     link: "/sahara-desert-tour",
@@ -23,33 +23,41 @@ const tours = [
   {
     image: agafayImage,
     title: "Agafay Desert Experience",
-    description: "Quad biking, camel rides, sunset dinner & luxury camp. Just 30 min from Marrakech.",
-    price: "From 350 DH",
+    description: "Quad biking, camel rides, sunset dinner & camp. Just 30 min from Marrakech.",
+    price: "From 400 DH",
     duration: "Half Day / Full Day",
     badge: "Same-Day Booking",
     link: "/agafay-desert",
   },
   {
     image: atlasImage,
-    title: "Atlas Mountains & Imlil",
-    description: "Guided mountain trek, Berber village visit, waterfalls & traditional lunch with views.",
-    price: "From 300 DH",
+    title: "Imlil Day Tour",
+    description: "Guided mountain walk, waterfalls & Berber villages in the Atlas Mountains.",
+    price: "150 DH",
     duration: "Full Day",
     link: "/atlas-mountains",
   },
   {
     image: ouzoudImage,
     title: "Ouzoud Waterfalls Tour",
-    description: "Morocco's most spectacular waterfalls — guided walk, boat ride & stunning nature.",
-    price: "From 250 DH",
+    description: "Morocco's most spectacular waterfalls — guided tour & free time for photos.",
+    price: "200 DH",
     duration: "Full Day",
     link: "/ouzoud-waterfalls",
   },
   {
+    image: atlasImage,
+    title: "Ourika Valley Tour",
+    description: "Green valley escape — guided tour, waterfall walk & stunning nature.",
+    price: "150 DH",
+    duration: "Full Day",
+    link: "/ourika-valley",
+  },
+  {
     image: essaouiraImage,
     title: "Essaouira Day Trip",
-    description: "Atlantic coastal escape — medina, port, beach & argan oil cooperative visit.",
-    price: "From 200 DH",
+    description: "Atlantic coastal escape — medina, port & free time by the sea.",
+    price: "200 DH",
     duration: "Full Day",
     link: "/essaouira",
   },
@@ -221,7 +229,7 @@ const Index = () => {
             </div>
             <div className="flex flex-wrap gap-6 mb-8">
               <div>
-                <p className="font-heading text-3xl font-bold text-accent">1,200 DH</p>
+                <p className="font-heading text-3xl font-bold text-accent">800 DH</p>
                 <p className="font-body text-xs text-primary-foreground/60">Standard Package</p>
               </div>
               <div>

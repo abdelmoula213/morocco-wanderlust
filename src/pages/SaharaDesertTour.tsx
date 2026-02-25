@@ -1,7 +1,7 @@
 import saharaImage from "@/assets/sahara-desert.jpg";
 import aitBenHaddouImage from "@/assets/ait-ben-haddou.jpg";
 import BookingForm from "@/components/BookingForm";
-import { CheckCircle, X, MapPin, Clock, Users, Star } from "lucide-react";
+import { CheckCircle, X, MapPin, Clock, Users, Star, Shield } from "lucide-react";
 
 const itinerary = [
   {
@@ -21,7 +21,7 @@ const itinerary = [
       "Drive through stunning Todra Gorge (300m canyon walls)",
       "Continue to Merzouga at the edge of the Sahara Desert",
       "Camel trek into the Erg Chebbi sand dunes",
-      "Night in traditional Sahara desert camp under the stars",
+      "Night in desert camp under the stars",
     ],
   },
   {
@@ -36,13 +36,11 @@ const itinerary = [
   },
 ];
 
-const comparison = [
-  { feature: "Transport", standard: "Shared minibus", luxury: "Private 4x4 vehicle" },
-  { feature: "Camp", standard: "Shared tent", luxury: "Private luxury tent" },
-  { feature: "Bathroom", standard: "Shared facilities", luxury: "Private bathroom" },
-  { feature: "Dinner", standard: "Traditional dinner", luxury: "Premium 3-course dinner" },
-  { feature: "Guide", standard: "Group guide", luxury: "Private guide" },
-  { feature: "Extras", standard: "Basic amenities", luxury: "Blankets, pillows, welcome tea" },
+const sharedInclusions = [
+  "Shared transport",
+  "Overnight stay (2 nights)",
+  "Camel trek in Merzouga",
+  "Sahara desert experience",
 ];
 
 const SaharaDesertTour = () => {
@@ -71,9 +69,86 @@ const SaharaDesertTour = () => {
       </section>
 
       <div className="container mx-auto px-4 py-16">
+        {/* Trust badges */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {["Hotel Pickup Included", "Pay on Arrival", "Free Cancellation"].map((b) => (
+            <span key={b} className="flex items-center gap-2 bg-secondary text-secondary-foreground font-body text-sm px-4 py-2 rounded-full">
+              <CheckCircle size={14} className="text-primary" /> {b}
+            </span>
+          ))}
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Main content */}
           <div className="lg:col-span-2">
+            {/* Package Comparison */}
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8">Choose Your Package</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+              {/* Standard */}
+              <div className="bg-card rounded-2xl p-6 shadow-warm border border-border">
+                <p className="font-body text-xs font-semibold text-primary uppercase tracking-widest mb-2">Standard</p>
+                <div className="mb-4">
+                  <span className="font-heading text-4xl font-bold text-foreground">800 DH</span>
+                  <span className="font-body text-sm text-muted-foreground ml-1">/ person</span>
+                </div>
+                <ul className="space-y-3 mb-4">
+                  {sharedInclusions.map((item) => (
+                    <li key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
+                      <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" /> {item}
+                    </li>
+                  ))}
+                  <li className="flex items-start gap-2 font-body text-sm text-foreground">
+                    <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" /> Standard desert camp / hotel
+                  </li>
+                </ul>
+                <a
+                  href="https://wa.me/212600000000?text=Hello!%20I%27d%20like%20to%20book%20the%203-Day%20Sahara%20Tour%20-%20Standard%20Package%20(800%20DH)."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 bg-secondary text-secondary-foreground font-semibold py-3 rounded-lg hover:bg-secondary/80 transition-colors font-body text-sm"
+                >
+                  💬 Book Standard
+                </a>
+              </div>
+
+              {/* Luxury */}
+              <div className="bg-card rounded-2xl p-6 shadow-warm-lg border-2 border-accent relative">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-xs font-bold px-4 py-1 rounded-full">
+                  Recommended
+                </div>
+                <p className="font-body text-xs font-semibold text-accent-foreground uppercase tracking-widest mb-2">Luxury</p>
+                <div className="mb-4">
+                  <span className="font-heading text-4xl font-bold text-foreground">2,000 DH</span>
+                  <span className="font-body text-sm text-muted-foreground ml-1">/ person</span>
+                </div>
+                <ul className="space-y-3 mb-4">
+                  {sharedInclusions.map((item) => (
+                    <li key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
+                      <CheckCircle size={14} className="text-accent mt-0.5 shrink-0" /> {item}
+                    </li>
+                  ))}
+                  <li className="flex items-start gap-2 font-body text-sm text-foreground font-medium">
+                    <CheckCircle size={14} className="text-accent mt-0.5 shrink-0" /> Luxury desert camp / hotel
+                  </li>
+                </ul>
+                <a
+                  href="https://wa.me/212600000000?text=Hello!%20I%27d%20like%20to%20book%20the%203-Day%20Sahara%20Tour%20-%20Luxury%20Package%20(2000%20DH)."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3 rounded-lg hover:bg-primary/90 transition-colors font-body text-sm"
+                >
+                  💬 Book Luxury
+                </a>
+              </div>
+            </div>
+
+            <div className="bg-secondary/60 rounded-xl p-4 mb-16">
+              <p className="font-body text-sm text-muted-foreground text-center italic">
+                <Shield size={14} className="inline mr-1 text-primary" />
+                The difference between Standard and Luxury packages is the category and comfort level of the accommodation. All other services remain the same.
+              </p>
+            </div>
+
             {/* Itinerary */}
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8">Tour Itinerary</h2>
             <div className="space-y-8 mb-16">
@@ -107,44 +182,21 @@ const SaharaDesertTour = () => {
               <img src={saharaImage} alt="Sahara Desert sunset" className="rounded-xl w-full h-48 object-cover" loading="lazy" />
               <img src={aitBenHaddouImage} alt="Ait Ben Haddou" className="rounded-xl w-full h-48 object-cover" loading="lazy" />
             </div>
-
-            {/* Comparison Table */}
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6">Standard vs Luxury Package</h2>
-            <div className="overflow-x-auto mb-16">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-secondary">
-                    <th className="text-left font-heading text-sm p-4 rounded-tl-lg">Feature</th>
-                    <th className="text-left font-heading text-sm p-4">Standard — 1,200 DH</th>
-                    <th className="text-left font-heading text-sm p-4 rounded-tr-lg">Luxury — 2,000 DH</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparison.map((row, i) => (
-                    <tr key={i} className="border-b border-border">
-                      <td className="p-4 font-body text-sm font-medium text-foreground">{row.feature}</td>
-                      <td className="p-4 font-body text-sm text-muted-foreground">{row.standard}</td>
-                      <td className="p-4 font-body text-sm text-foreground font-medium">{row.luxury}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
           </div>
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
             <div className="sticky top-24 space-y-6">
-              {/* Pricing */}
+              {/* Pricing Summary */}
               <div className="bg-card rounded-2xl p-6 shadow-warm">
-                <h3 className="font-heading text-xl font-bold text-card-foreground mb-4">Pricing</h3>
-                <div className="space-y-3 mb-6">
+                <h3 className="font-heading text-xl font-bold text-card-foreground mb-4">Pricing Summary</h3>
+                <div className="space-y-3 mb-4">
                   <div className="flex items-center justify-between p-3 rounded-lg bg-secondary">
-                    <span className="font-body text-sm">Standard Package</span>
-                    <span className="font-heading text-xl font-bold text-primary">1,200 DH</span>
+                    <span className="font-body text-sm">Standard</span>
+                    <span className="font-heading text-xl font-bold text-primary">800 DH</span>
                   </div>
                   <div className="flex items-center justify-between p-3 rounded-lg bg-gold-light border border-accent/30">
-                    <span className="font-body text-sm font-semibold">Luxury Package</span>
+                    <span className="font-body text-sm font-semibold">Luxury</span>
                     <span className="font-heading text-xl font-bold text-accent-foreground">2,000 DH</span>
                   </div>
                 </div>

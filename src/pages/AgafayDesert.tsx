@@ -1,15 +1,9 @@
 import agafayImage from "@/assets/agafay-desert.jpg";
 import BookingForm from "@/components/BookingForm";
-import { CheckCircle, MapPin, Clock, Star } from "lucide-react";
+import { CheckCircle, MapPin, Clock, Shield } from "lucide-react";
 
-const activities = [
-  { name: "Quad Biking", desc: "Race across the rocky desert landscape on powerful quad bikes", price: "From 350 DH" },
-  { name: "Camel Ride", desc: "Traditional camel trek through the desert at sunset", price: "From 200 DH" },
-  { name: "Sunset Experience", desc: "Watch the sun set behind the Atlas Mountains from the desert", price: "Included" },
-  { name: "Camp Dinner", desc: "Traditional Moroccan dinner under the stars in a luxury camp", price: "From 450 DH" },
-  { name: "Buggy Tours", desc: "Off-road buggy adventure across the Agafay landscape", price: "From 500 DH" },
-  { name: "Hot Air Balloon", desc: "Optional sunrise balloon ride over the desert (seasonal)", price: "From 1500 DH" },
-];
+const standardIncludes = ["Quad biking", "Camel ride", "Sunset experience", "Camp dinner"];
+const luxuryIncludes = ["Quad biking", "Camel ride", "Sunset experience", "Camp dinner", "Access to swimming pool"];
 
 const AgafayDesert = () => {
   return (
@@ -22,10 +16,10 @@ const AgafayDesert = () => {
             <MapPin size={12} /> 30 Min from Marrakech
           </div>
           <h1 className="font-heading text-3xl md:text-5xl font-bold text-primary-foreground mb-3">
-            Agafay Desert Tours
+            Agafay Desert Experience
           </h1>
           <p className="font-body text-primary-foreground/80 text-lg max-w-2xl">
-            Quad biking, camel rides, sunset dinner & luxury camp experiences — just outside Marrakech.
+            Quad biking, camel rides, sunset dinner & camp experiences — just outside Marrakech.
           </p>
         </div>
       </section>
@@ -42,19 +36,109 @@ const AgafayDesert = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8">Activities & Experiences</h2>
+            {/* Package Comparison */}
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8">Choose Your Package</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-              {activities.map((a) => (
-                <div key={a.name} className="bg-card rounded-xl p-6 shadow-warm hover:shadow-warm-lg transition-all">
-                  <h3 className="font-heading text-lg font-bold text-card-foreground mb-2">{a.name}</h3>
-                  <p className="font-body text-sm text-muted-foreground mb-3">{a.desc}</p>
-                  <span className="font-body text-sm font-semibold text-primary">{a.price}</span>
+              {/* Standard */}
+              <div className="bg-card rounded-2xl p-6 shadow-warm border border-border">
+                <p className="font-body text-xs font-semibold text-primary uppercase tracking-widest mb-2">Standard</p>
+                <div className="mb-4">
+                  <span className="font-heading text-4xl font-bold text-foreground">400 DH</span>
+                  <span className="font-body text-sm text-muted-foreground ml-1">/ person</span>
                 </div>
-              ))}
+                <ul className="space-y-3 mb-6">
+                  {standardIncludes.map((item) => (
+                    <li key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
+                      <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" /> {item}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="https://wa.me/212600000000?text=Hello!%20I%27d%20like%20to%20book%20Agafay%20Desert%20-%20Standard%20(400%20DH)."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 bg-secondary text-secondary-foreground font-semibold py-3 rounded-lg hover:bg-secondary/80 transition-colors font-body text-sm"
+                >
+                  💬 Book Standard
+                </a>
+              </div>
+
+              {/* Luxury */}
+              <div className="bg-card rounded-2xl p-6 shadow-warm-lg border-2 border-accent relative">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-xs font-bold px-4 py-1 rounded-full">
+                  Recommended
+                </div>
+                <p className="font-body text-xs font-semibold text-accent-foreground uppercase tracking-widest mb-2">Luxury</p>
+                <div className="mb-4">
+                  <span className="font-heading text-4xl font-bold text-foreground">700 DH</span>
+                  <span className="font-body text-sm text-muted-foreground ml-1">/ person</span>
+                </div>
+                <ul className="space-y-3 mb-6">
+                  {luxuryIncludes.map((item) => (
+                    <li key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
+                      <CheckCircle size={14} className="text-accent mt-0.5 shrink-0" /> {item}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="https://wa.me/212600000000?text=Hello!%20I%27d%20like%20to%20book%20Agafay%20Desert%20-%20Luxury%20(700%20DH)."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3 rounded-lg hover:bg-primary/90 transition-colors font-body text-sm"
+                >
+                  💬 Book Luxury
+                </a>
+              </div>
+            </div>
+
+            {/* Optional Add-ons */}
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6">Optional Add-ons</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+              {/* Buggy */}
+              <div className="bg-card rounded-2xl p-6 shadow-warm">
+                <h3 className="font-heading text-lg font-bold text-card-foreground mb-4">🏎️ Buggy Tours</h3>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between p-3 rounded-lg bg-secondary">
+                    <div>
+                      <p className="font-body text-sm font-medium text-foreground">Small Buggy</p>
+                      <p className="font-body text-xs text-muted-foreground">2 seats</p>
+                    </div>
+                    <span className="font-heading text-lg font-bold text-primary">1,000 DH</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 rounded-lg bg-secondary">
+                    <div>
+                      <p className="font-body text-sm font-medium text-foreground">Big Buggy</p>
+                      <p className="font-body text-xs text-muted-foreground">4 seats</p>
+                    </div>
+                    <span className="font-heading text-lg font-bold text-primary">2,000 DH</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Hot Air Balloon */}
+              <div className="bg-card rounded-2xl p-6 shadow-warm">
+                <h3 className="font-heading text-lg font-bold text-card-foreground mb-4">🎈 Hot Air Balloon</h3>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between p-3 rounded-lg bg-secondary">
+                    <div>
+                      <p className="font-body text-sm font-medium text-foreground">First Departure</p>
+                      <p className="font-body text-xs text-muted-foreground">16:30</p>
+                    </div>
+                    <span className="font-heading text-lg font-bold text-primary">1,400 DH</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 rounded-lg bg-secondary">
+                    <div>
+                      <p className="font-body text-sm font-medium text-foreground">Sunset Departure</p>
+                      <p className="font-body text-xs text-muted-foreground">Golden hour</p>
+                    </div>
+                    <span className="font-heading text-lg font-bold text-primary">1,200 DH</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <h2 className="font-heading text-2xl font-bold text-foreground mb-4">What's Included</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
               {[
                 "Hotel pickup & drop-off from Marrakech",
                 "Professional English-speaking guide",
