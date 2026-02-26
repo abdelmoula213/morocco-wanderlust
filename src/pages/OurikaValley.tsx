@@ -1,4 +1,4 @@
-import atlasImage from "@/assets/atlas-mountains.jpg";
+import ourikaImage from "@/assets/ourika-valley.jpg";
 import BookingForm from "@/components/BookingForm";
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 
@@ -6,7 +6,7 @@ const OurikaValley = () => {
   return (
     <>
       <section className="relative h-[60vh] min-h-[450px] flex items-end overflow-hidden">
-        <img src={atlasImage} alt="Ourika Valley Morocco" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={ourikaImage} alt="Ourika Valley Morocco" className="absolute inset-0 w-full h-full object-cover" />
         <div className="bg-hero-overlay absolute inset-0" />
         <div className="relative z-10 container mx-auto px-4 pb-12">
           <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 text-primary-foreground text-xs font-body px-3 py-1.5 rounded-full mb-4 backdrop-blur-sm">
