@@ -4,6 +4,7 @@ import agafayImage from "@/assets/agafay-desert.jpg";
 import atlasImage from "@/assets/atlas-mountains.jpg";
 import ouzoudImage from "@/assets/ouzoud-waterfalls.jpg";
 import essaouiraImage from "@/assets/essaouira.jpg";
+import ourikaImage from "@/assets/ourika-valley.jpg";
 import aitBenHaddouImage from "@/assets/ait-ben-haddou.jpg";
 import TourCard from "@/components/TourCard";
 import BookingForm from "@/components/BookingForm";
@@ -46,7 +47,7 @@ const tours = [
     link: "/ouzoud-waterfalls",
   },
   {
-    image: atlasImage,
+    image: ourikaImage,
     title: "Ourika Valley Tour",
     description: "Green valley escape — guided tour, waterfall walk & stunning nature.",
     price: "150 DH",
