@@ -1,6 +1,5 @@
 import agafayImage from "@/assets/agafay-desert.jpg";
 import BookingForm from "@/components/BookingForm";
-import ReviewSection from "@/components/ReviewSection";
 import { CheckCircle, MapPin, Clock, Shield } from "lucide-react";
 
 const standardIncludes = ["Quad biking", "Camel ride", "Sunset experience", "Camp dinner"];
@@ -164,10 +163,6 @@ const AgafayDesert = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="container mx-auto px-4">
-        <ReviewSection tourSlug="agafay-desert" tourName="Agafay Desert" />
       </div>
     </>
   );

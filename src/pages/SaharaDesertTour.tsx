@@ -1,7 +1,6 @@
 import saharaImage from "@/assets/sahara-desert.jpg";
 import aitBenHaddouImage from "@/assets/ait-ben-haddou.jpg";
 import BookingForm from "@/components/BookingForm";
-import ReviewSection from "@/components/ReviewSection";
 import { CheckCircle, X, MapPin, Clock, Users, Star, Shield } from "lucide-react";
 
 const itinerary = [
@@ -220,10 +219,6 @@ const SaharaDesertTour = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="container mx-auto px-4">
-        <ReviewSection tourSlug="sahara-desert-tour" tourName="Sahara Desert Tour" />
       </div>
     </>
   );

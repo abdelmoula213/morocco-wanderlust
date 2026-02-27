@@ -1,6 +1,5 @@
 import essaouiraImage from "@/assets/essaouira.jpg";
 import BookingForm from "@/components/BookingForm";
-import ReviewSection from "@/components/ReviewSection";
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 
 const Essaouira = () => {
@@ -78,10 +77,6 @@ const Essaouira = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="container mx-auto px-4">
-        <ReviewSection tourSlug="essaouira" tourName="Essaouira" />
       </div>
     </>
   );

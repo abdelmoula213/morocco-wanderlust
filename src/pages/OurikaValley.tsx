@@ -1,6 +1,5 @@
 import ourikaImage from "@/assets/ourika-valley.jpg";
 import BookingForm from "@/components/BookingForm";
-import ReviewSection from "@/components/ReviewSection";
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 
 const OurikaValley = () => {
@@ -78,10 +77,6 @@ const OurikaValley = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="container mx-auto px-4">
-        <ReviewSection tourSlug="ourika-valley" tourName="Ourika Valley" />
       </div>
     </>
   );

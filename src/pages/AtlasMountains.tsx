@@ -1,6 +1,5 @@
 import atlasImage from "@/assets/atlas-mountains.jpg";
 import BookingForm from "@/components/BookingForm";
-import ReviewSection from "@/components/ReviewSection";
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 
 const AtlasMountains = () => {
@@ -85,10 +84,6 @@ const AtlasMountains = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="container mx-auto px-4">
-        <ReviewSection tourSlug="atlas-mountains" tourName="Imlil & Atlas Mountains" />
       </div>
     </>
   );
