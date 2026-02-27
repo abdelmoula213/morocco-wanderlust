@@ -1,5 +1,6 @@
 import ouzoudImage from "@/assets/ouzoud-waterfalls.jpg";
 import BookingForm from "@/components/BookingForm";
+import ReviewSection from "@/components/ReviewSection";
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 
 const OuzoudWaterfalls = () => {
@@ -77,6 +78,10 @@ const OuzoudWaterfalls = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="container mx-auto px-4">
+        <ReviewSection tourSlug="ouzoud-waterfalls" tourName="Ouzoud Waterfalls" />
       </div>
     </>
   );
