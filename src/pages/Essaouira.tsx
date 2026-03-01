@@ -65,7 +65,7 @@ const Essaouira = () => {
                   <p className="font-body text-xs text-muted-foreground">per person · Full Day · Pay on Arrival</p>
                 </div>
                 <a
-                  href="https://wa.me/212600000000?text=Hello!%20I%27d%20like%20to%20book%20the%20Essaouira%20Day%20Trip%20(200%20DH)."
+                  href="https://wa.me/212766776545?text=Hello!%20I%27d%20like%20to%20book%20the%20Essaouira%20Day%20Trip%20(200%20DH)."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3.5 rounded-lg hover:bg-primary/90 transition-colors font-body mb-4"

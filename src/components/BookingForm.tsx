@@ -17,7 +17,7 @@ const BookingForm = () => {
     const msg = encodeURIComponent(
       `Hello SEE&KNOW Tours!\n\nName: ${formData.name}\nEmail: ${formData.email}\nTour: ${formData.tour}\nDate: ${formData.date}\nGuests: ${formData.guests}\nMessage: ${formData.message}`
     );
-    window.open(`https://wa.me/212600000000?text=${msg}`, "_blank");
+    window.open(`https://wa.me/212766776545?text=${msg}`, "_blank");
     setSubmitted(true);
   };
 

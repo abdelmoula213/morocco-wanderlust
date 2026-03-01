@@ -102,7 +102,7 @@ const SaharaDesertTour = () => {
                   </li>
                 </ul>
                 <a
-                  href="https://wa.me/212600000000?text=Hello!%20I%27d%20like%20to%20book%20the%203-Day%20Sahara%20Tour%20-%20Standard%20Package%20(800%20DH)."
+                  href="https://wa.me/212766776545?text=Hello!%20I%27d%20like%20to%20book%20the%203-Day%20Sahara%20Tour%20-%20Standard%20Package%20(800%20DH)."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 bg-secondary text-secondary-foreground font-semibold py-3 rounded-lg hover:bg-secondary/80 transition-colors font-body text-sm"
@@ -132,7 +132,7 @@ const SaharaDesertTour = () => {
                   </li>
                 </ul>
                 <a
-                  href="https://wa.me/212600000000?text=Hello!%20I%27d%20like%20to%20book%20the%203-Day%20Sahara%20Tour%20-%20Luxury%20Package%20(2000%20DH)."
+                  href="https://wa.me/212766776545?text=Hello!%20I%27d%20like%20to%20book%20the%203-Day%20Sahara%20Tour%20-%20Luxury%20Package%20(2000%20DH)."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3 rounded-lg hover:bg-primary/90 transition-colors font-body text-sm"
@@ -202,7 +202,7 @@ const SaharaDesertTour = () => {
                 </div>
                 <p className="font-body text-xs text-muted-foreground text-center mb-4">Per person · Pay on arrival</p>
                 <a
-                  href="https://wa.me/212600000000?text=Hello!%20I%27d%20like%20to%20book%20the%203-Day%20Sahara%20Desert%20Tour."
+                  href="https://wa.me/212766776545?text=Hello!%20I%27d%20like%20to%20book%20the%203-Day%20Sahara%20Desert%20Tour."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3.5 rounded-lg hover:bg-primary/90 transition-colors font-body"

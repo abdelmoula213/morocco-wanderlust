@@ -9,7 +9,7 @@ import aitBenHaddouImage from "@/assets/ait-ben-haddou.jpg";
 import TourCard from "@/components/TourCard";
 import BookingForm from "@/components/BookingForm";
 import FAQ from "@/components/FAQ";
-import { Shield, Award, Star, MapPin, CheckCircle, ChevronDown, Users, Clock, Phone, Compass } from "lucide-react";
+import { Shield, Award, MapPin, CheckCircle, ChevronDown, Users, Clock, Phone, Compass } from "lucide-react";
 
 const tours = [
   {
@@ -64,33 +64,6 @@ const tours = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Sarah Mitchell",
-    country: "🇬🇧 United Kingdom",
-    text: "The 3-day Sahara tour was the highlight of our Morocco trip! The camp in Merzouga was magical, and our guide was incredibly knowledgeable. Much better price than any booking platform!",
-    rating: 5,
-  },
-  {
-    name: "Thomas & Marie Laurent",
-    country: "🇫🇷 France",
-    text: "We booked the Atlas Mountains tour and Essaouira trip. Both were perfectly organized with great guides. The pay-on-arrival option gave us peace of mind. Highly recommend SEE&KNOW!",
-    rating: 5,
-  },
-  {
-    name: "David Rodriguez",
-    country: "🇺🇸 United States",
-    text: "Best desert experience in Morocco! The luxury Sahara camp exceeded our expectations. Private tent, incredible stargazing, and our driver was professional throughout. 10/10!",
-    rating: 5,
-  },
-  {
-    name: "Emma van den Berg",
-    country: "🇳🇱 Netherlands",
-    text: "We did the Agafay quad biking and it was so much fun! Great value, easy WhatsApp booking, and the sunset views were breathtaking. Will book again for the Sahara tour next time!",
-    rating: 5,
-  },
-];
-
 const Index = () => {
   return (
     <>
@@ -128,7 +101,7 @@ const Index = () => {
               Explore Tours
             </a>
             <a
-              href="https://wa.me/212600000000?text=Hello!%20I%20want%20to%20book%20a%20tour%20with%20SEE%26KNOW."
+              href="https://wa.me/212766776545?text=Hello!%20I%20want%20to%20book%20a%20tour%20with%20SEE%26KNOW."
               target="_blank"
               rel="noopener noreferrer"
               className="bg-primary-foreground/15 backdrop-blur-sm border border-primary-foreground/40 text-primary-foreground font-semibold font-body text-base px-10 py-4 rounded-full hover:bg-primary-foreground/25 transition-all duration-300"
@@ -244,40 +217,6 @@ const Index = () => {
             >
               View Full Itinerary →
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== TESTIMONIALS ===== */}
-      <section className="py-20 bg-foreground">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <p className="font-body text-sm font-semibold text-accent uppercase tracking-widest mb-2">Reviews</p>
-            <h2 className="font-heading text-3xl md:text-5xl font-bold text-primary-foreground mb-4">
-              What Our Guests Say
-            </h2>
-            <p className="font-body text-primary-foreground/60 max-w-xl mx-auto">
-              Over 2,400 verified 5-star reviews on Google, TripAdvisor & more.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {testimonials.map((t) => (
-              <div key={t.name} className="bg-primary-foreground/5 border border-primary-foreground/10 p-7 rounded-2xl">
-                <div className="flex items-center gap-1 mb-3">
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} size={14} fill="currentColor" className="text-accent" />
-                  ))}
-                </div>
-                <p className="font-body text-primary-foreground/80 text-sm leading-relaxed italic mb-5">
-                  "{t.text}"
-                </p>
-                <div>
-                  <p className="font-body font-semibold text-primary-foreground text-sm">{t.name}</p>
-                  <p className="font-body text-primary-foreground/50 text-xs">{t.country}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
