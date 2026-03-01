@@ -13,7 +13,7 @@ const Footer = () => {
             <p className="font-body text-sm text-primary-foreground/85">Book today and pay on arrival. Free cancellation available.</p>
           </div>
           <a
-            href="https://wa.me/212600000000"
+            href="https://wa.me/212766776545"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-foreground text-primary-foreground font-semibold px-8 py-3 rounded-full hover:bg-foreground/90 transition-colors whitespace-nowrap"
@@ -82,10 +82,10 @@ const Footer = () => {
             <h4 className="font-heading text-lg font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-4">
               <li>
-                <a href="https://wa.me/212600000000" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 group">
+                <a href="https://wa.me/212766776545" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 group">
                   <Phone size={16} className="text-accent mt-0.5 shrink-0" />
                   <div>
-                    <p className="font-body text-sm text-primary-foreground/80 group-hover:text-accent transition-colors">+212 600-000-000</p>
+                    <p className="font-body text-sm text-primary-foreground/80 group-hover:text-accent transition-colors">+212 766-776545</p>
                     <p className="font-body text-xs text-primary-foreground/40">WhatsApp & Phone</p>
                   </div>
                 </a>

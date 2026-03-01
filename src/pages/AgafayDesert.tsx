@@ -1,4 +1,8 @@
 import agafayImage from "@/assets/agafay-desert.jpg";
+import buggySmallImage from "@/assets/buggy-small.jpg";
+import buggyBigImage from "@/assets/buggy-big.jpg";
+import hotAirBalloonImage from "@/assets/hot-air-balloon.jpg";
+import quadBikingImage from "@/assets/quad-biking.jpg";
 import BookingForm from "@/components/BookingForm";
 import { CheckCircle, MapPin, Clock, Shield } from "lucide-react";
 
@@ -54,7 +58,7 @@ const AgafayDesert = () => {
                   ))}
                 </ul>
                 <a
-                  href="https://wa.me/212600000000?text=Hello!%20I%27d%20like%20to%20book%20Agafay%20Desert%20-%20Standard%20(400%20DH)."
+                  href="https://wa.me/212766776545?text=Hello!%20I%27d%20like%20to%20book%20Agafay%20Desert%20-%20Standard%20(400%20DH)."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 bg-secondary text-secondary-foreground font-semibold py-3 rounded-lg hover:bg-secondary/80 transition-colors font-body text-sm"
@@ -81,7 +85,7 @@ const AgafayDesert = () => {
                   ))}
                 </ul>
                 <a
-                  href="https://wa.me/212600000000?text=Hello!%20I%27d%20like%20to%20book%20Agafay%20Desert%20-%20Luxury%20(700%20DH)."
+                  href="https://wa.me/212766776545?text=Hello!%20I%27d%20like%20to%20book%20Agafay%20Desert%20-%20Luxury%20(700%20DH)."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3 rounded-lg hover:bg-primary/90 transition-colors font-body text-sm"
@@ -95,30 +99,36 @@ const AgafayDesert = () => {
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6">Optional Add-ons</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
               {/* Buggy */}
-              <div className="bg-card rounded-2xl p-6 shadow-warm">
-                <h3 className="font-heading text-lg font-bold text-card-foreground mb-4">🏎️ Buggy Tours</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 rounded-lg bg-secondary">
-                    <div>
-                      <p className="font-body text-sm font-medium text-foreground">Small Buggy</p>
-                      <p className="font-body text-xs text-muted-foreground">2 seats</p>
+              <div className="bg-card rounded-2xl overflow-hidden shadow-warm">
+                <div className="grid grid-cols-2 gap-2 p-3">
+                  <div>
+                    <img src={buggySmallImage} alt="Small 2-seat buggy in Agafay desert" className="rounded-lg w-full h-32 object-cover" />
+                    <div className="flex items-center justify-between mt-2 px-1">
+                      <div>
+                        <p className="font-body text-sm font-medium text-foreground">Small Buggy</p>
+                        <p className="font-body text-xs text-muted-foreground">2 seats</p>
+                      </div>
+                      <span className="font-heading text-lg font-bold text-primary">1,000 DH</span>
                     </div>
-                    <span className="font-heading text-lg font-bold text-primary">1,000 DH</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 rounded-lg bg-secondary">
-                    <div>
-                      <p className="font-body text-sm font-medium text-foreground">Big Buggy</p>
-                      <p className="font-body text-xs text-muted-foreground">4 seats</p>
+                  <div>
+                    <img src={buggyBigImage} alt="Big 4-seat buggy in Agafay desert" className="rounded-lg w-full h-32 object-cover" />
+                    <div className="flex items-center justify-between mt-2 px-1">
+                      <div>
+                        <p className="font-body text-sm font-medium text-foreground">Big Buggy</p>
+                        <p className="font-body text-xs text-muted-foreground">4 seats</p>
+                      </div>
+                      <span className="font-heading text-lg font-bold text-primary">2,000 DH</span>
                     </div>
-                    <span className="font-heading text-lg font-bold text-primary">2,000 DH</span>
                   </div>
                 </div>
               </div>
 
               {/* Hot Air Balloon */}
-              <div className="bg-card rounded-2xl p-6 shadow-warm">
-                <h3 className="font-heading text-lg font-bold text-card-foreground mb-4">🎈 Hot Air Balloon</h3>
-                <div className="space-y-3">
+              <div className="bg-card rounded-2xl overflow-hidden shadow-warm">
+                <img src={hotAirBalloonImage} alt="Hot air balloon over Agafay desert at sunset" className="w-full h-40 object-cover" />
+                <div className="p-4 space-y-3">
+                  <h3 className="font-heading text-lg font-bold text-card-foreground">🎈 Hot Air Balloon</h3>
                   <div className="flex items-center justify-between p-3 rounded-lg bg-secondary">
                     <div>
                       <p className="font-body text-sm font-medium text-foreground">First Departure</p>
@@ -132,6 +142,18 @@ const AgafayDesert = () => {
                       <p className="font-body text-xs text-muted-foreground">Golden hour</p>
                     </div>
                     <span className="font-heading text-lg font-bold text-primary">1,200 DH</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quad Biking */}
+              <div className="bg-card rounded-2xl overflow-hidden shadow-warm sm:col-span-2">
+                <div className="flex flex-col sm:flex-row">
+                  <img src={quadBikingImage} alt="Quad biking in Agafay desert" className="w-full sm:w-1/2 h-48 object-cover" />
+                  <div className="p-6 flex flex-col justify-center">
+                    <h3 className="font-heading text-lg font-bold text-card-foreground mb-2">🏍️ Quad Biking</h3>
+                    <p className="font-body text-sm text-muted-foreground mb-3">Thrilling ATV ride through the desert terrain with professional guides and safety equipment.</p>
+                    <p className="font-body text-xs text-muted-foreground">Included in Standard & Luxury packages</p>
                   </div>
                 </div>
               </div>

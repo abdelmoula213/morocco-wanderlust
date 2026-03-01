@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_NUMBER = "212600000000"; // Replace with actual number
+const WHATSAPP_NUMBER = "212766776545";
 const WHATSAPP_MESSAGE = encodeURIComponent("Hello! I'd like to book a tour with SEE&KNOW Tours & Travels.");
 
 const WhatsAppButton = () => {
