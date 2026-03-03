@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import agafayImage from "@/assets/agafay-desert.jpg";
 import buggySmallImage from "@/assets/buggy-small.jpg";
 import buggyBigImage from "@/assets/buggy-big.jpg";
@@ -12,6 +13,11 @@ const luxuryIncludes = ["Quad biking", "Camel ride", "Sunset experience", "Camp 
 const AgafayDesert = () => {
   return (
     <>
+      <Helmet>
+        <title>Agafay Desert Experience near Marrakech | SK Morocco</title>
+        <meta name="description" content="Enjoy the Agafay Desert experience just 30 min from Marrakech. Quad biking, camel rides, sunset dinner & luxury camp. Same-day booking, pay on arrival." />
+        <meta name="keywords" content="Agafay desert, Agafay desert tour, quad biking Marrakech, camel ride Agafay, sunset dinner desert, Marrakech desert camp, Agafay experience, Morocco desert near Marrakech, buggy ride Agafay, hot air balloon Marrakech, Agafay luxury camp, Morocco adventure, Agafay quad, desert excursion Marrakech" />
+      </Helmet>
       <section className="relative h-[60vh] min-h-[450px] flex items-end overflow-hidden">
         <img src={agafayImage} alt="Agafay Desert near Marrakech" className="absolute inset-0 w-full h-full object-cover" />
         <div className="bg-hero-overlay absolute inset-0" />

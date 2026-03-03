@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import essaouiraImage from "@/assets/essaouira.jpg";
 import BookingForm from "@/components/BookingForm";
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
@@ -5,6 +6,11 @@ import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 const Essaouira = () => {
   return (
     <>
+      <Helmet>
+        <title>Essaouira Day Trip from Marrakech | SK Morocco</title>
+        <meta name="description" content="Escape to Essaouira on a day trip from Marrakech. Explore the historic medina, fishing port & Atlantic coast. Hotel pickup included, pay on arrival." />
+        <meta name="keywords" content="Essaouira day trip, Essaouira from Marrakech, Morocco coastal town, Essaouira medina, Essaouira tour, Morocco Atlantic coast, Mogador, Essaouira excursion, Morocco travel, Essaouira fishing port, day trip Marrakech, Morocco beach town, Essaouira guide, coastal Morocco tour" />
+      </Helmet>
       <section className="relative h-[60vh] min-h-[450px] flex items-end overflow-hidden">
         <img src={essaouiraImage} alt="Essaouira coastal city Morocco" className="absolute inset-0 w-full h-full object-cover" />
         <div className="bg-hero-overlay absolute inset-0" />

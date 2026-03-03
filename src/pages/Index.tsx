@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import heroImage from "@/assets/hero-morocco.jpg";
 import saharaImage from "@/assets/sahara-desert.jpg";
 import agafayImage from "@/assets/agafay-desert.jpg";
@@ -67,6 +68,11 @@ const tours = [
 const Index = () => {
   return (
     <>
+      <Helmet>
+        <title>SK Morocco – Tours & Travel from Marrakech | Desert, Mountains & Coast</title>
+        <meta name="description" content="Discover Morocco with SK Morocco. Book Sahara desert tours, Agafay adventures, Atlas Mountains treks, Essaouira & Ouzoud day trips from Marrakech. Pay on arrival." />
+        <meta name="keywords" content="Morocco tours, Morocco travel, Marrakech tours, Sahara desert tour, Atlas Mountains trek, Agafay desert, Essaouira day trip, Ouzoud waterfalls, Ourika Valley, camel rides, desert camp, Morocco adventure, Moroccan experiences, Morocco excursions, book Morocco tour, SK Morocco, Morocco day trips, Morocco travel agency" />
+      </Helmet>
       {/* ===== HERO ===== */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero">
         <img src={heroImage} alt="Morocco Sahara Desert with Atlas Mountains" className="absolute inset-0 w-full h-full object-cover" />
