@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import atlasImage from "@/assets/atlas-mountains.jpg";
 import BookingForm from "@/components/BookingForm";
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
@@ -5,6 +6,11 @@ import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 const AtlasMountains = () => {
   return (
     <>
+      <Helmet>
+        <title>Imlil & Atlas Mountains Day Tour from Marrakech | SK Morocco</title>
+        <meta name="description" content="Explore the Atlas Mountains on a guided Imlil day tour from Marrakech. Visit Berber villages, waterfalls & enjoy stunning mountain views. Book now, pay on arrival." />
+        <meta name="keywords" content="Atlas Mountains tour, Imlil day trip, Marrakech mountain tour, Berber village visit, Atlas waterfalls, Morocco trekking, Atlas Mountains hiking, Imlil Marrakech, Morocco mountain adventure, High Atlas tour, guided mountain walk Morocco, Toubkal region, Atlas day trip, Morocco nature tour" />
+      </Helmet>
       <section className="relative h-[60vh] min-h-[450px] flex items-end overflow-hidden">
         <img src={atlasImage} alt="Atlas Mountains Imlil Morocco" className="absolute inset-0 w-full h-full object-cover" />
         <div className="bg-hero-overlay absolute inset-0" />

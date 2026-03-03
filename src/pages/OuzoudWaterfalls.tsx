@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import ouzoudImage from "@/assets/ouzoud-waterfalls.jpg";
 import BookingForm from "@/components/BookingForm";
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
@@ -5,6 +6,11 @@ import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 const OuzoudWaterfalls = () => {
   return (
     <>
+      <Helmet>
+        <title>Ouzoud Waterfalls Day Trip from Marrakech | SK Morocco</title>
+        <meta name="description" content="Visit the spectacular Ouzoud Waterfalls on a guided day trip from Marrakech. Morocco's tallest waterfalls with guided tour & free time. Book now, pay on arrival." />
+        <meta name="keywords" content="Ouzoud waterfalls, Ouzoud waterfalls tour, Marrakech day trip, Morocco waterfalls, Cascades d'Ouzoud, Ouzoud excursion, nature tour Morocco, Ouzoud falls day trip, Morocco adventure, waterfalls near Marrakech, Morocco nature, guided waterfall tour, Ouzoud monkeys, Morocco travel" />
+      </Helmet>
       <section className="relative h-[60vh] min-h-[450px] flex items-end overflow-hidden">
         <img src={ouzoudImage} alt="Ouzoud Waterfalls Morocco" className="absolute inset-0 w-full h-full object-cover" />
         <div className="bg-hero-overlay absolute inset-0" />

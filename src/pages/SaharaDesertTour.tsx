@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import saharaImage from "@/assets/sahara-desert.jpg";
 import aitBenHaddouImage from "@/assets/ait-ben-haddou.jpg";
 import BookingForm from "@/components/BookingForm";
@@ -46,6 +47,11 @@ const sharedInclusions = [
 const SaharaDesertTour = () => {
   return (
     <>
+      <Helmet>
+        <title>3-Day Sahara Desert Tour from Marrakech | SK Morocco</title>
+        <meta name="description" content="Experience a 3-day Sahara desert tour from Marrakech. Visit Ait Ben Haddou, ride camels in Merzouga, sleep under the stars in a desert camp. Book now, pay on arrival." />
+        <meta name="keywords" content="Sahara desert tour, 3 day desert tour Marrakech, Merzouga camel trek, Morocco desert camp, Ait Ben Haddou tour, Ouarzazate excursion, Sahara camping, Morocco adventure tour, desert experience Morocco, Marrakech to Sahara, Dades Valley tour, camel ride Sahara, Morocco travel, desert stars Morocco" />
+      </Helmet>
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden">
         <img src={saharaImage} alt="Sahara Desert Merzouga Morocco" className="absolute inset-0 w-full h-full object-cover" />

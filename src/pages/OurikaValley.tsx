@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import ourikaImage from "@/assets/ourika-valley.jpg";
 import BookingForm from "@/components/BookingForm";
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
@@ -5,6 +6,11 @@ import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 const OurikaValley = () => {
   return (
     <>
+      <Helmet>
+        <title>Ourika Valley Day Tour from Marrakech | SK Morocco</title>
+        <meta name="description" content="Discover the green Ourika Valley on a guided day trip from Marrakech. Waterfall walk, valley tour & stunning Atlas nature. Book now, pay on arrival." />
+        <meta name="keywords" content="Ourika Valley, Ourika Valley tour, Marrakech day trip, Ourika waterfalls, Morocco valley tour, Atlas foothills, Setti Fatma, Ourika excursion, Morocco nature tour, Berber market Ourika, guided valley walk, Morocco travel, Ourika from Marrakech, green valley Morocco" />
+      </Helmet>
       <section className="relative h-[60vh] min-h-[450px] flex items-end overflow-hidden">
         <img src={ourikaImage} alt="Ourika Valley Morocco" className="absolute inset-0 w-full h-full object-cover" />
         <div className="bg-hero-overlay absolute inset-0" />
