@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, MapPin, Facebook, Star } from "lucide-react";
+import { Phone, MapPin, Star } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -37,9 +37,6 @@ const Footer = () => {
                 <Star key={i} size={14} fill="currentColor" className="text-accent" />
               ))}
               <span className="text-xs text-primary-foreground/50 ml-2">4.9/5 · 2,400+ reviews</span>
-            </div>
-            <div className="flex gap-4">
-              <a href="#" className="text-primary-foreground/50 hover:text-accent transition-colors" aria-label="Facebook"><Facebook size={20} /></a>
             </div>
           </div>
 
