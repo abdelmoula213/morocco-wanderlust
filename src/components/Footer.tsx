@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Instagram, Facebook, Star } from "lucide-react";
+import { Phone, MapPin, Facebook, Star } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -39,7 +39,6 @@ const Footer = () => {
               <span className="text-xs text-primary-foreground/50 ml-2">4.9/5 · 2,400+ reviews</span>
             </div>
             <div className="flex gap-4">
-              <a href="#" className="text-primary-foreground/50 hover:text-accent transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
               <a href="#" className="text-primary-foreground/50 hover:text-accent transition-colors" aria-label="Facebook"><Facebook size={20} /></a>
             </div>
           </div>
@@ -89,13 +88,6 @@ const Footer = () => {
                     <p className="font-body text-xs text-primary-foreground/40">WhatsApp & Phone</p>
                   </div>
                 </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <Mail size={16} className="text-accent mt-0.5 shrink-0" />
-                <div>
-                  <p className="font-body text-sm text-primary-foreground/80">info@seeandknow.com</p>
-                  <p className="font-body text-xs text-primary-foreground/40">We reply within 2 hours</p>
-                </div>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-accent mt-0.5 shrink-0" />
