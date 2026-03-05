@@ -17,6 +17,7 @@ import SaharaDesertGuide from "./pages/guides/SaharaDesertGuide";
 import TopThingsMarrakech from "./pages/guides/TopThingsMarrakech";
 import AtlasMountainsGuide from "./pages/guides/AtlasMountainsGuide";
 import IsMoroccoSafe from "./pages/guides/IsMoroccoSafe";
+import GuidesIndex from "./pages/guides/GuidesIndex";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -41,6 +42,7 @@ const App = () => (
             <Route path="/ouzoud-waterfalls" element={<OuzoudWaterfalls />} />
             <Route path="/ourika-valley" element={<OurikaValley />} />
             <Route path="/essaouira" element={<Essaouira />} />
+            <Route path="/guides" element={<GuidesIndex />} />
             <Route path="/guides/best-sahara-desert-tour-marrakech" element={<BestSaharaTour />} />
             <Route path="/guides/3-days-sahara-desert-tour-guide" element={<SaharaDesertGuide />} />
             <Route path="/guides/top-10-things-to-do-marrakech" element={<TopThingsMarrakech />} />
