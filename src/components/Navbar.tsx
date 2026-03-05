@@ -27,6 +27,7 @@ const Navbar = () => {
     { to: "/ouzoud-waterfalls", label: "Ouzoud" },
     { to: "/ourika-valley", label: "Ourika" },
     { to: "/essaouira", label: "Essaouira" },
+    { to: "/guides", label: "Guides" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
