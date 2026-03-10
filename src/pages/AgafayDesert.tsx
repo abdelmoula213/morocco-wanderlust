@@ -45,8 +45,8 @@ const AgafayDesert = () => {
           )}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2">
+        <div>
+          <div>
             {/* Package Comparison */}
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8">Choose Your Package</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
@@ -183,14 +183,6 @@ const AgafayDesert = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-1">
-            <div className="sticky top-24">
-              
-
-
-              
-            </div>
-          </div>
         </div>
       </div>
 
