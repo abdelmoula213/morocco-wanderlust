@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import essaouiraImage from "@/assets/essaouira.jpg";
 import BookingForm from "@/components/BookingForm";
+import BookingCalendarWidget from "@/components/BookingCalendarWidget";
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 
 const Essaouira = () => {
@@ -84,6 +85,8 @@ const Essaouira = () => {
           </div>
         </div>
       </div>
+
+      <BookingCalendarWidget />
     </>
   );
 };
