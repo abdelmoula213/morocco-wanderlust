@@ -227,6 +227,8 @@ const SaharaDesertTour = () => {
           </div>
         </div>
       </div>
+
+      <BookingCalendarWidget />
     </>
   );
 };

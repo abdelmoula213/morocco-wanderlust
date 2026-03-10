@@ -193,6 +193,8 @@ const AgafayDesert = () => {
           </div>
         </div>
       </div>
+
+      <BookingCalendarWidget />
     </>
   );
 };

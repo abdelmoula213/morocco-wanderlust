@@ -85,6 +85,8 @@ const OuzoudWaterfalls = () => {
           </div>
         </div>
       </div>
+
+      <BookingCalendarWidget />
     </>
   );
 };

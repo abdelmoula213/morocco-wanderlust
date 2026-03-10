@@ -85,6 +85,8 @@ const Essaouira = () => {
           </div>
         </div>
       </div>
+
+      <BookingCalendarWidget />
     </>
   );
 };
