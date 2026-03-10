@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import atlasImage from "@/assets/atlas-mountains.jpg";
 import BookingForm from "@/components/BookingForm";
-import BookingCalendarWidget from "@/components/BookingCalendarWidget";
+
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 
 const AtlasMountains = () => {
@@ -93,7 +93,7 @@ const AtlasMountains = () => {
         </div>
       </div>
 
-      <BookingCalendarWidget />
+      
     </>
   );
 };
