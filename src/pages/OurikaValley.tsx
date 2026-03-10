@@ -86,7 +86,7 @@ const OurikaValley = () => {
         </div>
       </div>
 
-      <BookingCalendarWidget />
+      
     </>
   );
 };

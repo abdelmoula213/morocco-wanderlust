@@ -93,7 +93,7 @@ const AtlasMountains = () => {
         </div>
       </div>
 
-      <BookingCalendarWidget />
+      
     </>
   );
 };
