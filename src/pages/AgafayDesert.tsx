@@ -38,11 +38,11 @@ const AgafayDesert = () => {
       <div className="container mx-auto px-4 py-16">
         {/* Trust badges */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {["Hotel Pickup Included", "Pay on Arrival", "Same-Day Booking"].map((b) => (
-            <span key={b} className="flex items-center gap-2 bg-secondary text-secondary-foreground font-body text-sm px-4 py-2 rounded-full">
+          {["Hotel Pickup Included", "Pay on Arrival", "Same-Day Booking"].map((b) =>
+          <span key={b} className="flex items-center gap-2 bg-secondary text-secondary-foreground font-body text-sm px-4 py-2 rounded-full">
               <CheckCircle size={14} className="text-primary" /> {b}
             </span>
-          ))}
+          )}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -58,18 +58,18 @@ const AgafayDesert = () => {
                   <span className="font-body text-sm text-muted-foreground ml-1">/ person</span>
                 </div>
                 <ul className="space-y-3 mb-6">
-                  {standardIncludes.map((item) => (
-                    <li key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
+                  {standardIncludes.map((item) =>
+                  <li key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
                       <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" /> {item}
                     </li>
-                  ))}
+                  )}
                 </ul>
                 <a
                   href="https://wa.me/212766776545?text=Hello!%20I%27d%20like%20to%20book%20Agafay%20Desert%20-%20Standard%20(400%20DH)."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 bg-secondary text-secondary-foreground font-semibold py-3 rounded-lg hover:bg-secondary/80 transition-colors font-body text-sm"
-                >
+                  className="w-full flex items-center justify-center gap-2 bg-secondary text-secondary-foreground font-semibold py-3 rounded-lg hover:bg-secondary/80 transition-colors font-body text-sm">
+                  
                   💬 Book Standard
                 </a>
               </div>
@@ -85,18 +85,18 @@ const AgafayDesert = () => {
                   <span className="font-body text-sm text-muted-foreground ml-1">/ person</span>
                 </div>
                 <ul className="space-y-3 mb-6">
-                  {luxuryIncludes.map((item) => (
-                    <li key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
+                  {luxuryIncludes.map((item) =>
+                  <li key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
                       <CheckCircle size={14} className="text-accent mt-0.5 shrink-0" /> {item}
                     </li>
-                  ))}
+                  )}
                 </ul>
                 <a
                   href="https://wa.me/212766776545?text=Hello!%20I%27d%20like%20to%20book%20Agafay%20Desert%20-%20Luxury%20(700%20DH)."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3 rounded-lg hover:bg-primary/90 transition-colors font-body text-sm"
-                >
+                  className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3 rounded-lg hover:bg-primary/90 transition-colors font-body text-sm">
+                  
                   💬 Book Luxury
                 </a>
               </div>
@@ -169,34 +169,34 @@ const AgafayDesert = () => {
             <h2 className="font-heading text-2xl font-bold text-foreground mb-4">What's Included</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
               {[
-                "Hotel pickup & drop-off from Marrakech",
-                "Professional English-speaking guide",
-                "Safety equipment & helmets",
-                "Mint tea welcome",
-                "Sunset photo stops",
-                "Insurance coverage",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
+              "Hotel pickup & drop-off from Marrakech",
+              "Professional English-speaking guide",
+              "Safety equipment & helmets",
+              "Mint tea welcome",
+              "Sunset photo stops",
+              "Insurance coverage"].
+              map((item) =>
+              <div key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
                   <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" /> {item}
                 </div>
-              ))}
+              )}
             </div>
           </div>
 
           <div className="lg:col-span-1">
             <div className="sticky top-24">
-              <div className="bg-card rounded-2xl p-6 shadow-warm">
-                <h3 className="font-heading text-lg font-bold text-card-foreground mb-4">Book Agafay Tour</h3>
-                <BookingForm />
-              </div>
+              
+
+
+              
             </div>
           </div>
         </div>
       </div>
 
       <BookingCalendarWidget />
-    </>
-  );
+    </>);
+
 };
 
 export default AgafayDesert;
