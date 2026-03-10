@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import ourikaImage from "@/assets/ourika-valley.jpg";
 import BookingForm from "@/components/BookingForm";
+import BookingCalendarWidget from "@/components/BookingCalendarWidget";
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 
 const OurikaValley = () => {
