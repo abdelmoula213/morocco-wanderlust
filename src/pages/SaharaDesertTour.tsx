@@ -189,8 +189,6 @@ const SaharaDesertTour = () => {
               <img src={aitBenHaddouImage} alt="Ait Ben Haddou" className="rounded-xl w-full h-48 object-cover" loading="lazy" />
             </div>
           </div>
-
-          </div>
         </div>
       </div>
 

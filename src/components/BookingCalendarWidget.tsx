@@ -38,7 +38,7 @@ const BookingCalendarWidget = ({ bokunWidgetSrc }: BookingCalendarWidgetProps) =
         <div className="bg-card rounded-2xl p-4 md:p-8 shadow-warm">
           <div
             className="bokunWidget w-full"
-            data-src={BOKUN_WIDGET_SRC}
+            data-src={widgetSrc}
           />
           <noscript>Please enable javascript in your browser to book</noscript>
         </div>
