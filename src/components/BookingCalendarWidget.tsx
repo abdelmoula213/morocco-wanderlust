@@ -3,10 +3,15 @@ import { MessageCircle } from "lucide-react";
 
 const BOKUN_SCRIPT_URL =
   "https://widgets.bokun.io/assets/javascripts/apps/build/BokunWidgetsLoader.js?bookingChannelUUID=32c875b3-8611-4d72-a191-0635e2a29b63";
-const BOKUN_WIDGET_SRC =
+const DEFAULT_BOKUN_WIDGET_SRC =
   "https://widgets.bokun.io/online-sales/32c875b3-8611-4d72-a191-0635e2a29b63/experience-calendar/1174135";
 
-const BookingCalendarWidget = () => {
+interface BookingCalendarWidgetProps {
+  bokunWidgetSrc?: string;
+}
+
+const BookingCalendarWidget = ({ bokunWidgetSrc }: BookingCalendarWidgetProps) => {
+  const widgetSrc = bokunWidgetSrc || DEFAULT_BOKUN_WIDGET_SRC;
   const scriptLoaded = useRef(false);
 
   useEffect(() => {
@@ -33,7 +38,7 @@ const BookingCalendarWidget = () => {
         <div className="bg-card rounded-2xl p-4 md:p-8 shadow-warm">
           <div
             className="bokunWidget w-full"
-            data-src={BOKUN_WIDGET_SRC}
+            data-src={widgetSrc}
           />
           <noscript>Please enable javascript in your browser to book</noscript>
         </div>
