@@ -3,6 +3,7 @@ import ourikaImage from "@/assets/ourika-valley.jpg";
 import BookingForm from "@/components/BookingForm";
 
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
+import BookingCalendarWidget from "@/components/BookingCalendarWidget";
 
 const OurikaValley = () => {
   return (
