@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import saharaImage from "@/assets/sahara-desert.jpg";
 import aitBenHaddouImage from "@/assets/ait-ben-haddou.jpg";
-import BookingForm from "@/components/BookingForm";
+import BookingCalendarWidget from "@/components/BookingCalendarWidget";
 
 import { CheckCircle, X, MapPin, Clock, Users, Star, Shield } from "lucide-react";
 
