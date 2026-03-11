@@ -190,44 +190,13 @@ const SaharaDesertTour = () => {
             </div>
           </div>
 
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-24 space-y-6">
-              {/* Pricing Summary */}
-              <div className="bg-card rounded-2xl p-6 shadow-warm">
-                <h3 className="font-heading text-xl font-bold text-card-foreground mb-4">Pricing Summary</h3>
-                <div className="space-y-3 mb-4">
-                  <div className="flex items-center justify-between p-3 rounded-lg bg-secondary">
-                    <span className="font-body text-sm">Standard</span>
-                    <span className="font-heading text-xl font-bold text-primary">800 DH</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 rounded-lg bg-gold-light border border-accent/30">
-                    <span className="font-body text-sm font-semibold">Luxury</span>
-                    <span className="font-heading text-xl font-bold text-accent-foreground">2,000 DH</span>
-                  </div>
-                </div>
-                <p className="font-body text-xs text-muted-foreground text-center mb-4">Per person · Pay on arrival</p>
-                <a
-                  href="https://wa.me/212766776545?text=Hello!%20I%27d%20like%20to%20book%20the%203-Day%20Sahara%20Desert%20Tour."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3.5 rounded-lg hover:bg-primary/90 transition-colors font-body"
-                >
-                  💬 Book on WhatsApp
-                </a>
-              </div>
-
-              {/* Booking Form */}
-              <div className="bg-card rounded-2xl p-6 shadow-warm">
-                <h3 className="font-heading text-lg font-bold text-card-foreground mb-4">Book This Tour</h3>
-                <BookingForm />
-              </div>
-            </div>
           </div>
         </div>
       </div>
 
-      
+      <BookingCalendarWidget
+        bokunWidgetSrc="https://widgets.bokun.io/online-sales/32c875b3-8611-4d72-a191-0635e2a29b63/experience-calendar/1174802"
+      />
     </>
   );
 };
