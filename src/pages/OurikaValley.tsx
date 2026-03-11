@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import ourikaImage from "@/assets/ourika-valley.jpg";
-import BookingForm from "@/components/BookingForm";
+
 
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
+import BookingCalendarWidget from "@/components/BookingCalendarWidget";
 
 const OurikaValley = () => {
   return (
@@ -37,8 +38,7 @@ const OurikaValley = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2">
+        <div>
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6">Tour Program</h2>
             <div className="bg-card rounded-2xl p-6 shadow-warm mb-8">
               <div className="flex flex-wrap gap-4 mb-6 font-body text-sm text-muted-foreground">
@@ -62,31 +62,13 @@ const OurikaValley = () => {
                 ))}
               </ul>
             </div>
-          </div>
-
-          <div className="lg:col-span-1">
-            <div className="sticky top-24 space-y-6">
-              <div className="bg-card rounded-2xl p-6 shadow-warm">
-                <div className="text-center mb-4">
-                  <p className="font-heading text-3xl font-bold text-primary">150 DH</p>
-                  <p className="font-body text-xs text-muted-foreground">per person · Full Day · Pay on Arrival</p>
-                </div>
-                <a
-                  href="https://wa.me/212766776545?text=Hello!%20I%27d%20like%20to%20book%20the%20Ourika%20Valley%20Tour%20(150%20DH)."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3.5 rounded-lg hover:bg-primary/90 transition-colors font-body mb-4"
-                >
-                  💬 Book on WhatsApp
-                </a>
-                <BookingForm />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
-      
+      <BookingCalendarWidget
+        bokunWidgetSrc="https://widgets.bokun.io/online-sales/32c875b3-8611-4d72-a191-0635e2a29b63/experience-calendar/1174816"
+      />
+
     </>
   );
 };
