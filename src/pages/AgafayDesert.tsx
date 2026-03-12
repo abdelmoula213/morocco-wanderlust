@@ -89,12 +89,10 @@ const AgafayDesert = () => {
                   )}
                 </ul>
                 <a
-                  href="https://wa.me/212766776545?text=Hello!%20I%27d%20like%20to%20book%20Agafay%20Desert%20-%20Luxury%20(700%20DH)."
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#booking-widget"
                   className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3 rounded-lg hover:bg-primary/90 transition-colors font-body text-sm">
-                  
-                  💬 Book Luxury
+                  📅 Book Luxury
+                </a>
                 </a>
               </div>
             </div>
