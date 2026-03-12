@@ -29,7 +29,7 @@ const BookingCalendarWidget = ({ bokunWidgetSrc }: BookingCalendarWidgetProps) =
   }, []);
 
   return (
-    <section className="container mx-auto px-4 py-16">
+    <section id="booking-widget" className="container mx-auto px-4 py-16">
       <div className="max-w-3xl mx-auto">
         <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground text-center mb-8">
           Check Availability & Book Your Tour
