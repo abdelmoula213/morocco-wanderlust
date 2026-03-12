@@ -108,12 +108,10 @@ const SaharaDesertTour = () => {
                   </li>
                 </ul>
                 <a
-                  href="https://wa.me/212766776545?text=Hello!%20I%27d%20like%20to%20book%20the%203-Day%20Sahara%20Tour%20-%20Standard%20Package%20(800%20DH)."
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#booking-widget"
                   className="w-full flex items-center justify-center gap-2 bg-secondary text-secondary-foreground font-semibold py-3 rounded-lg hover:bg-secondary/80 transition-colors font-body text-sm"
                 >
-                  💬 Book Standard
+                  📅 Book Standard
                 </a>
               </div>
 
