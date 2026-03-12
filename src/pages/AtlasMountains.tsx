@@ -70,8 +70,9 @@ const AtlasMountains = () => {
             </div>
         </div>
       </div>
-
-      
+      <BookingCalendarWidget
+        bokunWidgetSrc="https://widgets.bokun.io/online-sales/32c875b3-8611-4d72-a191-0635e2a29b63/experience-calendar/1175323"
+      />
     </>
   );
 };
