@@ -2,9 +2,9 @@ import { useEffect, useRef } from "react";
 import { MessageCircle } from "lucide-react";
 
 const BOKUN_SCRIPT_URL =
-  "https://widgets.bokun.io/assets/javascripts/apps/build/BokunWidgetsLoader.js?bookingChannelUUID=32c875b3-8611-4d72-a191-0635e2a29b63";
+  "https://widgets.bokun.io/assets/javascripts/apps/build/BokunWidgetsLoader.js?bookingChannelUUID=6a2b0f05-7d88-47b8-ac01-19cb2d2e3062";
 const DEFAULT_BOKUN_WIDGET_SRC =
-  "https://widgets.bokun.io/online-sales/32c875b3-8611-4d72-a191-0635e2a29b63/experience-calendar/1174135";
+  "https://widgets.bokun.io/online-sales/6a2b0f05-7d88-47b8-ac01-19cb2d2e3062/experience-calendar/1174135";
 
 interface BookingCalendarWidgetProps {
   bokunWidgetSrc?: string;
