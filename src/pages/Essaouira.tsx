@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import essaouiraImage from "@/assets/essaouira.jpg";
 import BookingCalendarWidget from "@/components/BookingCalendarWidget";
-import { CheckCircle, MapPin, Clock, X } from "lucide-react";
+import { CheckCircle, MapPin, Clock, X, Droplets, Camera, TreePine, Sun } from "lucide-react";
 
 const Essaouira = () => {
   return (
