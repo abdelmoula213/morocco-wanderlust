@@ -178,7 +178,7 @@ const OurikaValley = () => {
       </div>
 
       <BookingCalendarWidget
-        bokunWidgetSrc="https://widgets.bokun.io/online-sales/32c875b3-8611-4d72-a191-0635e2a29b63/experience-calendar/1174816"
+        bokunWidgetSrc="https://widgets.bokun.io/online-sales/33e3b4d4-1dd7-4cd5-912d-61a588e6f5a3/experience-calendar/1174816"
       />
     </>
   );
