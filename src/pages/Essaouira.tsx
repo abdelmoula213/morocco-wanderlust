@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import essaouiraImage from "@/assets/essaouira.jpg";
-import BookingForm from "@/components/BookingForm";
-
+import BookingCalendarWidget from "@/components/BookingCalendarWidget";
 import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 
 const Essaouira = () => {
@@ -84,7 +83,9 @@ const Essaouira = () => {
         </div>
       </div>
 
-      
+      <BookingCalendarWidget
+        bokunWidgetSrc="https://widgets.bokun.io/online-sales/33e3b4d4-1dd7-4cd5-912d-61a588e6f5a3/experience-calendar/1176350"
+      />
     </>
   );
 };
