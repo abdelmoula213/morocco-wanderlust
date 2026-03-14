@@ -1,91 +1,169 @@
 import { Helmet } from "react-helmet-async";
 import essaouiraImage from "@/assets/essaouira.jpg";
 import BookingCalendarWidget from "@/components/BookingCalendarWidget";
-import { CheckCircle, MapPin, Clock, X, Droplets, Camera, TreePine, Sun } from "lucide-react";
+import { CheckCircle, MapPin, Clock, X } from "lucide-react";
 
 const Essaouira = () => {
   return (
     <>
       <Helmet>
         <title>Essaouira Day Trip from Marrakech | SK Morocco</title>
-        <meta name="description" content="Escape to Essaouira on a day trip from Marrakech. Explore the historic medina, fishing port & Atlantic coast. Hotel pickup included, pay on arrival." />
-        <meta name="keywords" content="Essaouira day trip, Essaouira from Marrakech, Morocco coastal town, Essaouira medina, Essaouira tour, Morocco Atlantic coast, Mogador, Essaouira excursion, Morocco travel, Essaouira fishing port, day trip Marrakech, Morocco beach town, Essaouira guide, coastal Morocco tour" />
+        <meta
+          name="description"
+          content="Escape to Essaouira on a day trip from Marrakech. Explore the historic medina, fishing port & Atlantic coast. Hotel pickup included, pay on arrival."
+        />
+        <meta
+          name="keywords"
+          content="Essaouira day trip, Essaouira from Marrakech, Morocco coastal town, Essaouira medina, Essaouira tour, Morocco Atlantic coast, Mogador, Essaouira excursion, Morocco travel, Essaouira fishing port"
+        />
       </Helmet>
+
+      {/* Hero */}
       <section className="relative h-[60vh] min-h-[450px] flex items-end overflow-hidden">
-        <img src={essaouiraImage} alt="Essaouira coastal city Morocco" className="absolute inset-0 w-full h-full object-cover" />
+        <img
+          src={essaouiraImage}
+          alt="Essaouira coastal city Morocco"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="bg-hero-overlay absolute inset-0" />
+
         <div className="relative z-10 container mx-auto px-4 pb-12">
           <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 text-primary-foreground text-xs font-body px-3 py-1.5 rounded-full mb-4 backdrop-blur-sm">
             <MapPin size={12} /> Atlantic Coast
           </div>
+
           <h1 className="font-heading text-3xl md:text-5xl font-bold text-primary-foreground mb-3">
             Essaouira Day Trip
           </h1>
+
           <p className="font-body text-primary-foreground/80 text-lg max-w-2xl">
-            Escape to Morocco's charming Atlantic coastal town — historic medina, fishing port & free time.
+            Escape to Morocco's charming Atlantic coastal town — historic medina,
+            fishing port & free time.
           </p>
         </div>
       </section>
 
       <div className="container mx-auto px-4 py-16">
+
+        {/* Badges */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {["Hotel Pickup Included", "Pay on Arrival", "Tour Only"].map((b) => (
-            <span key={b} className="flex items-center gap-2 bg-secondary text-secondary-foreground font-body text-sm px-4 py-2 rounded-full">
+            <span
+              key={b}
+              className="flex items-center gap-2 bg-secondary text-secondary-foreground font-body text-sm px-4 py-2 rounded-full"
+            >
               <CheckCircle size={14} className="text-primary" /> {b}
             </span>
           ))}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+          {/* Tour Info */}
           <div className="lg:col-span-2">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6">Tour Program</h2>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6">
+              Tour Program
+            </h2>
+
             <div className="bg-card rounded-2xl p-6 shadow-warm mb-8">
+
               <div className="flex flex-wrap gap-4 mb-6 font-body text-sm text-muted-foreground">
-                <span className="flex items-center gap-1"><Clock size={14} /> Departure: 9:00 AM</span>
-                <span className="flex items-center gap-1"><Clock size={14} /> Return: 5:00 PM</span>
+                <span className="flex items-center gap-1">
+                  <Clock size={14} /> Departure: 9:00 AM
+                </span>
+
+                <span className="flex items-center gap-1">
+                  <Clock size={14} /> Return: 5:00 PM
+                </span>
               </div>
-              <h3 className="font-heading text-lg font-bold text-foreground mb-4">What's Included</h3>
+
+              {/* Included */}
+              <h3 className="font-heading text-lg font-bold text-foreground mb-4">
+                What's Included
+              </h3>
+
               <ul className="space-y-3 mb-6">
-                {["Medina visit", "Port visit", "Free time for exploring & photos", "Hotel pickup & drop-off", "Air-conditioned transport"].map((item) => (
-                  <li key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
-                    <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" /> {item}
+                {[
+                  "Medina visit",
+                  "Port visit",
+                  "Free time for exploring & photos",
+                  "Hotel pickup & drop-off",
+                  "Air-conditioned transport",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2 font-body text-sm text-foreground"
+                  >
+                    <CheckCircle
+                      size={14}
+                      className="text-primary mt-0.5 shrink-0"
+                    />
+                    {item}
                   </li>
                 ))}
               </ul>
-              <h3 className="font-heading text-lg font-bold text-foreground mb-4">Not Included</h3>
+
+              {/* Not Included */}
+              <h3 className="font-heading text-lg font-bold text-foreground mb-4">
+                Not Included
+              </h3>
+
               <ul className="space-y-3">
                 {["Lunch", "Dinner", "Personal expenses"].map((item) => (
-                  <li key={item} className="flex items-start gap-2 font-body text-sm text-muted-foreground">
-                    <X size={14} className="text-destructive mt-0.5 shrink-0" /> {item}
+                  <li
+                    key={item}
+                    className="flex items-start gap-2 font-body text-sm text-muted-foreground"
+                  >
+                    <X
+                      size={14}
+                      className="text-destructive mt-0.5 shrink-0"
+                    />
+                    {item}
                   </li>
                 ))}
               </ul>
+
             </div>
           </div>
 
+          {/* Booking Box */}
           <div className="lg:col-span-1">
             <div className="sticky top-24 space-y-6">
+
               <div className="bg-card rounded-2xl p-6 shadow-warm">
+
                 <div className="text-center mb-4">
-                  <p className="font-heading text-3xl font-bold text-primary">200 DH</p>
-                  <p className="font-body text-xs text-muted-foreground">per person · Full Day · Pay on Arrival</p>
+                  <p className="font-heading text-3xl font-bold text-primary">
+                    200 DH
+                  </p>
+
+                  <p className="font-body text-xs text-muted-foreground">
+                    per person · Full Day · Pay on Arrival
+                  </p>
                 </div>
+
                 <a
                   href="#booking-widget"
                   className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3.5 rounded-lg hover:bg-primary/90 transition-colors font-body mb-4"
                 >
                   📅 Book Now
                 </a>
-                <BookingForm />
+
               </div>
+
             </div>
           </div>
+
         </div>
       </div>
 
-      <BookingCalendarWidget
-        bokunWidgetSrc="https://widgets.bokun.io/online-sales/33e3b4d4-1dd7-4cd5-912d-61a588e6f5a3/experience-calendar/1176350"
-      />
+      {/* Booking Widget */}
+      <div id="booking-widget" className="container mx-auto px-4 pb-20">
+        <BookingCalendarWidget
+          bokunWidgetSrc="https://widgets.bokun.io/online-sales/33e3b4d4-1dd7-4cd5-912d-61a588e6f5a3/experience-calendar/1176350"
+        />
+      </div>
+
     </>
   );
 };
