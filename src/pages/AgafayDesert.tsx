@@ -180,7 +180,7 @@ const AgafayDesert = () => {
         </div>
       </div>
       <BookingCalendarWidget
-        bokunWidgetSrc="https://widgets.bokun.io/online-sales/33e3b4d4-1dd7-4cd5-912d-61a588e6f5a3/experience-calendar/1174135"
+        bokunWidgetSrc="https://widgets.bokun.io/online-sales/6a2b0f05-7d88-47b8-ac01-19cb2d2e3062/experience-calendar/1174135"
       />
     </>);
 
