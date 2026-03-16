@@ -39,17 +39,7 @@ const OuzoudWaterfalls = () => {
           ))}
         </div>
 
-        {/* Price card */}
-        <div className="max-w-md mx-auto bg-card rounded-2xl p-6 shadow-warm mb-12 text-center">
-          <p className="font-heading text-4xl font-bold text-primary">200 DH</p>
-          <p className="font-body text-sm text-muted-foreground">per person · Full Day · Pay on Arrival</p>
-          <a
-            href="#booking-widget"
-            className="mt-4 w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3.5 rounded-lg hover:bg-primary/90 transition-colors font-body"
-          >
-            📅 Book Now
-          </a>
-        </div>
+        
 
         {/* Highlights */}
         <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6">Tour Highlights</h2>
