@@ -4,7 +4,7 @@ import buggySmallImage from "@/assets/buggy-small.jpg";
 import buggyBigImage from "@/assets/buggy-big.jpg";
 import hotAirBalloonImage from "@/assets/hot-air-balloon.jpg";
 import quadBikingImage from "@/assets/quad-biking.jpg";
-import BookingForm from "@/components/BookingForm";
+
 import BookingCalendarWidget from "@/components/BookingCalendarWidget";
 import { CheckCircle, MapPin, Clock, Shield } from "lucide-react";
 
