@@ -41,7 +41,6 @@ const AtlasMountainsGuide = () => {
       { title: "Imlil vs. Ourika — Which Route?", id: "route-comparison" },
       { title: "Detailed Imlil Itinerary", id: "imlil-itinerary" },
       { title: "Detailed Ourika Itinerary", id: "ourika-itinerary" },
-      { title: "What to Expect Along the Way", id: "what-to-expect" },
       { title: "The Berber Experience", id: "berber-experience" },
       { title: "What to Wear & Bring", id: "what-to-wear" },
       { title: "Fitness Level & Difficulty", id: "fitness-difficulty" },
