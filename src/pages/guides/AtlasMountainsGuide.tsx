@@ -32,17 +32,30 @@ const AtlasMountainsGuide = () => {
       </section>
 
       <article className="container mx-auto px-4 py-16 max-w-3xl">
-        {/* Table of Contents */}
-        <div className="bg-secondary rounded-xl p-6 mb-10">
-          <h2 className="font-heading text-lg font-bold text-foreground mb-3">In This Guide</h2>
-          <ul className="space-y-2">
-            {["Why Visit the Atlas Mountains?", "Imlil vs. Ourika — Which Route?", "Detailed Imlil Itinerary", "Detailed Ourika Itinerary", "What to Expect Along the Way", "The Berber Experience", "What to Wear & Bring", "Fitness Level & Difficulty", "Best Time to Visit", "How Much Does It Cost?", "Insider Tips", "Frequently Asked Questions"].map((item, i) => (
-              <li key={i} className="font-body text-sm text-primary hover:underline cursor-pointer">
-                {i + 1}. {item}
-              </li>
-            ))}
-          </ul>
-        </div>
+      {/* Table of Contents */}
+<div className="bg-secondary rounded-xl p-6 mb-10">
+  <h2 className="font-heading text-lg font-bold text-foreground mb-3">In This Guide</h2>
+  <ul className="space-y-2">
+    {[
+      { title: "Why Visit the Atlas Mountains?", id: "why-visit" },
+      { title: "Imlil vs. Ourika — Which Route?", id: "route-comparison" },
+      { title: "Detailed Imlil Itinerary", id: "imlil-itinerary" },
+      { title: "Detailed Ourika Itinerary", id: "ourika-itinerary" },
+      { title: "What to Expect Along the Way", id: "what-to-expect" },
+      { title: "The Berber Experience", id: "berber-experience" },
+      { title: "What to Wear & Bring", id: "what-to-wear" },
+      { title: "Fitness Level & Difficulty", id: "fitness-difficulty" },
+      { title: "Best Time to Visit", id: "best-time" },
+      { title: "How Much Does It Cost?", id: "cost" },
+      { title: "Insider Tips", id: "insider-tips" },
+      { title: "Frequently Asked Questions", id: "faq" }
+    ].map((item, i) => (
+      <li key={i} className="font-body text-sm text-primary hover:underline cursor-pointer">
+        <a href={`#${item.id}`}>{i + 1}. {item.title}</a>
+      </li>
+    ))}
+  </ul>
+</div>
 
         <p className="font-body text-lg text-muted-foreground leading-relaxed mb-4">
           The Atlas Mountains are just 60 km from Marrakech — but they feel like another planet. In under an hour, you go from the bustling, flat, sun-baked city to cool mountain air, green valleys, and snow-capped peaks. It's Morocco's most refreshing day trip and one of the best ways to experience authentic Berber culture.
@@ -52,7 +65,7 @@ const AtlasMountainsGuide = () => {
         </p>
 
         {/* Why Visit */}
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Why Visit the Atlas Mountains?</h2>
+        <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4" id="why-visit">Why Visit the Atlas Mountains?</h2>
         <p className="font-body text-muted-foreground leading-relaxed mb-4">
           The High Atlas is North Africa's highest mountain range, stretching 2,500 km across Morocco. Mount Toubkal, at 4,167 meters, is the tallest peak in North Africa. But you don't need to be a mountaineer to enjoy the Atlas — the day trips from Marrakech are suitable for most fitness levels and offer:
         </p>
@@ -78,7 +91,7 @@ const AtlasMountainsGuide = () => {
         </div>
 
         {/* Route Comparison */}
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Imlil vs. Ourika — Which Route?</h2>
+        <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4" id="route-comparison" >Imlil vs. Ourika — Which Route?</h2>
         <p className="font-body text-muted-foreground leading-relaxed mb-4">
           There are two main Atlas Mountains day trips from Marrakech. Both are excellent but offer different experiences:
         </p>
@@ -130,7 +143,7 @@ const AtlasMountainsGuide = () => {
         </div>
 
         {/* Imlil Itinerary */}
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Detailed Imlil Itinerary</h2>
+        <h2 id="imlil-itinerary" className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Detailed Imlil Itinerary</h2>
         <div className="space-y-3 mb-10">
           {[
             { time: "8:00 AM", event: "Pickup from your riad/hotel in Marrakech" },
@@ -154,7 +167,7 @@ const AtlasMountainsGuide = () => {
         </div>
 
         {/* Ourika Itinerary */}
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Detailed Ourika Itinerary</h2>
+        <h2   id="ourika-itinerary" className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Detailed Ourika Itinerary</h2>
         <div className="space-y-3 mb-10">
           {[
             { time: "9:00 AM", event: "Pickup from your riad/hotel in Marrakech" },
@@ -177,7 +190,7 @@ const AtlasMountainsGuide = () => {
         </div>
 
         {/* Berber Experience */}
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">The Berber Experience</h2>
+        <h2 id="berber-experience" className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">The Berber Experience</h2>
         <p className="font-body text-muted-foreground leading-relaxed mb-4">
           One of the highlights of any Atlas Mountains trip is experiencing authentic Berber culture. The Berbers (Amazigh people) are Morocco's indigenous inhabitants and have lived in these mountains for thousands of years. On both routes, you'll:
         </p>
@@ -196,7 +209,7 @@ const AtlasMountainsGuide = () => {
         </ul>
 
         {/* What to Wear */}
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">What to Wear & Bring</h2>
+        <h2 id="what-to-wear" className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">What to Wear & Bring</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
           {["Comfortable hiking shoes with grip", "Layers — warm in sun, cool in shade", "Sunscreen SPF 50+ & hat", "Water bottle (1L minimum)", "Cash for souvenirs/tips (50-100 DH)", "Camera with charged battery", "Light rain jacket (spring/autumn)", "Small backpack for the hike"].map((item) => (
             <div key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
@@ -206,7 +219,7 @@ const AtlasMountainsGuide = () => {
         </div>
 
         {/* Difficulty */}
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Fitness Level & Difficulty</h2>
+        <h2 id="fitness-difficulty" className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Fitness Level & Difficulty</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
           <div className="bg-card rounded-xl p-5 shadow-warm">
             <h3 className="font-heading text-base font-bold text-foreground mb-2">Imlil — Moderate</h3>
@@ -219,7 +232,7 @@ const AtlasMountainsGuide = () => {
         </div>
 
         {/* Best Time */}
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Best Time to Visit</h2>
+        <h2 id="best-time" className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Best Time to Visit</h2>
         <div className="space-y-3 mb-4">
           {[
             { season: "🌸 Spring (March–May)", verdict: "Perfect. Wildflowers, green valleys, snow on higher peaks. The most photogenic season." },
@@ -241,7 +254,7 @@ const AtlasMountainsGuide = () => {
         </div>
 
         {/* Price */}
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">How Much Does It Cost?</h2>
+        <h2 id="cost" className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">How Much Does It Cost?</h2>
         <div className="bg-card rounded-xl p-6 shadow-warm mb-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="text-center p-4 bg-secondary rounded-lg">
@@ -261,7 +274,7 @@ const AtlasMountainsGuide = () => {
         </p>
 
         {/* Tips */}
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Insider Tips</h2>
+        <h2 id="insider-tips" className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Insider Tips</h2>
         <div className="space-y-3 mb-10">
           {[
             "The drive to Imlil passes through stunning scenery — sit by the window and keep your camera ready.",
@@ -278,7 +291,7 @@ const AtlasMountainsGuide = () => {
         </div>
 
         {/* FAQ */}
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
+        <h2 id="faq"  className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
         <div className="space-y-4 mb-10">
           {[
             { q: "Do I need hiking boots?", a: "Proper hiking boots aren't necessary for the day trips. Comfortable walking shoes or sneakers with good grip are fine. Avoid flip-flops or sandals — the terrain is uneven." },
