@@ -67,7 +67,6 @@ const IsMoroccoSafe = () => {
           </h2>
           <ul className="space-y-2">
             {[
-              { title: "The Short Answer", id: "short-answer" },
               { title: "Overall Safety Rating", id: "overall-safety-rating" },
               { title: "Safety by City", id: "safety-by-city" },
               { title: "Common Scams & How to Avoid Them", id: "common-scams" },
@@ -75,7 +74,6 @@ const IsMoroccoSafe = () => {
                 title: "Solo Female Travel in Morocco",
                 id: "solo-female-travel",
               },
-              { title: "LGBTQ+ Travel", id: "lgbtq-travel" },
               { title: "Transport Safety", id: "transport-safety" },
               { title: "Food & Water Safety", id: "food-water-safety" },
               { title: "Health & Medical", id: "health-medical" },
