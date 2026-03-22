@@ -102,3 +102,6 @@
     box-shadow: 0 10px 40px -8px hsla(20, 30%, 20%, 0.15), 0 4px 12px -4px hsla(20, 30%, 20%, 0.08);
   }
 }
+html {
+  scroll-behavior: smooth;
+}

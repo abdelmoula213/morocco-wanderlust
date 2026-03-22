@@ -34,7 +34,7 @@ const AtlasMountainsGuide = () => {
       <article className="container mx-auto px-4 py-16 max-w-3xl">
       {/* Table of Contents */}
 <div className="bg-secondary rounded-xl p-6 mb-10">
-  <h2 className="font-heading text-lg font-bold text-foreground mb-3">In This Guide</h2>
+  <h2 id="table-of-contents" className="font-heading text-lg font-bold text-foreground mb-3">In This Guide</h2>
   <ul className="space-y-2">
     {[
       { title: "Why Visit the Atlas Mountains?", id: "why-visit" },
