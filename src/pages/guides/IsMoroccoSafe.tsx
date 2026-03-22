@@ -574,7 +574,7 @@ const IsMoroccoSafe = () => {
         </div>
 
         {/* FAQ */}
-        <h2  id= "frequently-asked-questions" className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">
+        <h2  id= "faq" className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4 mb-10">
