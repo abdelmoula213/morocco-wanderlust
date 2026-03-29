@@ -10,6 +10,7 @@ import aitBenHaddouImage from "@/assets/ait-ben-haddou.jpg";
 import TourCard from "@/components/TourCard";
 import BookingForm from "@/components/BookingForm";
 import FAQ from "@/components/FAQ";
+import EmbedSocialWidget from "@/components/EmbedSocialWidget";
 import { Shield, Award, MapPin, CheckCircle, ChevronDown, Users, Clock, Phone, Compass } from "lucide-react";
 
 const tours = [
@@ -259,6 +260,7 @@ const Index = () => {
           <FAQ />
         </div>
       </section>
+      <EmbedSocialWidget />
     </>
   );
 };
