@@ -57,7 +57,7 @@ const Essaouira = () => {
           ))}
         </div>
 
-         /*  Price card   */
+         {/* Price card    */}
         {/* <div className="max-w-md mx-auto bg-card rounded-2xl p-6 shadow-warm mb-12 text-center">
           <p className="font-heading text-4xl font-bold text-primary">200 DH</p>
           <p className="font-body text-sm text-muted-foreground">per person · Full Day · Pay on Arrival</p>
