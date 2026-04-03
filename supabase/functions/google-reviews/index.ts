@@ -17,30 +17,37 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Step 1: Find Place ID by searching business name
-    const findUrl = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=SEE%26KNOW+Morocco+Marrakech&inputtype=textquery&fields=place_id&key=${apiKey}`;
-    const findRes = await fetch(findUrl);
-    const findData = await findRes.json();
+    // Step 1: Find Place ID via Places API (New) text search
+    const searchUrl = "https://places.googleapis.com/v1/places:searchText";
+    const searchRes = await fetch(searchUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Goog-Api-Key": apiKey,
+        "X-Goog-FieldMask": "places.id,places.displayName",
+      },
+      body: JSON.stringify({
+        textQuery: "SEE&KNOW Morocco Marrakech tours",
+        locationBias: {
+          circle: {
+            center: { latitude: 31.6295, longitude: -7.9811 },
+            radius: 50000,
+          },
+        },
+      }),
+    });
+
+    const searchData = await searchRes.json();
+    console.log("Search response:", JSON.stringify(searchData));
 
     let placeId: string | null = null;
-    if (findData.candidates && findData.candidates.length > 0) {
-      placeId = findData.candidates[0].place_id;
-    }
-
-    // Fallback: try with CID via text search
-    if (!placeId) {
-      const searchUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=SEE+KNOW+Morocco+tours&key=${apiKey}`;
-      const searchRes = await fetch(searchUrl);
-      const searchData = await searchRes.json();
-      if (searchData.results && searchData.results.length > 0) {
-        placeId = searchData.results[0].place_id;
-      }
+    if (searchData.places && searchData.places.length > 0) {
+      placeId = searchData.places[0].id;
     }
 
     if (!placeId) {
-      console.log("Find place response:", JSON.stringify(findData));
       return new Response(
-        JSON.stringify({ error: "Could not find place", reviews: [] }),
+        JSON.stringify({ error: "Could not find place", debug: searchData, reviews: [] }),
         { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -48,33 +55,40 @@ Deno.serve(async (req) => {
     console.log("Found place ID:", placeId);
 
     // Step 2: Get place details with reviews
-    const detailsUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,user_ratings_total,reviews&reviews_sort=newest&key=${apiKey}`;
-    const detailsRes = await fetch(detailsUrl);
-    const detailsData = await detailsRes.json();
+    const detailsUrl = `https://places.googleapis.com/v1/places/${placeId}`;
+    const detailsRes = await fetch(detailsUrl, {
+      method: "GET",
+      headers: {
+        "X-Goog-Api-Key": apiKey,
+        "X-Goog-FieldMask": "displayName,rating,userRatingCount,reviews",
+      },
+    });
 
-    if (detailsData.status !== "OK") {
-      console.error("Place details error:", JSON.stringify(detailsData));
+    const details = await detailsRes.json();
+    console.log("Details keys:", Object.keys(details));
+
+    if (!detailsRes.ok) {
+      console.error("Place details error:", JSON.stringify(details));
       return new Response(
         JSON.stringify({ error: "Failed to fetch reviews", reviews: [] }),
         { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
-    const result = detailsData.result;
-    const reviews = (result.reviews || []).map((r: any) => ({
-      name: r.author_name || "Anonymous",
-      avatar: r.profile_photo_url || "",
+    const reviews = (details.reviews || []).map((r: any) => ({
+      name: r.authorAttribution?.displayName || "Anonymous",
+      avatar: r.authorAttribution?.photoUri || "",
       rating: r.rating || 5,
-      text: r.text || "",
-      date: r.relative_time_description || "",
-      profileUrl: r.author_url || "",
+      text: r.text?.text || r.originalText?.text || "",
+      date: r.relativePublishTimeDescription || "",
+      profileUrl: r.authorAttribution?.uri || "",
     }));
 
     return new Response(
       JSON.stringify({
-        placeName: result.name || "SEE&KNOW Morocco",
-        rating: result.rating || 0,
-        totalReviews: result.user_ratings_total || 0,
+        placeName: details.displayName?.text || "SEE&KNOW Morocco",
+        rating: details.rating || 0,
+        totalReviews: details.userRatingCount || 0,
         reviews,
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
