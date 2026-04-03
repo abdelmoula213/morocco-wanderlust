@@ -3,8 +3,6 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
 };
 
-const PLACE_CID = "1612132695717590420";
-
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -19,95 +17,64 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Step 1: Find Place ID from CID using textsearch
-    const searchUrl = `https://places.googleapis.com/v1/places:searchText`;
-    const searchRes = await fetch(searchUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Goog-Api-Key": apiKey,
-        "X-Goog-FieldMask": "places.id,places.displayName",
-      },
-      body: JSON.stringify({
-        textQuery: `cid:${PLACE_CID}`,
-      }),
-    });
+    // Step 1: Find Place ID by searching business name
+    const findUrl = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=SEE%26KNOW+Morocco+Marrakech&inputtype=textquery&fields=place_id&key=${apiKey}`;
+    const findRes = await fetch(findUrl);
+    const findData = await findRes.json();
 
     let placeId: string | null = null;
+    if (findData.candidates && findData.candidates.length > 0) {
+      placeId = findData.candidates[0].place_id;
+    }
 
-    if (searchRes.ok) {
+    // Fallback: try with CID via text search
+    if (!placeId) {
+      const searchUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=SEE+KNOW+Morocco+tours&key=${apiKey}`;
+      const searchRes = await fetch(searchUrl);
       const searchData = await searchRes.json();
-      if (searchData.places && searchData.places.length > 0) {
-        placeId = searchData.places[0].id;
-      }
-    }
-
-    // Fallback: try the textQuery with business name
-    if (!placeId) {
-      const fallbackRes = await fetch(searchUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Goog-Api-Key": apiKey,
-          "X-Goog-FieldMask": "places.id,places.displayName",
-        },
-        body: JSON.stringify({
-          textQuery: "SEE&KNOW Morocco tours Marrakech",
-        }),
-      });
-
-      if (fallbackRes.ok) {
-        const fallbackData = await fallbackRes.json();
-        if (fallbackData.places && fallbackData.places.length > 0) {
-          placeId = fallbackData.places[0].id;
-        }
-      } else {
-        await fallbackRes.text();
+      if (searchData.results && searchData.results.length > 0) {
+        placeId = searchData.results[0].place_id;
       }
     }
 
     if (!placeId) {
+      console.log("Find place response:", JSON.stringify(findData));
       return new Response(
         JSON.stringify({ error: "Could not find place", reviews: [] }),
         { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
-    // Step 2: Fetch place details with reviews
-    const detailsUrl = `https://places.googleapis.com/v1/places/${placeId}`;
-    const detailsRes = await fetch(detailsUrl, {
-      method: "GET",
-      headers: {
-        "X-Goog-Api-Key": apiKey,
-        "X-Goog-FieldMask": "displayName,rating,userRatingCount,reviews",
-      },
-    });
+    console.log("Found place ID:", placeId);
 
-    if (!detailsRes.ok) {
-      const errText = await detailsRes.text();
-      console.error("Places API error:", errText);
+    // Step 2: Get place details with reviews
+    const detailsUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,user_ratings_total,reviews&reviews_sort=newest&key=${apiKey}`;
+    const detailsRes = await fetch(detailsUrl);
+    const detailsData = await detailsRes.json();
+
+    if (detailsData.status !== "OK") {
+      console.error("Place details error:", JSON.stringify(detailsData));
       return new Response(
-        JSON.stringify({ error: "Failed to fetch place details", reviews: [] }),
+        JSON.stringify({ error: "Failed to fetch reviews", reviews: [] }),
         { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
-    const details = await detailsRes.json();
-
-    const reviews = (details.reviews || []).map((r: any) => ({
-      name: r.authorAttribution?.displayName || "Anonymous",
-      avatar: r.authorAttribution?.photoUri || "",
+    const result = detailsData.result;
+    const reviews = (result.reviews || []).map((r: any) => ({
+      name: r.author_name || "Anonymous",
+      avatar: r.profile_photo_url || "",
       rating: r.rating || 5,
-      text: r.text?.text || "",
-      date: r.relativePublishTimeDescription || "",
-      profileUrl: r.authorAttribution?.uri || "",
+      text: r.text || "",
+      date: r.relative_time_description || "",
+      profileUrl: r.author_url || "",
     }));
 
     return new Response(
       JSON.stringify({
-        placeName: details.displayName?.text || "SEE&KNOW Morocco",
-        rating: details.rating || 0,
-        totalReviews: details.userRatingCount || 0,
+        placeName: result.name || "SEE&KNOW Morocco",
+        rating: result.rating || 0,
+        totalReviews: result.user_ratings_total || 0,
         reviews,
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
