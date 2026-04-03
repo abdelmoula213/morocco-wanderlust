@@ -260,7 +260,7 @@ const Index = () => {
           <FAQ />
         </div>
       </section>
-      <EmbedSocialWidget />
+      <GoogleReviewsWidget />
     </>
   );
 };
