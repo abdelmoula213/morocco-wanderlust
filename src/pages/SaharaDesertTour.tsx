@@ -1,6 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import saharaImage from "@/assets/sahara-desert.jpg";
 import aitBenHaddouImage from "@/assets/ait-ben-haddou.jpg";
+import desertCampImage from "@/assets/desert-camp.jpg";
+import todraGorgeImage from "@/assets/todra-gorge.jpg";
+import camelRideImage from "@/assets/camel-ride.jpg";
+import moroccanFoodImage from "@/assets/moroccan-food.jpg";
 import BookingCalendarWidget from "@/components/BookingCalendarWidget";
 
 import { CheckCircle, X, MapPin, Clock, Users, Star, Shield } from "lucide-react";
