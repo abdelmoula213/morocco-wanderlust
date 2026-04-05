@@ -184,9 +184,13 @@ const SaharaDesertTour = () => {
 
             {/* Gallery */}
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6">Photo Gallery</h2>
-            <div className="grid grid-cols-2 gap-4 mb-16">
-              <img src={saharaImage} alt="Sahara Desert sunset" className="rounded-xl w-full h-48 object-cover" loading="lazy" />
-              <img src={aitBenHaddouImage} alt="Ait Ben Haddou" className="rounded-xl w-full h-48 object-cover" loading="lazy" />
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
+              <img src={saharaImage} alt="Sahara Desert sunset dunes" className="rounded-xl w-full h-48 object-cover" loading="lazy" />
+              <img src={aitBenHaddouImage} alt="Ait Ben Haddou kasbah" className="rounded-xl w-full h-48 object-cover" loading="lazy" />
+              <img src={desertCampImage} alt="Desert camp under stars" className="rounded-xl w-full h-48 object-cover" loading="lazy" />
+              <img src={todraGorgeImage} alt="Todra Gorge canyon" className="rounded-xl w-full h-48 object-cover" loading="lazy" />
+              <img src={camelRideImage} alt="Camel ride in Sahara" className="rounded-xl w-full h-48 object-cover" loading="lazy" />
+              <img src={moroccanFoodImage} alt="Traditional Moroccan tagine" className="rounded-xl w-full h-48 object-cover" loading="lazy" />
             </div>
           </div>
         </div>
