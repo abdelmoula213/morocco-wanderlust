@@ -158,13 +158,14 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block font-body text-sm font-medium text-foreground mb-1">Preferred Date *</label>
-          <input
-            type="date"
-            required
-            value={formData.date}
-            onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-            className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-          />
+         <input
+              type="date"
+              required
+              value={formData.date}
+              min={new Date().toISOString().split("T")[0]}
+              onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+              className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+            />
         </div>
         <div>
           <label className="block font-body text-sm font-medium text-foreground mb-1">Number of Guests</label>
