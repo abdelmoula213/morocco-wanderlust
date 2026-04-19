@@ -27,7 +27,8 @@ const DEFAULT_TOUR_OPTIONS: TourOption[] = [
 
 const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
   const options = tourOptions ?? DEFAULT_TOUR_OPTIONS;
-  const initialTour = lockedTour ?? (tourOptions && tourOptions.length === 1 ? tourOptions[0].value : "");
+  const initialTour =
+    lockedTour ?? (tourOptions && tourOptions.length === 1 ? tourOptions[0].value : "");
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -35,7 +36,7 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    phone: "", // ✅ remplace email par phone
     tour: initialTour,
     date: "",
     guests: "2",
@@ -43,9 +44,7 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
   });
 
   const toggleAddOn = (id: string) => {
-    setSelectedAddOns((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
-    );
+    setSelectedAddOns((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -58,6 +57,7 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     const addOnLabels = (addOns ?? [])
       .filter((a) => selectedAddOns.includes(a.id))
       .map((a) => a.label);
+
     const messageParts: string[] = [];
     if (addOnLabels.length > 0) {
       messageParts.push(`Add-ons: ${addOnLabels.join(", ")}`);
@@ -67,9 +67,10 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     }
     const messageToSave = messageParts.join("\n\n") || null;
 
+    // ✅ Assure-toi que ta table supabase a bien une colonne "phone"
     const { error: insertError } = await supabase.from("bookings").insert({
       name: formData.name.trim(),
-      email: formData.email.trim(),
+      phone: formData.phone.trim(),
       tour: tourToSave,
       preferred_date: formData.date || null,
       guests: formData.guests,
@@ -90,11 +91,10 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     return (
       <div className="text-center py-12">
         <CheckCircle className="mx-auto h-16 w-16 text-primary mb-4" />
-        <h3 className="font-heading text-2xl font-bold text-foreground mb-2">
-          Thank You! 🎉
-        </h3>
+        <h3 className="font-heading text-2xl font-bold text-foreground mb-2">Thank You! 🎉</h3>
         <p className="font-body text-muted-foreground max-w-md mx-auto">
-          Your booking request has been received. Our team will review it and contact you by email shortly to confirm the details.
+          Your booking request has been received. Our team will review it and contact you by phone shortly to
+          confirm the details.
         </p>
       </div>
     );
@@ -115,16 +115,18 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
             placeholder="Your name"
           />
         </div>
+
+        {/* ✅ Nouveau champ téléphone */}
         <div>
-          <label className="block font-body text-sm font-medium text-foreground mb-1">Email *</label>
+          <label className="block font-body text-sm font-medium text-foreground mb-1">Phone Number *</label>
           <input
-            type="email"
+            type="tel"
             required
-            maxLength={255}
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            maxLength={20}
+            value={formData.phone}
+            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-            placeholder="your@email.com"
+            placeholder="Your phone number"
           />
         </div>
       </div>
@@ -149,7 +151,9 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
           >
             <option value="">{tourOptions ? "Choose a type..." : "Choose a tour..."}</option>
             {options.map((opt) => (
-              <option key={opt.value} value={opt.value}>{opt.label}</option>
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
+              </option>
             ))}
           </select>
         </div>
@@ -158,15 +162,16 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block font-body text-sm font-medium text-foreground mb-1">Preferred Date *</label>
-         <input
-              type="date"
-              required
-              value={formData.date}
-              min={new Date().toISOString().split("T")[0]}
-              onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-            />
+          <input
+            type="date"
+            required
+            value={formData.date}
+            min={new Date().toISOString().split("T")[0]}
+            onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+            className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+          />
         </div>
+
         <div>
           <label className="block font-body text-sm font-medium text-foreground mb-1">Number of Guests</label>
           <select
@@ -175,7 +180,9 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
             className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
           >
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
-              <option key={n} value={n}>{n} {n === 1 ? "guest" : "guests"}</option>
+              <option key={n} value={n}>
+                {n} {n === 1 ? "guest" : "guests"}
+              </option>
             ))}
             <option value="10+">10+ guests</option>
           </select>
@@ -184,9 +191,7 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
 
       {addOns && addOns.length > 0 && (
         <div>
-          <label className="block font-body text-sm font-medium text-foreground mb-2">
-            Add Extras (optional)
-          </label>
+          <label className="block font-body text-sm font-medium text-foreground mb-2">Add Extras (optional)</label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {addOns.map((addOn) => {
               const checked = selectedAddOns.includes(addOn.id);
@@ -194,9 +199,7 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
                 <label
                   key={addOn.id}
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg border font-body text-sm cursor-pointer transition-colors ${
-                    checked
-                      ? "border-primary bg-primary/5 text-foreground"
-                      : "border-border bg-background text-foreground hover:border-primary/50"
+                    checked ? "border-primary bg-primary/5 text-foreground" : "border-border bg-background text-foreground hover:border-primary/50"
                   }`}
                 >
                   <input
@@ -211,7 +214,7 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
             })}
           </div>
           <p className="font-body text-xs text-muted-foreground mt-2">
-            We'll confirm pricing and availability for selected extras by email.
+            We'll confirm pricing and availability for selected extras by phone.
           </p>
         </div>
       )}
@@ -228,9 +231,7 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
         />
       </div>
 
-      {error && (
-        <p className="text-sm text-destructive font-body text-center">{error}</p>
-      )}
+      {error && <p className="text-sm text-destructive font-body text-center">{error}</p>}
 
       <button
         type="submit"
@@ -240,6 +241,7 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
         {loading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
         {loading ? "Sending..." : "Send Booking Request"}
       </button>
+
       <p className="text-center font-body text-xs text-muted-foreground">
         💰 Pay on arrival · Free cancellation · Best direct price guaranteed
       </p>
