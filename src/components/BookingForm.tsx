@@ -25,13 +25,14 @@ const DEFAULT_TOUR_OPTIONS: TourOption[] = [
   { value: "Essaouira Day Trip (200 DH)", label: "Essaouira Day Trip (200 DH)" },
 ];
 
-const BookingForm = ({ lockedTour, tourOptions }: BookingFormProps) => {
+const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
   const options = tourOptions ?? DEFAULT_TOUR_OPTIONS;
   const initialTour = lockedTour ?? (tourOptions && tourOptions.length === 1 ? tourOptions[0].value : "");
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -41,6 +42,12 @@ const BookingForm = ({ lockedTour, tourOptions }: BookingFormProps) => {
     message: "",
   });
 
+  const toggleAddOn = (id: string) => {
+    setSelectedAddOns((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+    );
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -48,13 +55,25 @@ const BookingForm = ({ lockedTour, tourOptions }: BookingFormProps) => {
 
     const tourToSave = lockedTour ?? formData.tour;
 
+    const addOnLabels = (addOns ?? [])
+      .filter((a) => selectedAddOns.includes(a.id))
+      .map((a) => a.label);
+    const messageParts: string[] = [];
+    if (addOnLabels.length > 0) {
+      messageParts.push(`Add-ons: ${addOnLabels.join(", ")}`);
+    }
+    if (formData.message.trim()) {
+      messageParts.push(formData.message.trim());
+    }
+    const messageToSave = messageParts.join("\n\n") || null;
+
     const { error: insertError } = await supabase.from("bookings").insert({
       name: formData.name.trim(),
       email: formData.email.trim(),
       tour: tourToSave,
       preferred_date: formData.date || null,
       guests: formData.guests,
-      message: formData.message.trim() || null,
+      message: messageToSave,
     });
 
     setLoading(false);
