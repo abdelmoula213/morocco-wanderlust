@@ -1,13 +1,14 @@
-import BookingForm, { TourOption } from "./BookingForm";
+import BookingForm, { TourOption, AddOn } from "./BookingForm";
 
 interface BookingFormSectionProps {
   lockedTour?: string;
   tourOptions?: TourOption[];
+  addOns?: AddOn[];
   title?: string;
   subtitle?: string;
 }
 
-const BookingFormSection = ({ lockedTour, tourOptions, title, subtitle }: BookingFormSectionProps) => {
+const BookingFormSection = ({ lockedTour, tourOptions, addOns, title, subtitle }: BookingFormSectionProps) => {
   return (
     <section id="booking-widget" className="container mx-auto px-4 py-16">
       <div className="max-w-3xl mx-auto">
@@ -19,7 +20,7 @@ const BookingFormSection = ({ lockedTour, tourOptions, title, subtitle }: Bookin
         </p>
 
         <div className="bg-card rounded-2xl p-4 md:p-8 shadow-warm">
-          <BookingForm lockedTour={lockedTour} tourOptions={tourOptions} />
+          <BookingForm lockedTour={lockedTour} tourOptions={tourOptions} addOns={addOns} />
         </div>
       </div>
     </section>
