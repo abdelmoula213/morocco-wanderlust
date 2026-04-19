@@ -181,6 +181,40 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
         </div>
       </div>
 
+      {addOns && addOns.length > 0 && (
+        <div>
+          <label className="block font-body text-sm font-medium text-foreground mb-2">
+            Add Extras (optional)
+          </label>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {addOns.map((addOn) => {
+              const checked = selectedAddOns.includes(addOn.id);
+              return (
+                <label
+                  key={addOn.id}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg border font-body text-sm cursor-pointer transition-colors ${
+                    checked
+                      ? "border-primary bg-primary/5 text-foreground"
+                      : "border-border bg-background text-foreground hover:border-primary/50"
+                  }`}
+                >
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={() => toggleAddOn(addOn.id)}
+                    className="h-4 w-4 accent-primary"
+                  />
+                  <span>{addOn.label}</span>
+                </label>
+              );
+            })}
+          </div>
+          <p className="font-body text-xs text-muted-foreground mt-2">
+            We'll confirm pricing and availability for selected extras by email.
+          </p>
+        </div>
+      )}
+
       <div>
         <label className="block font-body text-sm font-medium text-foreground mb-1">Special Requests</label>
         <textarea
