@@ -177,7 +177,10 @@ const OurikaValley = () => {
         </div>
       </div>
 
-      <BookingFormSection />
+      <BookingFormSection
+        title="Book Your Ourika Valley Tour"
+        lockedTour="Ourika Valley (150 DH)"
+      />
     </>
   );
 };

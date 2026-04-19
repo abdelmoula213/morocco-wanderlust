@@ -178,7 +178,10 @@ const AtlasMountains = () => {
         </div>
       </div>
 
-      <BookingFormSection />
+      <BookingFormSection
+        title="Book Your Atlas Mountains Tour"
+        lockedTour="Imlil Day Tour (150 DH)"
+      />
     </>
   );
 };

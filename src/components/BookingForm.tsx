@@ -2,14 +2,37 @@ import { useState } from "react";
 import { Send, CheckCircle, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
-const BookingForm = () => {
+export type TourOption = { value: string; label: string };
+
+interface BookingFormProps {
+  /** If set, the tour field is locked to this exact value (no select shown). */
+  lockedTour?: string;
+  /** If set (and lockedTour is not), shows a select limited to these options (e.g. Standard / Luxury). */
+  tourOptions?: TourOption[];
+}
+
+const DEFAULT_TOUR_OPTIONS: TourOption[] = [
+  { value: "3-Day Sahara Desert Tour - Standard (800 DH)", label: "Sahara Tour - Standard (800 DH)" },
+  { value: "3-Day Sahara Desert Tour - Luxury (2000 DH)", label: "Sahara Tour - Luxury (2,000 DH)" },
+  { value: "Agafay Desert - Standard (400 DH)", label: "Agafay Desert - Standard (400 DH)" },
+  { value: "Agafay Desert - Luxury (700 DH)", label: "Agafay Desert - Luxury (700 DH)" },
+  { value: "Imlil Day Tour (150 DH)", label: "Imlil Day Tour (150 DH)" },
+  { value: "Ouzoud Waterfalls (200 DH)", label: "Ouzoud Waterfalls (200 DH)" },
+  { value: "Ourika Valley (150 DH)", label: "Ourika Valley (150 DH)" },
+  { value: "Essaouira Day Trip (200 DH)", label: "Essaouira Day Trip (200 DH)" },
+];
+
+const BookingForm = ({ lockedTour, tourOptions }: BookingFormProps) => {
+  const options = tourOptions ?? DEFAULT_TOUR_OPTIONS;
+  const initialTour = lockedTour ?? (tourOptions && tourOptions.length === 1 ? tourOptions[0].value : "");
+
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    tour: "",
+    tour: initialTour,
     date: "",
     guests: "2",
     message: "",
@@ -20,10 +43,12 @@ const BookingForm = () => {
     setError(null);
     setLoading(true);
 
+    const tourToSave = lockedTour ?? formData.tour;
+
     const { error: insertError } = await supabase.from("bookings").insert({
       name: formData.name.trim(),
       email: formData.email.trim(),
-      tour: formData.tour,
+      tour: tourToSave,
       preferred_date: formData.date || null,
       guests: formData.guests,
       message: formData.message.trim() || null,
@@ -81,25 +106,33 @@ const BookingForm = () => {
           />
         </div>
       </div>
-      <div>
-        <label className="block font-body text-sm font-medium text-foreground mb-1">Select Tour *</label>
-        <select
-          required
-          value={formData.tour}
-          onChange={(e) => setFormData({ ...formData, tour: e.target.value })}
-          className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-        >
-          <option value="">Choose a tour...</option>
-          <option value="3-Day Sahara Desert Tour - Standard (800 DH)">Sahara Tour - Standard (800 DH)</option>
-          <option value="3-Day Sahara Desert Tour - Luxury (2000 DH)">Sahara Tour - Luxury (2,000 DH)</option>
-          <option value="Agafay Desert - Standard (400 DH)">Agafay Desert - Standard (400 DH)</option>
-          <option value="Agafay Desert - Luxury (700 DH)">Agafay Desert - Luxury (700 DH)</option>
-          <option value="Imlil Day Tour (150 DH)">Imlil Day Tour (150 DH)</option>
-          <option value="Ouzoud Waterfalls (200 DH)">Ouzoud Waterfalls (200 DH)</option>
-          <option value="Ourika Valley (150 DH)">Ourika Valley (150 DH)</option>
-          <option value="Essaouira Day Trip (200 DH)">Essaouira Day Trip (200 DH)</option>
-        </select>
-      </div>
+
+      {lockedTour ? (
+        <div>
+          <label className="block font-body text-sm font-medium text-foreground mb-1">Your Tour</label>
+          <div className="w-full px-4 py-3 rounded-lg border border-border bg-secondary/40 font-body text-sm text-foreground">
+            {lockedTour}
+          </div>
+        </div>
+      ) : options.length > 1 ? (
+        <div>
+          <label className="block font-body text-sm font-medium text-foreground mb-1">
+            {tourOptions ? "Choose Type *" : "Select Tour *"}
+          </label>
+          <select
+            required
+            value={formData.tour}
+            onChange={(e) => setFormData({ ...formData, tour: e.target.value })}
+            className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+          >
+            <option value="">{tourOptions ? "Choose a type..." : "Choose a tour..."}</option>
+            {options.map((opt) => (
+              <option key={opt.value} value={opt.value}>{opt.label}</option>
+            ))}
+          </select>
+        </div>
+      ) : null}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block font-body text-sm font-medium text-foreground mb-1">Preferred Date *</label>
@@ -125,6 +158,7 @@ const BookingForm = () => {
           </select>
         </div>
       </div>
+
       <div>
         <label className="block font-body text-sm font-medium text-foreground mb-1">Special Requests</label>
         <textarea

@@ -179,7 +179,14 @@ const AgafayDesert = () => {
 
         </div>
       </div>
-      <BookingFormSection />
+      <BookingFormSection
+        title="Book Your Agafay Desert Experience"
+        subtitle="Choose your experience type — we'll confirm by email"
+        tourOptions={[
+          { value: "Agafay Desert - Standard (400 DH)", label: "Standard - 400 DH per person" },
+          { value: "Agafay Desert - Luxury (700 DH)", label: "Luxury - 700 DH per person" },
+        ]}
+      />
     </>);
 
 };
