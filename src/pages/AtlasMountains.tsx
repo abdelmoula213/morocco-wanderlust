@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import atlasImage from "@/assets/atlas-mountains.jpg";
-import BookingCalendarWidget from "@/components/BookingCalendarWidget";
+import BookingFormSection from "@/components/BookingFormSection";
 
 import { CheckCircle, MapPin, Clock, X, Mountain, Users, Footprints, TreePine } from "lucide-react";
 
@@ -178,9 +178,7 @@ const AtlasMountains = () => {
         </div>
       </div>
 
-      <BookingCalendarWidget
-        bokunWidgetSrc="https://widgets.bokun.io/online-sales/33e3b4d4-1dd7-4cd5-912d-61a588e6f5a3/experience-calendar/1175323"
-      />
+      <BookingFormSection />
     </>
   );
 };

@@ -5,7 +5,7 @@ import desertCampImage from "@/assets/desert-camp.jpg";
 import todraGorgeImage from "@/assets/todra-gorge.jpg";
 import camelRideImage from "@/assets/camel-ride.jpg";
 import moroccanFoodImage from "@/assets/moroccan-food.jpg";
-import BookingCalendarWidget from "@/components/BookingCalendarWidget";
+import BookingFormSection from "@/components/BookingFormSection";
 
 import { CheckCircle, X, MapPin, Clock, Users, Star, Shield } from "lucide-react";
 
@@ -196,9 +196,7 @@ const SaharaDesertTour = () => {
         </div>
       </div>
 
-      <BookingCalendarWidget
-        bokunWidgetSrc="https://widgets.bokun.io/online-sales/33e3b4d4-1dd7-4cd5-912d-61a588e6f5a3/experience-calendar/1174802"
-      />
+      <BookingFormSection />
     </>
   );
 };
