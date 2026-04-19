@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const BookingForm = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,12 +15,27 @@ const BookingForm = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const msg = encodeURIComponent(
-      `Hello SEE&KNOW Tours!\n\nName: ${formData.name}\nEmail: ${formData.email}\nTour: ${formData.tour}\nDate: ${formData.date}\nGuests: ${formData.guests}\nMessage: ${formData.message}`
-    );
-    window.open(`https://wa.me/212766776545?text=${msg}`, "_blank");
+    setError(null);
+    setLoading(true);
+
+    const { error: insertError } = await supabase.from("bookings").insert({
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      tour: formData.tour,
+      preferred_date: formData.date || null,
+      guests: formData.guests,
+      message: formData.message.trim() || null,
+    });
+
+    setLoading(false);
+
+    if (insertError) {
+      setError("Sorry, we couldn't submit your request. Please try again.");
+      return;
+    }
+
     setSubmitted(true);
   };
 
@@ -25,8 +43,12 @@ const BookingForm = () => {
     return (
       <div className="text-center py-12">
         <CheckCircle className="mx-auto h-16 w-16 text-primary mb-4" />
-        <h3 className="font-heading text-2xl font-bold text-foreground mb-2">Booking Request Sent!</h3>
-        <p className="font-body text-muted-foreground">We'll confirm your booking on WhatsApp shortly.</p>
+        <h3 className="font-heading text-2xl font-bold text-foreground mb-2">
+          Thank You! 🎉
+        </h3>
+        <p className="font-body text-muted-foreground max-w-md mx-auto">
+          Your booking request has been received. Our team will review it and contact you by email shortly to confirm the details.
+        </p>
       </div>
     );
   }
@@ -114,12 +136,18 @@ const BookingForm = () => {
           placeholder="Any special requirements or questions..."
         />
       </div>
+
+      {error && (
+        <p className="text-sm text-destructive font-body text-center">{error}</p>
+      )}
+
       <button
         type="submit"
-        className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-body font-semibold py-3.5 rounded-lg hover:bg-primary/90 transition-colors"
+        disabled={loading}
+        className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-body font-semibold py-3.5 rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-60"
       >
-        <Send size={16} />
-        Send Booking Request
+        {loading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
+        {loading ? "Sending..." : "Send Booking Request"}
       </button>
       <p className="text-center font-body text-xs text-muted-foreground">
         💰 Pay on arrival · Free cancellation · Best direct price guaranteed

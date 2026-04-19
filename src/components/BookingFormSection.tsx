@@ -1,4 +1,3 @@
-import { MessageCircle } from "lucide-react";
 import BookingForm from "./BookingForm";
 
 const BookingFormSection = () => {
@@ -9,26 +8,11 @@ const BookingFormSection = () => {
           Book Your Tour
         </h2>
         <p className="font-body text-muted-foreground text-center mb-8">
-          Fill in your details and we'll confirm your booking on WhatsApp
+          Fill in your details and our team will get back to you by email to confirm your booking
         </p>
 
         <div className="bg-card rounded-2xl p-4 md:p-8 shadow-warm">
           <BookingForm />
-        </div>
-
-        <div className="text-center mt-8">
-          <p className="font-body text-muted-foreground mb-3">
-            Prefer to chat directly? Contact us on WhatsApp
-          </p>
-          <a
-            href="https://wa.me/212766776545?text=Hello!%20I%27d%20like%20to%20book%20a%20tour%20with%20SEE%26KNOW%20Tours%20%26%20Travels."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[hsl(142,70%,40%)] text-[hsl(0,0%,100%)] font-body font-semibold px-6 py-3 rounded-full hover:scale-105 transition-transform shadow-warm"
-          >
-            <MessageCircle className="h-5 w-5" fill="currentColor" />
-            Book on WhatsApp
-          </a>
         </div>
       </div>
     </section>
