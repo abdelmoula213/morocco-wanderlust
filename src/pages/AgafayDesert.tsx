@@ -186,6 +186,12 @@ const AgafayDesert = () => {
           { value: "Agafay Desert - Standard (400 DH)", label: "Standard - 400 DH per person" },
           { value: "Agafay Desert - Luxury (700 DH)", label: "Luxury - 700 DH per person" },
         ]}
+        addOns={[
+          { id: "hot-air-balloon", label: "🎈 Hot Air Balloon Ride" },
+          { id: "buggy", label: "🏜️ Buggy Adventure" },
+          { id: "quad-biking", label: "🏍️ Quad Biking" },
+          { id: "camel-ride", label: "🐪 Camel Ride" },
+        ]}
       />
     </>);
 
