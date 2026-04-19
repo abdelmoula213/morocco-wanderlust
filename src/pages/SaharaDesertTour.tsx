@@ -196,7 +196,14 @@ const SaharaDesertTour = () => {
         </div>
       </div>
 
-      <BookingFormSection />
+      <BookingFormSection
+        title="Book Your Sahara Desert Tour"
+        subtitle="Choose your experience type — we'll confirm by email"
+        tourOptions={[
+          { value: "3-Day Sahara Desert Tour - Standard (800 DH)", label: "Standard - 800 DH per person" },
+          { value: "3-Day Sahara Desert Tour - Luxury (2000 DH)", label: "Luxury - 2,000 DH per person" },
+        ]}
+      />
     </>
   );
 };

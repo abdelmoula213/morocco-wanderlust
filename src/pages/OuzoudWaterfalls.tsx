@@ -128,7 +128,10 @@ const OuzoudWaterfalls = () => {
         </div>
       </div>
 
-      <BookingFormSection />
+      <BookingFormSection
+        title="Book Your Ouzoud Waterfalls Tour"
+        lockedTour="Ouzoud Waterfalls (200 DH)"
+      />
     </>
   );
 };

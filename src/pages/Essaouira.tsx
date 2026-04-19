@@ -168,7 +168,10 @@ const Essaouira = () => {
         </div>
       </div>
 
-      <BookingFormSection />
+      <BookingFormSection
+        title="Book Your Essaouira Day Trip"
+        lockedTour="Essaouira Day Trip (200 DH)"
+      />
     </>
   );
 };
