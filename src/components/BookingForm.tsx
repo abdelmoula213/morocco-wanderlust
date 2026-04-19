@@ -3,12 +3,15 @@ import { Send, CheckCircle, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 export type TourOption = { value: string; label: string };
+export type AddOn = { id: string; label: string };
 
 interface BookingFormProps {
   /** If set, the tour field is locked to this exact value (no select shown). */
   lockedTour?: string;
   /** If set (and lockedTour is not), shows a select limited to these options (e.g. Standard / Luxury). */
   tourOptions?: TourOption[];
+  /** Optional add-ons (e.g. Hot Air Balloon, Buggy). Selected ones are appended to the message. */
+  addOns?: AddOn[];
 }
 
 const DEFAULT_TOUR_OPTIONS: TourOption[] = [
