@@ -65,70 +65,12 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     );
   };
 
-  // ✅ Validation helpers to prevent SQL injection and data tampering
-  const validateTour = (tour: string): boolean => {
-    // Verify tour is in allowed options
-    return options.some((opt) => opt.value === tour) || tour === lockedTour;
-  };
-
-  const validateAddOns = (selectedIds: string[]): boolean => {
-    // Verify all selected add-on IDs exist in the allowed add-ons list
-    if (!addOns) return selectedIds.length === 0;
-    return selectedIds.every((id) => addOns.some((addon) => addon.id === id));
-  };
-
-  const sanitizeInput = (text: string): string => {
-    // Remove dangerous characters and trim
-    return text.trim().slice(0, 1000);
-  };
-
-  const validatePhone = (phone: string): boolean => {
-    // Basic phone validation - only digits, +, -, and spaces
-    return /^[\d+\-\s()]{7,20}$/.test(phone.trim());
-  };
-
-  const validateDate = (date: string): boolean => {
-    // Verify date is not in the past
-    const selectedDate = new Date(date);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    return selectedDate >= today;
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
     setLoading(true);
 
     const tourToSave = lockedTour ?? formData.tour;
-
-    // ✅ Validate tour against allowed options
-    if (!validateTour(tourToSave)) {
-      setError("Invalid tour selection. Please select from available options.");
-      setLoading(false);
-      return;
-    }
-
-    // ✅ Validate phone format
-    if (!validatePhone(formData.phone)) {
-      setError("Invalid phone number format.");
-      setLoading(false);
-      return;
-    }
-
-    // ✅ Validate date
-    if (!validateDate(formData.date)) {
-      setError("Please select a valid future date.");
-      setLoading(false);
-      return;
-    }
-
-    // ✅ Validate add-ons exist in allowed list
-    if (!validateAddOns(selectedAddOns)) {
-      setError("Invalid add-on selection. Please try again.");
-      setLoading(false);
-      return;
-    }
 
     const addOnLabels = (addOns ?? [])
       .filter((a) => selectedAddOns.includes(a.id))
@@ -139,13 +81,13 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
       messageParts.push(`Add-ons: ${addOnLabels.join(", ")}`);
     }
     if (formData.message.trim()) {
-      messageParts.push(sanitizeInput(formData.message));
+      messageParts.push(formData.message.trim());
     }
     const messageToSave = messageParts.join("\n\n") || null;
 
     const payload = {
-      name: sanitizeInput(formData.name),
-      phone: sanitizeInput(formData.phone),
+      name: formData.name.trim(),
+      phone: formData.phone.trim(),
       tour: tourToSave,
       preferred_date: formData.date || null,
       guests: formData.guests,
@@ -230,7 +172,7 @@ Guests: ${formData.guests}`;
             Phone Number *
           </label>
           <input
-            type="tel"
+            type="number"
             required
             maxLength={20}
             value={formData.phone}
