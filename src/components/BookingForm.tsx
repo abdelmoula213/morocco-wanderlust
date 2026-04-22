@@ -67,15 +67,24 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     }
     const messageToSave = messageParts.join("\n\n") || null;
 
-    // ✅ Assure-toi que ta table supabase a bien une colonne "phone"
-    const { error: insertError } = await supabase.from("bookings").insert({
+    const payload = {
       name: formData.name.trim(),
       phone: formData.phone.trim(),
       tour: tourToSave,
       preferred_date: formData.date || null,
       guests: formData.guests,
       message: messageToSave,
-    });
+    };
+
+    // Save to database (backup)
+    const { error: insertError } = await supabase.from("bookings").insert(payload);
+
+    // Push to Excel (primary visible copy) — don't block user if it fails
+    try {
+      await supabase.functions.invoke("excel-append-booking", { body: payload });
+    } catch (excelErr) {
+      console.error("Excel sync failed:", excelErr);
+    }
 
     setLoading(false);
 

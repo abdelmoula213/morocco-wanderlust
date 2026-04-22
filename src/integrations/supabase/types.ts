@@ -17,31 +17,31 @@ export type Database = {
       bookings: {
         Row: {
           created_at: string
-          email: string
           guests: string | null
           id: string
           message: string | null
           name: string
+          phone: string
           preferred_date: string | null
           tour: string
         }
         Insert: {
           created_at?: string
-          email: string
           guests?: string | null
           id?: string
           message?: string | null
           name: string
+          phone?: string
           preferred_date?: string | null
           tour: string
         }
         Update: {
           created_at?: string
-          email?: string
           guests?: string | null
           id?: string
           message?: string | null
           name?: string
+          phone?: string
           preferred_date?: string | null
           tour?: string
         }
