@@ -15,20 +15,36 @@ interface BookingFormProps {
 }
 
 const DEFAULT_TOUR_OPTIONS: TourOption[] = [
-  { value: "3-Day Sahara Desert Tour - Standard (800 DH)", label: "Sahara Tour - Standard (800 DH)" },
-  { value: "3-Day Sahara Desert Tour - Luxury (2000 DH)", label: "Sahara Tour - Luxury (2,000 DH)" },
-  { value: "Agafay Desert - Standard (400 DH)", label: "Agafay Desert - Standard (400 DH)" },
-  { value: "Agafay Desert - Luxury (700 DH)", label: "Agafay Desert - Luxury (700 DH)" },
+  {
+    value: "3-Day Sahara Desert Tour - Standard (800 DH)",
+    label: "Sahara Tour - Standard (800 DH)",
+  },
+  {
+    value: "3-Day Sahara Desert Tour - Luxury (2000 DH)",
+    label: "Sahara Tour - Luxury (2,000 DH)",
+  },
+  {
+    value: "Agafay Desert - Standard (400 DH)",
+    label: "Agafay Desert - Standard (400 DH)",
+  },
+  {
+    value: "Agafay Desert - Luxury (700 DH)",
+    label: "Agafay Desert - Luxury (700 DH)",
+  },
   { value: "Imlil Day Tour (150 DH)", label: "Imlil Day Tour (150 DH)" },
   { value: "Ouzoud Waterfalls (200 DH)", label: "Ouzoud Waterfalls (200 DH)" },
   { value: "Ourika Valley (150 DH)", label: "Ourika Valley (150 DH)" },
-  { value: "Essaouira Day Trip (200 DH)", label: "Essaouira Day Trip (200 DH)" },
+  {
+    value: "Essaouira Day Trip (200 DH)",
+    label: "Essaouira Day Trip (200 DH)",
+  },
 ];
 
 const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
   const options = tourOptions ?? DEFAULT_TOUR_OPTIONS;
   const initialTour =
-    lockedTour ?? (tourOptions && tourOptions.length === 1 ? tourOptions[0].value : "");
+    lockedTour ??
+    (tourOptions && tourOptions.length === 1 ? tourOptions[0].value : "");
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -44,7 +60,9 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
   });
 
   const toggleAddOn = (id: string) => {
-    setSelectedAddOns((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
+    setSelectedAddOns((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
+    );
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -77,11 +95,15 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     };
 
     // Save to database (backup)
-    const { error: insertError } = await supabase.from("bookings").insert(payload);
+    const { error: insertError } = await supabase
+      .from("bookings")
+      .insert(payload);
 
     // Push to Excel (primary visible copy) — don't block user if it fails
     try {
-      await supabase.functions.invoke("excel-append-booking", { body: payload });
+      await supabase.functions.invoke("excel-append-booking", {
+        body: payload,
+      });
     } catch (excelErr) {
       console.error("Excel sync failed:", excelErr);
     }
@@ -93,6 +115,21 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
       return;
     }
 
+    // ✅ WhatsApp alert
+    const text = `🚨 New Booking!
+Name: ${formData.name}
+Phone: ${formData.phone}
+Tour: ${tourToSave}
+Date: ${formData.date}
+addOns: ${addOnLabels.length > 0 ? addOnLabels.join(", ") : "None"}
+Message: ${formData.message || "None"}
+Guests: ${formData.guests}`;
+
+    window.open(
+      `https://wa.me/212679684999?text=${encodeURIComponent(text)}`,
+      "_blank",
+    );
+
     setSubmitted(true);
   };
 
@@ -100,10 +137,12 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     return (
       <div className="text-center py-12">
         <CheckCircle className="mx-auto h-16 w-16 text-primary mb-4" />
-        <h3 className="font-heading text-2xl font-bold text-foreground mb-2">Thank You! 🎉</h3>
+        <h3 className="font-heading text-2xl font-bold text-foreground mb-2">
+          Thank You! 🎉
+        </h3>
         <p className="font-body text-muted-foreground max-w-md mx-auto">
-          Your booking request has been received. Our team will review it and contact you by phone shortly to
-          confirm the details.
+          Your booking request has been received. Our team will review it and
+          contact you by phone shortly to confirm the details.
         </p>
       </div>
     );
@@ -113,7 +152,9 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block font-body text-sm font-medium text-foreground mb-1">Full Name *</label>
+          <label className="block font-body text-sm font-medium text-foreground mb-1">
+            Full Name *
+          </label>
           <input
             type="text"
             required
@@ -127,13 +168,17 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
 
         {/* ✅ Nouveau champ téléphone */}
         <div>
-          <label className="block font-body text-sm font-medium text-foreground mb-1">Phone Number *</label>
+          <label className="block font-body text-sm font-medium text-foreground mb-1">
+            Phone Number *
+          </label>
           <input
             type="tel"
             required
             maxLength={20}
             value={formData.phone}
-            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, phone: e.target.value })
+            }
             className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
             placeholder="Your phone number"
           />
@@ -142,7 +187,9 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
 
       {lockedTour ? (
         <div>
-          <label className="block font-body text-sm font-medium text-foreground mb-1">Your Tour</label>
+          <label className="block font-body text-sm font-medium text-foreground mb-1">
+            Your Tour
+          </label>
           <div className="w-full px-4 py-3 rounded-lg border border-border bg-secondary/40 font-body text-sm text-foreground">
             {lockedTour}
           </div>
@@ -158,7 +205,9 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
             onChange={(e) => setFormData({ ...formData, tour: e.target.value })}
             className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
           >
-            <option value="">{tourOptions ? "Choose a type..." : "Choose a tour..."}</option>
+            <option value="">
+              {tourOptions ? "Choose a type..." : "Choose a tour..."}
+            </option>
             {options.map((opt) => (
               <option key={opt.value} value={opt.value}>
                 {opt.label}
@@ -170,7 +219,9 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block font-body text-sm font-medium text-foreground mb-1">Preferred Date *</label>
+          <label className="block font-body text-sm font-medium text-foreground mb-1">
+            Preferred Date *
+          </label>
           <input
             type="date"
             required
@@ -182,10 +233,14 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
         </div>
 
         <div>
-          <label className="block font-body text-sm font-medium text-foreground mb-1">Number of Guests</label>
+          <label className="block font-body text-sm font-medium text-foreground mb-1">
+            Number of Guests
+          </label>
           <select
             value={formData.guests}
-            onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, guests: e.target.value })
+            }
             className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
           >
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
@@ -200,7 +255,9 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
 
       {addOns && addOns.length > 0 && (
         <div>
-          <label className="block font-body text-sm font-medium text-foreground mb-2">Add Extras (optional)</label>
+          <label className="block font-body text-sm font-medium text-foreground mb-2">
+            Add Extras (optional)
+          </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {addOns.map((addOn) => {
               const checked = selectedAddOns.includes(addOn.id);
@@ -208,7 +265,9 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
                 <label
                   key={addOn.id}
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg border font-body text-sm cursor-pointer transition-colors ${
-                    checked ? "border-primary bg-primary/5 text-foreground" : "border-border bg-background text-foreground hover:border-primary/50"
+                    checked
+                      ? "border-primary bg-primary/5 text-foreground"
+                      : "border-border bg-background text-foreground hover:border-primary/50"
                   }`}
                 >
                   <input
@@ -229,25 +288,37 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
       )}
 
       <div>
-        <label className="block font-body text-sm font-medium text-foreground mb-1">Special Requests</label>
+        <label className="block font-body text-sm font-medium text-foreground mb-1">
+          Special Requests
+        </label>
         <textarea
           maxLength={1000}
           rows={3}
           value={formData.message}
-          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, message: e.target.value })
+          }
           className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors resize-none"
           placeholder="Any special requirements or questions..."
         />
       </div>
 
-      {error && <p className="text-sm text-destructive font-body text-center">{error}</p>}
+      {error && (
+        <p className="text-sm text-destructive font-body text-center">
+          {error}
+        </p>
+      )}
 
       <button
         type="submit"
         disabled={loading}
         className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-body font-semibold py-3.5 rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-60"
       >
-        {loading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
+        {loading ? (
+          <Loader2 size={16} className="animate-spin" />
+        ) : (
+          <Send size={16} />
+        )}
         {loading ? "Sending..." : "Send Booking Request"}
       </button>
 
