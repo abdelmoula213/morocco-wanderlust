@@ -127,7 +127,7 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
 
     const tourToSave = lockedTour ?? formData.tour;
 
-    const addOnLabels = (addOns ?? [])
+    const addOnLabels = effectiveAddOns
       .filter((a) => selectedAddOns.includes(a.id))
       .map((a) => a.label);
 
