@@ -47,6 +47,20 @@ const DEFAULT_TOUR_OPTIONS: TourOption[] = [
   },
 ];
 
+// Tour-specific add-ons shown automatically when no explicit `addOns` prop is passed.
+// Matched against the selected tour's value (case-insensitive substring).
+const TOUR_ADDONS: { match: RegExp; addOns: AddOn[] }[] = [
+  {
+    match: /agafay/i,
+    addOns: [
+      { id: "balloon-first", label: "🎈 Hot Air Balloon — First Departure (+1,400 DH/pers)", price: 1400 },
+      { id: "balloon-sunset", label: "🎈 Hot Air Balloon — Sunset Departure (+1,200 DH/pers)", price: 1200 },
+      { id: "buggy-small", label: "🏜️ Small Buggy Adventure (+1,000 DH/pers)", price: 1000 },
+      { id: "buggy-big", label: "🏜️ Big Buggy Adventure (+2,000 DH/pers)", price: 2000 },
+    ],
+  },
+];
+
 const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
   const options = tourOptions ?? DEFAULT_TOUR_OPTIONS;
   const initialTour =
