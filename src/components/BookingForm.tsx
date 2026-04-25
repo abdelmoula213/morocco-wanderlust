@@ -47,6 +47,20 @@ const DEFAULT_TOUR_OPTIONS: TourOption[] = [
   },
 ];
 
+// Tour-specific add-ons shown automatically when no explicit `addOns` prop is passed.
+// Matched against the selected tour's value (case-insensitive substring).
+const TOUR_ADDONS: { match: RegExp; addOns: AddOn[] }[] = [
+  {
+    match: /agafay/i,
+    addOns: [
+      { id: "balloon-first", label: "🎈 Hot Air Balloon — First Departure (+1,400 DH/pers)", price: 1400 },
+      { id: "balloon-sunset", label: "🎈 Hot Air Balloon — Sunset Departure (+1,200 DH/pers)", price: 1200 },
+      { id: "buggy-small", label: "🏜️ Small Buggy Adventure (+1,000 DH/pers)", price: 1000 },
+      { id: "buggy-big", label: "🏜️ Big Buggy Adventure (+2,000 DH/pers)", price: 2000 },
+    ],
+  },
+];
+
 const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
   const options = tourOptions ?? DEFAULT_TOUR_OPTIONS;
   const initialTour =
@@ -85,12 +99,21 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     return opt?.price ?? extractPrice(opt?.value ?? formData.tour);
   }, [lockedTour, options, formData.tour]);
 
+  // Effective add-ons: explicit prop wins, otherwise infer from selected tour value.
+  const effectiveAddOns = useMemo<AddOn[]>(() => {
+    if (addOns && addOns.length > 0) return addOns;
+    const currentTour = lockedTour ?? formData.tour;
+    if (!currentTour) return [];
+    const match = TOUR_ADDONS.find((t) => t.match.test(currentTour));
+    return match?.addOns ?? [];
+  }, [addOns, lockedTour, formData.tour]);
+
   const addOnsTotalPerPerson = useMemo(() => {
-    if (!addOns) return 0;
-    return addOns
+    if (!effectiveAddOns.length) return 0;
+    return effectiveAddOns
       .filter((a) => selectedAddOns.includes(a.id))
       .reduce((sum, a) => sum + (a.price ?? extractPrice(a.label)), 0);
-  }, [addOns, selectedAddOns]);
+  }, [effectiveAddOns, selectedAddOns]);
 
   const totalPrice = useMemo(
     () => (tourPrice + addOnsTotalPerPerson) * guestCount,
@@ -104,7 +127,7 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
 
     const tourToSave = lockedTour ?? formData.tour;
 
-    const addOnLabels = (addOns ?? [])
+    const addOnLabels = effectiveAddOns
       .filter((a) => selectedAddOns.includes(a.id))
       .map((a) => a.label);
 
@@ -235,7 +258,7 @@ Message: ${formData.message || "None"}`;
           <select
             required
             value={formData.tour}
-            onChange={(e) => setFormData({ ...formData, tour: e.target.value })}
+            onChange={(e) => { setFormData({ ...formData, tour: e.target.value }); setSelectedAddOns([]); }}
             className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
           >
             <option value="">
@@ -286,13 +309,13 @@ Message: ${formData.message || "None"}`;
         </div>
       </div>
 
-      {addOns && addOns.length > 0 && (
+      {effectiveAddOns.length > 0 && (
         <div>
           <label className="block font-body text-sm font-medium text-foreground mb-2">
             Add Extras (optional)
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {addOns.map((addOn) => {
+            {effectiveAddOns.map((addOn) => {
               const checked = selectedAddOns.includes(addOn.id);
               return (
                 <label
