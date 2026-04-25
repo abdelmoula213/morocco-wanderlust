@@ -72,6 +72,31 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     );
   };
 
+  // ---- Live total price ----
+  const guestCount = useMemo(() => {
+    if (formData.guests === "10+") return 10;
+    const n = parseInt(formData.guests, 10);
+    return isNaN(n) ? 0 : n;
+  }, [formData.guests]);
+
+  const tourPrice = useMemo(() => {
+    if (lockedTour) return extractPrice(lockedTour);
+    const opt = options.find((o) => o.value === formData.tour);
+    return opt?.price ?? extractPrice(opt?.value ?? formData.tour);
+  }, [lockedTour, options, formData.tour]);
+
+  const addOnsTotalPerPerson = useMemo(() => {
+    if (!addOns) return 0;
+    return addOns
+      .filter((a) => selectedAddOns.includes(a.id))
+      .reduce((sum, a) => sum + (a.price ?? extractPrice(a.label)), 0);
+  }, [addOns, selectedAddOns]);
+
+  const totalPrice = useMemo(
+    () => (tourPrice + addOnsTotalPerPerson) * guestCount,
+    [tourPrice, addOnsTotalPerPerson, guestCount],
+  );
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
