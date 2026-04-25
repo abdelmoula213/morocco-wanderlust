@@ -134,7 +134,7 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     // Push to Excel (primary visible copy) — don't block user if it fails
     try {
       await supabase.functions.invoke("excel-append-booking", {
-        body: payload,
+        body: { ...payload, total: totalPrice },
       });
     } catch (excelErr) {
       console.error("Excel sync failed:", excelErr);
@@ -153,9 +153,10 @@ Name: ${formData.name}
 Phone: ${formData.phone}
 Tour: ${tourToSave}
 Date: ${formData.date}
-addOns: ${addOnLabels.length > 0 ? addOnLabels.join(", ") : "None"}
-Message: ${formData.message || "None"}
-Guests: ${formData.guests}`;
+Guests: ${formData.guests}
+Add-ons: ${addOnLabels.length > 0 ? addOnLabels.join(", ") : "None"}
+💰 Total: ${totalPrice > 0 ? `${totalPrice.toLocaleString()} DH` : "TBD"}
+Message: ${formData.message || "None"}`;
 
     window.open(
       `https://wa.me/212679684999?text=${encodeURIComponent(text)}`,
