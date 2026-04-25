@@ -36,6 +36,7 @@ Deno.serve(async (req) => {
     const preferredDate = (body.preferred_date ?? "").toString().slice(0, 50);
     const guests = (body.guests ?? "").toString().slice(0, 20);
     const message = (body.message ?? "").toString().slice(0, 2000);
+    const total = typeof body.total === "number" && isFinite(body.total) ? body.total : 0;
 
     if (!name || !phone || !tour) {
       return new Response(JSON.stringify({ error: "name, phone, tour are required" }), {
