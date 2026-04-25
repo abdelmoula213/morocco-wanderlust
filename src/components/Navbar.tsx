@@ -89,15 +89,6 @@ const Navbar = () => {
           </div>
         </div>
 
-          <button
-            className="lg:hidden text-primary-foreground p-2"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
         {isOpen && (
           <div className="lg:hidden pb-6 flex flex-col gap-3 animate-fade-in">
             {links.map((link) => (
