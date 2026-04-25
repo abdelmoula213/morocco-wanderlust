@@ -15,6 +15,7 @@ interface BookingPayload {
   preferred_date?: string | null;
   guests?: string | null;
   message?: string | null;
+  total?: number | null;
 }
 
 Deno.serve(async (req) => {
