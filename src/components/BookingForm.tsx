@@ -336,6 +336,34 @@ Message: ${formData.message || "None"}`;
         />
       </div>
 
+      {tourPrice > 0 && (
+        <div className="rounded-lg border border-primary/30 bg-primary/5 p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Wallet size={20} className="text-primary" />
+              <span className="font-body text-sm font-medium text-foreground">
+                Estimated Total
+              </span>
+            </div>
+            <span className="font-heading text-xl font-bold text-primary">
+              {totalPrice.toLocaleString()} DH
+            </span>
+          </div>
+          <div className="mt-2 font-body text-xs text-muted-foreground space-y-0.5">
+            <div className="flex justify-between">
+              <span>Tour: {tourPrice.toLocaleString()} DH × {guestCount} {guestCount === 1 ? "guest" : "guests"}</span>
+              <span>{(tourPrice * guestCount).toLocaleString()} DH</span>
+            </div>
+            {addOnsTotalPerPerson > 0 && (
+              <div className="flex justify-between">
+                <span>Extras: {addOnsTotalPerPerson.toLocaleString()} DH × {guestCount}</span>
+                <span>{(addOnsTotalPerPerson * guestCount).toLocaleString()} DH</span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       {error && (
         <p className="text-sm text-destructive font-body text-center">
           {error}
