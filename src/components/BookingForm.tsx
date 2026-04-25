@@ -368,19 +368,23 @@ Message: ${formData.message || "None"}`;
                 Estimated Total
               </span>
             </div>
-            <span className="font-heading text-xl font-bold text-primary">
-              {totalPrice.toLocaleString()} DH
+            <span className="font-heading text-xl font-bold text-primary notranslate" translate="no">
+              {totalPrice.toLocaleString()} MAD
             </span>
           </div>
           <div className="mt-2 font-body text-xs text-muted-foreground space-y-0.5">
             <div className="flex justify-between">
-              <span>Tour: {tourPrice.toLocaleString()} DH × {guestCount} {guestCount === 1 ? "guest" : "guests"}</span>
-              <span>{(tourPrice * guestCount).toLocaleString()} DH</span>
+              <span>
+                Tour: <span className="notranslate" translate="no">{tourPrice.toLocaleString()} MAD</span> × {guestCount} {guestCount === 1 ? "guest" : "guests"}
+              </span>
+              <span className="notranslate" translate="no">{(tourPrice * guestCount).toLocaleString()} MAD</span>
             </div>
             {addOnsTotalPerPerson > 0 && (
               <div className="flex justify-between">
-                <span>Extras: {addOnsTotalPerPerson.toLocaleString()} DH × {guestCount}</span>
-                <span>{(addOnsTotalPerPerson * guestCount).toLocaleString()} DH</span>
+                <span>
+                  Extras: <span className="notranslate" translate="no">{addOnsTotalPerPerson.toLocaleString()} MAD</span> × {guestCount}
+                </span>
+                <span className="notranslate" translate="no">{(addOnsTotalPerPerson * guestCount).toLocaleString()} MAD</span>
               </div>
             )}
           </div>
