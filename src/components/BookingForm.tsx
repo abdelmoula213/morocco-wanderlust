@@ -1,9 +1,16 @@
-import { useState } from "react";
-import { Send, CheckCircle, Loader2 } from "lucide-react";
+import { useMemo, useState } from "react";
+import { Send, CheckCircle, Loader2, Wallet } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
-export type TourOption = { value: string; label: string };
-export type AddOn = { id: string; label: string };
+export type TourOption = { value: string; label: string; price?: number };
+export type AddOn = { id: string; label: string; price?: number };
+
+// Extract first numeric price found in a string like "Sahara Tour - Standard (800 DH)"
+const extractPrice = (s: string | undefined | null): number => {
+  if (!s) return 0;
+  const m = s.replace(/[,\s]/g, "").match(/(\d+)\s*DH/i);
+  return m ? parseInt(m[1], 10) : 0;
+};
 
 interface BookingFormProps {
   /** If set, the tour field is locked to this exact value (no select shown). */
