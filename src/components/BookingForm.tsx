@@ -309,13 +309,13 @@ Message: ${formData.message || "None"}`;
         </div>
       </div>
 
-      {addOns && addOns.length > 0 && (
+      {effectiveAddOns.length > 0 && (
         <div>
           <label className="block font-body text-sm font-medium text-foreground mb-2">
             Add Extras (optional)
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {addOns.map((addOn) => {
+            {effectiveAddOns.map((addOn) => {
               const checked = selectedAddOns.includes(addOn.id);
               return (
                 <label
