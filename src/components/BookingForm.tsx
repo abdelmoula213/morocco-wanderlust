@@ -99,12 +99,21 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     return opt?.price ?? extractPrice(opt?.value ?? formData.tour);
   }, [lockedTour, options, formData.tour]);
 
+  // Effective add-ons: explicit prop wins, otherwise infer from selected tour value.
+  const effectiveAddOns = useMemo<AddOn[]>(() => {
+    if (addOns && addOns.length > 0) return addOns;
+    const currentTour = lockedTour ?? formData.tour;
+    if (!currentTour) return [];
+    const match = TOUR_ADDONS.find((t) => t.match.test(currentTour));
+    return match?.addOns ?? [];
+  }, [addOns, lockedTour, formData.tour]);
+
   const addOnsTotalPerPerson = useMemo(() => {
-    if (!addOns) return 0;
-    return addOns
+    if (!effectiveAddOns.length) return 0;
+    return effectiveAddOns
       .filter((a) => selectedAddOns.includes(a.id))
       .reduce((sum, a) => sum + (a.price ?? extractPrice(a.label)), 0);
-  }, [addOns, selectedAddOns]);
+  }, [effectiveAddOns, selectedAddOns]);
 
   const totalPrice = useMemo(
     () => (tourPrice + addOnsTotalPerPerson) * guestCount,
