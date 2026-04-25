@@ -187,10 +187,10 @@ const AgafayDesert = () => {
           { value: "Agafay Desert - Luxury (700 DH)", label: "Luxury - 700 DH per person" },
         ]}
         addOns={[
-          { id: "hot-air-balloon", label: "🎈 Hot Air Balloon Ride(First Departure):1,400 DH" },
-          { id: "hot-air-balloon", label: "🎈 Hot Air Balloon Ride(Sunset Departure):1,200 DH" },
-          { id: "buggy", label: "🏜️ small Buggy Adventure:1,000 DH " },
-          { id: "buggy", label: "🏜️ big Buggy Adventure:2,000 DH " }
+          { id: "balloon-first", label: "🎈 Hot Air Balloon — First Departure (+1,400 DH/pers)", price: 1400 },
+          { id: "balloon-sunset", label: "🎈 Hot Air Balloon — Sunset Departure (+1,200 DH/pers)", price: 1200 },
+          { id: "buggy-small", label: "🏜️ Small Buggy Adventure (+1,000 DH/pers)", price: 1000 },
+          { id: "buggy-big", label: "🏜️ Big Buggy Adventure (+2,000 DH/pers)", price: 2000 },
         ]}
       />
     </>);

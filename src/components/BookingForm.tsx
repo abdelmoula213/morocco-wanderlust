@@ -1,9 +1,16 @@
-import { useState } from "react";
-import { Send, CheckCircle, Loader2 } from "lucide-react";
+import { useMemo, useState } from "react";
+import { Send, CheckCircle, Loader2, Wallet } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
-export type TourOption = { value: string; label: string };
-export type AddOn = { id: string; label: string };
+export type TourOption = { value: string; label: string; price?: number };
+export type AddOn = { id: string; label: string; price?: number };
+
+// Extract first numeric price found in a string like "Sahara Tour - Standard (800 DH)"
+const extractPrice = (s: string | undefined | null): number => {
+  if (!s) return 0;
+  const m = s.replace(/[,\s]/g, "").match(/(\d+)\s*DH/i);
+  return m ? parseInt(m[1], 10) : 0;
+};
 
 interface BookingFormProps {
   /** If set, the tour field is locked to this exact value (no select shown). */
@@ -65,6 +72,31 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     );
   };
 
+  // ---- Live total price ----
+  const guestCount = useMemo(() => {
+    if (formData.guests === "10+") return 10;
+    const n = parseInt(formData.guests, 10);
+    return isNaN(n) ? 0 : n;
+  }, [formData.guests]);
+
+  const tourPrice = useMemo(() => {
+    if (lockedTour) return extractPrice(lockedTour);
+    const opt = options.find((o) => o.value === formData.tour);
+    return opt?.price ?? extractPrice(opt?.value ?? formData.tour);
+  }, [lockedTour, options, formData.tour]);
+
+  const addOnsTotalPerPerson = useMemo(() => {
+    if (!addOns) return 0;
+    return addOns
+      .filter((a) => selectedAddOns.includes(a.id))
+      .reduce((sum, a) => sum + (a.price ?? extractPrice(a.label)), 0);
+  }, [addOns, selectedAddOns]);
+
+  const totalPrice = useMemo(
+    () => (tourPrice + addOnsTotalPerPerson) * guestCount,
+    [tourPrice, addOnsTotalPerPerson, guestCount],
+  );
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -102,7 +134,7 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     // Push to Excel (primary visible copy) — don't block user if it fails
     try {
       await supabase.functions.invoke("excel-append-booking", {
-        body: payload,
+        body: { ...payload, total: totalPrice },
       });
     } catch (excelErr) {
       console.error("Excel sync failed:", excelErr);
@@ -121,9 +153,10 @@ Name: ${formData.name}
 Phone: ${formData.phone}
 Tour: ${tourToSave}
 Date: ${formData.date}
-addOns: ${addOnLabels.length > 0 ? addOnLabels.join(", ") : "None"}
-Message: ${formData.message || "None"}
-Guests: ${formData.guests}`;
+Guests: ${formData.guests}
+Add-ons: ${addOnLabels.length > 0 ? addOnLabels.join(", ") : "None"}
+💰 Total: ${totalPrice > 0 ? `${totalPrice.toLocaleString()} DH` : "TBD"}
+Message: ${formData.message || "None"}`;
 
     window.open(
       `https://wa.me/212679684999?text=${encodeURIComponent(text)}`,
@@ -302,6 +335,34 @@ Guests: ${formData.guests}`;
           placeholder="Any special requirements or questions..."
         />
       </div>
+
+      {tourPrice > 0 && (
+        <div className="rounded-lg border border-primary/30 bg-primary/5 p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Wallet size={20} className="text-primary" />
+              <span className="font-body text-sm font-medium text-foreground">
+                Estimated Total
+              </span>
+            </div>
+            <span className="font-heading text-xl font-bold text-primary">
+              {totalPrice.toLocaleString()} DH
+            </span>
+          </div>
+          <div className="mt-2 font-body text-xs text-muted-foreground space-y-0.5">
+            <div className="flex justify-between">
+              <span>Tour: {tourPrice.toLocaleString()} DH × {guestCount} {guestCount === 1 ? "guest" : "guests"}</span>
+              <span>{(tourPrice * guestCount).toLocaleString()} DH</span>
+            </div>
+            {addOnsTotalPerPerson > 0 && (
+              <div className="flex justify-between">
+                <span>Extras: {addOnsTotalPerPerson.toLocaleString()} DH × {guestCount}</span>
+                <span>{(addOnsTotalPerPerson * guestCount).toLocaleString()} DH</span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {error && (
         <p className="text-sm text-destructive font-body text-center">
