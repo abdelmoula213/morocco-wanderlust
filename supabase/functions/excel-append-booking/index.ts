@@ -59,7 +59,7 @@ Deno.serve(async (req) => {
       method: "POST",
       headers,
       body: JSON.stringify({
-        values: [[submittedAt, name, phone, tour, preferredDate, guests, message, "New"]],
+        values: [[submittedAt, name, phone, tour, preferredDate, guests, message, "New", total]],
       }),
     });
 
