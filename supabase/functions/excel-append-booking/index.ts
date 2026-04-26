@@ -16,6 +16,7 @@ interface BookingPayload {
   guests?: string | null;
   message?: string | null;
   total?: number | null;
+  price?: string | null;
 }
 
 Deno.serve(async (req) => {
@@ -37,6 +38,7 @@ Deno.serve(async (req) => {
     const guests = (body.guests ?? "").toString().slice(0, 20);
     const message = (body.message ?? "").toString().slice(0, 2000);
     const total = typeof body.total === "number" && isFinite(body.total) ? body.total : 0;
+    const price = (body.price ?? "").toString().slice(0, 500);
 
     if (!name || !phone || !tour) {
       return new Response(JSON.stringify({ error: "name, phone, tour are required" }), {
@@ -59,7 +61,7 @@ Deno.serve(async (req) => {
       method: "POST",
       headers,
       body: JSON.stringify({
-        values: [[submittedAt, name, phone, tour, preferredDate, guests, message, "New", total]],
+        values: [[submittedAt, name, phone, tour, preferredDate, guests, message, "New", total, price]],
       }),
     });
 
