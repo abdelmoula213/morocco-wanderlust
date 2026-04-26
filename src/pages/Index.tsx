@@ -18,7 +18,7 @@ const tours = [
     image: saharaImage,
     title: "3-Day Sahara Desert Tour",
     description: "Marrakech → Ait Ben Haddou → Ouarzazate → Merzouga. Camel trek, night in Sahara camp.",
-    price: "From 800 MAD",
+    price: "From 800 DH",
     duration: "3 Days / 2 Nights",
     badge: "Most Popular",
     link: "/sahara-desert-tour",
@@ -27,7 +27,7 @@ const tours = [
     image: agafayImage,
     title: "Agafay Desert Experience",
     description: "Quad biking, camel rides, sunset dinner & camp. Just 30 min from Marrakech.",
-    price: "From 400 MAD",
+    price: "From 400 DH",
     duration: "Half Day / Full Day",
     badge: "Same-Day Booking",
     link: "/agafay-desert",
@@ -36,7 +36,7 @@ const tours = [
     image: atlasImage,
     title: "Imlil Day Tour",
     description: "Guided mountain walk, waterfalls & Berber villages in the Atlas Mountains.",
-    price: "150 MAD",
+    price: "150 DH",
     duration: "Full Day",
     link: "/atlas-mountains",
   },
@@ -44,7 +44,7 @@ const tours = [
     image: ouzoudImage,
     title: "Ouzoud Waterfalls Tour",
     description: "Morocco's most spectacular waterfalls — guided tour & free time for photos.",
-    price: "200 MAD",
+    price: "200 DH",
     duration: "Full Day",
     link: "/ouzoud-waterfalls",
   },
@@ -52,7 +52,7 @@ const tours = [
     image: ourikaImage,
     title: "Ourika Valley Tour",
     description: "Green valley escape — guided tour, waterfall walk & stunning nature.",
-    price: "150 MAD",
+    price: "150 DH",
     duration: "Full Day",
     link: "/ourika-valley",
   },
@@ -60,7 +60,7 @@ const tours = [
     image: essaouiraImage,
     title: "Essaouira Day Trip",
     description: "Atlantic coastal escape — medina, port & free time by the sea.",
-    price: "200 MAD",
+    price: "200 DH",
     duration: "Full Day",
     link: "/essaouira",
   },
@@ -210,11 +210,11 @@ const Index = () => {
             </div>
             <div className="flex flex-wrap gap-6 mb-8">
               <div>
-                <p className="font-heading text-3xl font-bold text-accent">800 MAD</p>
+                <p className="font-heading text-3xl font-bold text-accent">800 DH</p>
                 <p className="font-body text-xs text-primary-foreground/60">Standard Package</p>
               </div>
               <div>
-                <p className="font-heading text-3xl font-bold text-primary-foreground">2,000 MAD</p>
+                <p className="font-heading text-3xl font-bold text-primary-foreground">2,000 DH</p>
                 <p className="font-body text-xs text-primary-foreground/60">Luxury Package</p>
               </div>
             </div>

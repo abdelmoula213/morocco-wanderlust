@@ -355,7 +355,7 @@ const SaharaDesertGuide = () => {
             </h3>
             <ul className="space-y-2">
               {[
-                "Lunches (~40-60 MAD each)",
+                "Lunches (~40-60 DH each)",
                 "Drinks and snacks",
                 "Tips (optional, appreciated)",
                 "Personal expenses",
@@ -619,7 +619,7 @@ const SaharaDesertGuide = () => {
             Book Your 3-Day Sahara Tour
           </h2>
           <p className="font-body text-muted-foreground mb-2">
-            From 800 MAD per person. No prepayment, free cancellation up to 24h
+            From 800 DH per person. No prepayment, free cancellation up to 24h
             before.
           </p>
           <p className="font-body text-sm text-muted-foreground mb-6">

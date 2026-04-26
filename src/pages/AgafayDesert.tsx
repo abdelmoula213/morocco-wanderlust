@@ -54,7 +54,7 @@ const AgafayDesert = () => {
               <div className="bg-card rounded-2xl p-6 shadow-warm border border-border">
                 <p className="font-body text-xs font-semibold text-primary uppercase tracking-widest mb-2">Standard</p>
                 <div className="mb-4">
-                  <span className="font-heading text-4xl font-bold text-foreground">400 MAD</span>
+                  <span className="font-heading text-4xl font-bold text-foreground">400 DH</span>
                   <span className="font-body text-sm text-muted-foreground ml-1">/ person</span>
                 </div>
                 <ul className="space-y-3 mb-6">
@@ -78,7 +78,7 @@ const AgafayDesert = () => {
                 </div>
                 <p className="font-body text-xs font-semibold text-accent-foreground uppercase tracking-widest mb-2">Luxury</p>
                 <div className="mb-4">
-                  <span className="font-heading text-4xl font-bold text-foreground">700 MAD</span>
+                  <span className="font-heading text-4xl font-bold text-foreground">700 DH</span>
                   <span className="font-body text-sm text-muted-foreground ml-1">/ person</span>
                 </div>
                 <ul className="space-y-3 mb-6">
@@ -109,7 +109,7 @@ const AgafayDesert = () => {
                         <p className="font-body text-sm font-medium text-foreground">Small Buggy</p>
                         <p className="font-body text-xs text-muted-foreground">2 seats</p>
                       </div>
-                      <span className="font-heading text-lg font-bold text-primary">1,000 MAD</span>
+                      <span className="font-heading text-lg font-bold text-primary">1,000 DH</span>
                     </div>
                   </div>
                   <div>
@@ -119,7 +119,7 @@ const AgafayDesert = () => {
                         <p className="font-body text-sm font-medium text-foreground">Big Buggy</p>
                         <p className="font-body text-xs text-muted-foreground">4 seats</p>
                       </div>
-                      <span className="font-heading text-lg font-bold text-primary">2,000 MAD</span>
+                      <span className="font-heading text-lg font-bold text-primary">2,000 DH</span>
                     </div>
                   </div>
                 </div>
@@ -135,14 +135,14 @@ const AgafayDesert = () => {
                       <p className="font-body text-sm font-medium text-foreground">First Departure</p>
                       <p className="font-body text-xs text-muted-foreground">16:30</p>
                     </div>
-                    <span className="font-heading text-lg font-bold text-primary">1,400 MAD</span>
+                    <span className="font-heading text-lg font-bold text-primary">1,400 DH</span>
                   </div>
                   <div className="flex items-center justify-between p-3 rounded-lg bg-secondary">
                     <div>
                       <p className="font-body text-sm font-medium text-foreground">Sunset Departure</p>
                       <p className="font-body text-xs text-muted-foreground">Golden hour</p>
                     </div>
-                    <span className="font-heading text-lg font-bold text-primary">1,200 MAD</span>
+                    <span className="font-heading text-lg font-bold text-primary">1,200 DH</span>
                   </div>
                 </div>
               </div>
@@ -183,14 +183,14 @@ const AgafayDesert = () => {
         title="Book Your Agafay Desert Experience"
         subtitle="Choose your experience type — we'll confirm by email"
         tourOptions={[
-          { value: "Agafay Desert - Standard (400 MAD)", label: "Standard - 400 MAD per person" },
-          { value: "Agafay Desert - Luxury (700 MAD)", label: "Luxury - 700 MAD per person" },
+          { value: "Agafay Desert - Standard (400 DH)", label: "Standard - 400 DH per person" },
+          { value: "Agafay Desert - Luxury (700 DH)", label: "Luxury - 700 DH per person" },
         ]}
         addOns={[
-          { id: "balloon-first", label: "🎈 Hot Air Balloon — First Departure (+1,400 MAD/pers)", price: 1400 },
-          { id: "balloon-sunset", label: "🎈 Hot Air Balloon — Sunset Departure (+1,200 MAD/pers)", price: 1200 },
-          { id: "buggy-small", label: "🏜️ Small Buggy Adventure (+1,000 MAD/pers)", price: 1000 },
-          { id: "buggy-big", label: "🏜️ Big Buggy Adventure (+2,000 MAD/pers)", price: 2000 },
+          { id: "balloon-first", label: "🎈 Hot Air Balloon — First Departure (+1,400 DH/pers)", price: 1400 },
+          { id: "balloon-sunset", label: "🎈 Hot Air Balloon — Sunset Departure (+1,200 DH/pers)", price: 1200 },
+          { id: "buggy-small", label: "🏜️ Small Buggy Adventure (+1,000 DH/pers)", price: 1000 },
+          { id: "buggy-big", label: "🏜️ Big Buggy Adventure (+2,000 DH/pers)", price: 2000 },
         ]}
       />
     </>);

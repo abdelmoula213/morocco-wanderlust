@@ -83,7 +83,7 @@ const AtlasMountains = () => {
       <div className="container mx-auto px-4 py-16">
         {/* Trust badges */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {["Hotel Pickup Included", "Pay on Arrival", "Tour Only — 150 MAD/person"].map((b) => (
+          {["Hotel Pickup Included", "Pay on Arrival", "Tour Only — 150 DH/person"].map((b) => (
             <span key={b} className="flex items-center gap-2 bg-secondary text-secondary-foreground font-body text-sm px-4 py-2 rounded-full">
               <CheckCircle size={14} className="text-primary" /> {b}
             </span>
@@ -180,7 +180,7 @@ const AtlasMountains = () => {
 
       <BookingFormSection
         title="Book Your Atlas Mountains Tour"
-        lockedTour="Imlil Day Tour (150 MAD)"
+        lockedTour="Imlil Day Tour (150 DH)"
       />
     </>
   );

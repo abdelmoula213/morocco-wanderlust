@@ -5,10 +5,10 @@ import { supabase } from "@/integrations/supabase/client";
 export type TourOption = { value: string; label: string; price?: number };
 export type AddOn = { id: string; label: string; price?: number };
 
-// Extract first numeric price found in a string like "Sahara Tour - Standard (800 MAD)"
+// Extract first numeric price found in a string like "Sahara Tour - Standard (800 DH)"
 const extractPrice = (s: string | undefined | null): number => {
   if (!s) return 0;
-  const m = s.replace(/[,\s]/g, "").match(/(\d+)\s*(?:MAD|DH)/i);
+  const m = s.replace(/[,\s]/g, "").match(/(\d+)\s*DH/i);
   return m ? parseInt(m[1], 10) : 0;
 };
 
@@ -23,27 +23,27 @@ interface BookingFormProps {
 
 const DEFAULT_TOUR_OPTIONS: TourOption[] = [
   {
-    value: "3-Day Sahara Desert Tour - Standard (800 MAD)",
-    label: "Sahara Tour - Standard (800 MAD)",
+    value: "3-Day Sahara Desert Tour - Standard (800 DH)",
+    label: "Sahara Tour - Standard (800 DH)",
   },
   {
-    value: "3-Day Sahara Desert Tour - Luxury (2000 MAD)",
-    label: "Sahara Tour - Luxury (2,000 MAD)",
+    value: "3-Day Sahara Desert Tour - Luxury (2000 DH)",
+    label: "Sahara Tour - Luxury (2,000 DH)",
   },
   {
-    value: "Agafay Desert - Standard (400 MAD)",
-    label: "Agafay Desert - Standard (400 MAD)",
+    value: "Agafay Desert - Standard (400 DH)",
+    label: "Agafay Desert - Standard (400 DH)",
   },
   {
-    value: "Agafay Desert - Luxury (700 MAD)",
-    label: "Agafay Desert - Luxury (700 MAD)",
+    value: "Agafay Desert - Luxury (700 DH)",
+    label: "Agafay Desert - Luxury (700 DH)",
   },
-  { value: "Imlil Day Tour (150 MAD)", label: "Imlil Day Tour (150 MAD)" },
-  { value: "Ouzoud Waterfalls (200 MAD)", label: "Ouzoud Waterfalls (200 MAD)" },
-  { value: "Ourika Valley (150 MAD)", label: "Ourika Valley (150 MAD)" },
+  { value: "Imlil Day Tour (150 DH)", label: "Imlil Day Tour (150 DH)" },
+  { value: "Ouzoud Waterfalls (200 DH)", label: "Ouzoud Waterfalls (200 DH)" },
+  { value: "Ourika Valley (150 DH)", label: "Ourika Valley (150 DH)" },
   {
-    value: "Essaouira Day Trip (200 MAD)",
-    label: "Essaouira Day Trip (200 MAD)",
+    value: "Essaouira Day Trip (200 DH)",
+    label: "Essaouira Day Trip (200 DH)",
   },
 ];
 
@@ -53,10 +53,10 @@ const TOUR_ADDONS: { match: RegExp; addOns: AddOn[] }[] = [
   {
     match: /agafay/i,
     addOns: [
-      { id: "balloon-first", label: "🎈 Hot Air Balloon — First Departure (+1,400 MAD/pers)", price: 1400 },
-      { id: "balloon-sunset", label: "🎈 Hot Air Balloon — Sunset Departure (+1,200 MAD/pers)", price: 1200 },
-      { id: "buggy-small", label: "🏜️ Small Buggy Adventure (+1,000 MAD/pers)", price: 1000 },
-      { id: "buggy-big", label: "🏜️ Big Buggy Adventure (+2,000 MAD/pers)", price: 2000 },
+      { id: "balloon-first", label: "🎈 Hot Air Balloon — First Departure (+1,400 DH/pers)", price: 1400 },
+      { id: "balloon-sunset", label: "🎈 Hot Air Balloon — Sunset Departure (+1,200 DH/pers)", price: 1200 },
+      { id: "buggy-small", label: "🏜️ Small Buggy Adventure (+1,000 DH/pers)", price: 1000 },
+      { id: "buggy-big", label: "🏜️ Big Buggy Adventure (+2,000 DH/pers)", price: 2000 },
     ],
   },
 ];
@@ -178,7 +178,7 @@ Tour: ${tourToSave}
 Date: ${formData.date}
 Guests: ${formData.guests}
 Add-ons: ${addOnLabels.length > 0 ? addOnLabels.join(", ") : "None"}
-💰 Total: ${totalPrice > 0 ? `${totalPrice.toLocaleString()} MAD` : "TBD"}
+💰 Total: ${totalPrice > 0 ? `${totalPrice.toLocaleString()} DH` : "TBD"}
 Message: ${formData.message || "None"}`;
 
     window.open(
@@ -368,23 +368,19 @@ Message: ${formData.message || "None"}`;
                 Estimated Total
               </span>
             </div>
-            <span className="font-heading text-xl font-bold text-primary notranslate" translate="no">
-              {totalPrice.toLocaleString()} MAD
+            <span className="font-heading text-xl font-bold text-primary">
+              {totalPrice.toLocaleString()} DH
             </span>
           </div>
           <div className="mt-2 font-body text-xs text-muted-foreground space-y-0.5">
             <div className="flex justify-between">
-              <span>
-                Tour: <span className="notranslate" translate="no">{tourPrice.toLocaleString()} MAD</span> × {guestCount} {guestCount === 1 ? "guest" : "guests"}
-              </span>
-              <span className="notranslate" translate="no">{(tourPrice * guestCount).toLocaleString()} MAD</span>
+              <span>Tour: {tourPrice.toLocaleString()} DH × {guestCount} {guestCount === 1 ? "guest" : "guests"}</span>
+              <span>{(tourPrice * guestCount).toLocaleString()} DH</span>
             </div>
             {addOnsTotalPerPerson > 0 && (
               <div className="flex justify-between">
-                <span>
-                  Extras: <span className="notranslate" translate="no">{addOnsTotalPerPerson.toLocaleString()} MAD</span> × {guestCount}
-                </span>
-                <span className="notranslate" translate="no">{(addOnsTotalPerPerson * guestCount).toLocaleString()} MAD</span>
+                <span>Extras: {addOnsTotalPerPerson.toLocaleString()} DH × {guestCount}</span>
+                <span>{(addOnsTotalPerPerson * guestCount).toLocaleString()} DH</span>
               </div>
             )}
           </div>

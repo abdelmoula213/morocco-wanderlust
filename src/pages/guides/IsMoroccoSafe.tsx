@@ -241,9 +241,9 @@ const IsMoroccoSafe = () => {
             },
             {
               scam: "The Photo Trap",
-              how: "Someone with a snake, monkey, or in traditional costume invites you to take a photo, then demands money (50-100 MAD).",
+              how: "Someone with a snake, monkey, or in traditional costume invites you to take a photo, then demands money (50-100 DH).",
               avoid:
-                "Don't take photos unless you're willing to pay 10-20 MAD. If they approach you, a firm 'no' works.",
+                "Don't take photos unless you're willing to pay 10-20 DH. If they approach you, a firm 'no' works.",
             },
             {
               scam: "Taxi Overcharging",
@@ -332,7 +332,7 @@ const IsMoroccoSafe = () => {
             {
               type: "Taxis (Petit Taxi)",
               safety: "Safe",
-              desc: "Small city taxis are generally safe. Insist on the meter. In Marrakech, the minimum fare is about 7 MAD. Avoid taxis that are already occupied. Late at night, agree the fare before getting in.",
+              desc: "Small city taxis are generally safe. Insist on the meter. In Marrakech, the minimum fare is about 7 DH. Avoid taxis that are already occupied. Late at night, agree the fare before getting in.",
             },
             {
               type: "Grand Taxis (Shared)",
@@ -387,7 +387,7 @@ const IsMoroccoSafe = () => {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
           {[
-            "Drink bottled water only (cheap everywhere — 5-7 MAD for 1.5L)",
+            "Drink bottled water only (cheap everywhere — 5-7 DH for 1.5L)",
             "Eat at busy restaurants — high turnover means fresh food",
             "Street food at Jemaa el-Fnaa is generally safe — choose busy stalls",
             "Be cautious with raw salads at very basic restaurants",
@@ -501,7 +501,7 @@ const IsMoroccoSafe = () => {
             "Agree on prices before any transaction",
             "Drink bottled water only",
             "Dress modestly, especially in rural areas",
-            "Carry small change for tips (10-20 MAD)",
+            "Carry small change for tips (10-20 DH)",
             "Learn 'La shukran' (no thank you)",
             "Keep valuables in a hotel safe or money belt",
             "Have comprehensive travel insurance",

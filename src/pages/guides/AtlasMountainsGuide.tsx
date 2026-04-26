@@ -113,7 +113,7 @@ const AtlasMountainsGuide = () => {
               ))}
             </ul>
             <div className="mt-4 pt-3 border-t border-border">
-              <span className="font-heading text-xl font-bold text-primary">150 MAD</span>
+              <span className="font-heading text-xl font-bold text-primary">150 DH</span>
               <span className="font-body text-xs text-muted-foreground ml-1">per person</span>
             </div>
           </div>
@@ -135,7 +135,7 @@ const AtlasMountainsGuide = () => {
               ))}
             </ul>
             <div className="mt-4 pt-3 border-t border-border">
-              <span className="font-heading text-xl font-bold text-primary">150 MAD</span>
+              <span className="font-heading text-xl font-bold text-primary">150 DH</span>
               <span className="font-body text-xs text-muted-foreground ml-1">per person</span>
             </div>
           </div>
@@ -210,7 +210,7 @@ const AtlasMountainsGuide = () => {
         {/* What to Wear */}
         <h2 id="what-to-wear" className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">What to Wear & Bring</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
-          {["Comfortable hiking shoes with grip", "Layers — warm in sun, cool in shade", "Sunscreen SPF 50+ & hat", "Water bottle (1L minimum)", "Cash for souvenirs/tips (50-100 MAD)", "Camera with charged battery", "Light rain jacket (spring/autumn)", "Small backpack for the hike"].map((item) => (
+          {["Comfortable hiking shoes with grip", "Layers — warm in sun, cool in shade", "Sunscreen SPF 50+ & hat", "Water bottle (1L minimum)", "Cash for souvenirs/tips (50-100 DH)", "Camera with charged battery", "Light rain jacket (spring/autumn)", "Small backpack for the hike"].map((item) => (
             <div key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
               <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" /> {item}
             </div>
@@ -258,18 +258,18 @@ const AtlasMountainsGuide = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="text-center p-4 bg-secondary rounded-lg">
               <p className="font-body text-xs text-muted-foreground uppercase tracking-wider mb-1">Imlil Day Trip</p>
-              <p className="font-heading text-3xl font-bold text-foreground">150 MAD</p>
+              <p className="font-heading text-3xl font-bold text-foreground">150 DH</p>
               <p className="font-body text-xs text-muted-foreground">per person (~€14)</p>
             </div>
             <div className="text-center p-4 bg-secondary rounded-lg">
               <p className="font-body text-xs text-muted-foreground uppercase tracking-wider mb-1">Ourika Day Trip</p>
-              <p className="font-heading text-3xl font-bold text-foreground">150 MAD</p>
+              <p className="font-heading text-3xl font-bold text-foreground">150 DH</p>
               <p className="font-body text-xs text-muted-foreground">per person (~€14)</p>
             </div>
           </div>
         </div>
         <p className="font-body text-sm text-muted-foreground mb-10">
-          Includes: hotel pickup & drop-off, transport, local guide. Lunch is not included (~50-80 MAD at a local restaurant).
+          Includes: hotel pickup & drop-off, transport, local guide. Lunch is not included (~50-80 DH at a local restaurant).
         </p>
 
         {/* Tips */}
@@ -278,7 +278,7 @@ const AtlasMountainsGuide = () => {
           {[
             "The drive to Imlil passes through stunning scenery — sit by the window and keep your camera ready.",
             "Buy argan oil directly from the cooperatives — it's more authentic and cheaper than in Marrakech.",
-            "Tip your mountain guide 30-50 MAD per person — they're local Berber guides who depend on tips.",
+            "Tip your mountain guide 30-50 DH per person — they're local Berber guides who depend on tips.",
             "If visiting Ourika on a Monday, you'll catch the weekly Berber market — great for photos and authentic souvenirs.",
             "Combine Ourika with an afternoon at a hammam back in Marrakech for the ultimate relaxation day.",
             "Ask your guide about local legends and history — the Berber people have fascinating stories.",
@@ -296,7 +296,7 @@ const AtlasMountainsGuide = () => {
             { q: "Do I need hiking boots?", a: "Proper hiking boots aren't necessary for the day trips. Comfortable walking shoes or sneakers with good grip are fine. Avoid flip-flops or sandals — the terrain is uneven." },
             { q: "Is it suitable for children?", a: "Ourika is great for kids aged 5+. Imlil is better for ages 8+ due to the slightly more challenging terrain. Both routes have shorter options if needed." },
             { q: "Can I do both Imlil and Ourika in one day?", a: "We don't recommend it — each trip takes a full day and you'd miss the best parts of both. Better to choose one and enjoy it fully." },
-            { q: "Is lunch included?", a: "Lunch is not included in the tour price but is very affordable (50-80 MAD for a full tagine meal). The restaurants have amazing views." },
+            { q: "Is lunch included?", a: "Lunch is not included in the tour price but is very affordable (50-80 DH for a full tagine meal). The restaurants have amazing views." },
             { q: "What if it rains?", a: "Light rain is fine — the mountains are beautiful in the rain. Heavy rain can make the Ourika waterfalls dangerous, in which case your guide will adjust the route. The tour still runs in all weather." },
           ].map((item, i) => (
             <div key={i} className="bg-card rounded-xl p-5 shadow-warm">
@@ -310,7 +310,7 @@ const AtlasMountainsGuide = () => {
         <div className="bg-card rounded-2xl p-8 shadow-warm-lg text-center">
           <h2 className="font-heading text-2xl font-bold text-foreground mb-3">Book Your Atlas Mountains Trip</h2>
           <p className="font-body text-muted-foreground mb-2">
-            From just 150 MAD per person. Hotel pickup, local Berber guide, pay on arrival.
+            From just 150 DH per person. Hotel pickup, local Berber guide, pay on arrival.
           </p>
           <p className="font-body text-sm text-muted-foreground mb-6">
             ✅ Free cancellation · ✅ Small groups · ✅ Local expert guides

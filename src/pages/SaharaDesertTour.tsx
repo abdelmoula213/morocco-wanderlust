@@ -98,7 +98,7 @@ const SaharaDesertTour = () => {
               <div className="bg-card rounded-2xl p-6 shadow-warm border border-border">
                 <p className="font-body text-xs font-semibold text-primary uppercase tracking-widest mb-2">Standard</p>
                 <div className="mb-4">
-                  <span className="font-heading text-4xl font-bold text-foreground">800 MAD</span>
+                  <span className="font-heading text-4xl font-bold text-foreground">800 DH</span>
                   <span className="font-body text-sm text-muted-foreground ml-1">/ person</span>
                 </div>
                 <ul className="space-y-3 mb-4">
@@ -126,7 +126,7 @@ const SaharaDesertTour = () => {
                 </div>
                 <p className="font-body text-xs font-semibold text-accent-foreground uppercase tracking-widest mb-2">Luxury</p>
                 <div className="mb-4">
-                  <span className="font-heading text-4xl font-bold text-foreground">2,000 MAD</span>
+                  <span className="font-heading text-4xl font-bold text-foreground">2,000 DH</span>
                   <span className="font-body text-sm text-muted-foreground ml-1">/ person</span>
                 </div>
                 <ul className="space-y-3 mb-4">
@@ -200,8 +200,8 @@ const SaharaDesertTour = () => {
         title="Book Your Sahara Desert Tour"
         subtitle="Choose your experience type — we'll confirm by email"
         tourOptions={[
-          { value: "3-Day Sahara Desert Tour - Standard (800 MAD)", label: "Standard - 800 MAD per person" },
-          { value: "3-Day Sahara Desert Tour - Luxury (2000 MAD)", label: "Luxury - 2,000 MAD per person" },
+          { value: "3-Day Sahara Desert Tour - Standard (800 DH)", label: "Standard - 800 DH per person" },
+          { value: "3-Day Sahara Desert Tour - Luxury (2000 DH)", label: "Luxury - 2,000 DH per person" },
         ]}
       />
     </>
