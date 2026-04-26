@@ -140,6 +140,23 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     }
     const messageToSave = messageParts.join("\n\n") || null;
 
+    // Build a human-readable price breakdown
+    const breakdownParts: string[] = [];
+    if (tourPrice > 0) {
+      breakdownParts.push(
+        `Tour ${tourPrice.toLocaleString()} DH × ${guestCount} = ${(tourPrice * guestCount).toLocaleString()} DH`,
+      );
+    }
+    if (addOnsTotalPerPerson > 0) {
+      breakdownParts.push(
+        `Extras ${addOnsTotalPerPerson.toLocaleString()} DH × ${guestCount} = ${(addOnsTotalPerPerson * guestCount).toLocaleString()} DH`,
+      );
+    }
+    const priceBreakdown =
+      totalPrice > 0
+        ? `${breakdownParts.join(" + ")} → Total ${totalPrice.toLocaleString()} DH`
+        : "TBD";
+
     const payload = {
       name: formData.name.trim(),
       phone: formData.phone.trim(),
@@ -147,6 +164,7 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
       preferred_date: formData.date || null,
       guests: formData.guests,
       message: messageToSave,
+      price: priceBreakdown,
     };
 
     // Save to database (backup)
@@ -157,7 +175,7 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     // Push to Excel (primary visible copy) — don't block user if it fails
     try {
       await supabase.functions.invoke("excel-append-booking", {
-        body: { ...payload, total: totalPrice },
+        body: { ...payload, total: totalPrice, price: priceBreakdown },
       });
     } catch (excelErr) {
       console.error("Excel sync failed:", excelErr);
