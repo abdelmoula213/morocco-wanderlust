@@ -8,7 +8,7 @@ export type AddOn = { id: string; label: string; price?: number };
 // Extract first numeric price found in a string like "Sahara Tour - Standard (800 MAD)"
 const extractPrice = (s: string | undefined | null): number => {
   if (!s) return 0;
-  const m = s.replace(/[,\s]/g, "").match(/(\d+)\s*DH/i);
+  const m = s.replace(/[,\s]/g, "").match(/(\d+)\s*(?:MAD|DH)/i);
   return m ? parseInt(m[1], 10) : 0;
 };
 
