@@ -101,7 +101,7 @@ const OuzoudWaterfalls = () => {
           <div className="bg-card rounded-2xl p-6 shadow-warm">
             <h3 className="font-heading text-lg font-bold text-foreground mb-4">Not Included</h3>
             <ul className="space-y-3">
-              {["Lunch (available at local restaurants ~50-80 DH)", "Boat ride under the falls (~20 DH)", "Personal expenses & tips", "Drinks"].map((item) => (
+              {["Lunch (available at local restaurants ~50-80 MAD)", "Boat ride under the falls (~20 MAD)", "Personal expenses & tips", "Drinks"].map((item) => (
                 <li key={item} className="flex items-start gap-2 font-body text-sm text-muted-foreground">
                   <X size={14} className="text-destructive mt-0.5 shrink-0" /> {item}
                 </li>
@@ -130,7 +130,7 @@ const OuzoudWaterfalls = () => {
 
       <BookingFormSection
         title="Book Your Ouzoud Waterfalls Tour"
-        lockedTour="Ouzoud Waterfalls (200 DH)"
+        lockedTour="Ouzoud Waterfalls (200 MAD)"
       />
     </>
   );

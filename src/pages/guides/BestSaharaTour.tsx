@@ -222,12 +222,12 @@ const BestSaharaTour = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="text-center p-4 bg-secondary rounded-lg">
               <p className="font-body text-xs text-muted-foreground uppercase tracking-wider mb-1">Standard Shared</p>
-              <p className="font-heading text-3xl font-bold text-foreground">800 DH</p>
+              <p className="font-heading text-3xl font-bold text-foreground">800 MAD</p>
               <p className="font-body text-xs text-muted-foreground">per person (~€75)</p>
             </div>
             <div className="text-center p-4 bg-gold-light rounded-lg border border-accent/30">
               <p className="font-body text-xs text-accent-foreground uppercase tracking-wider mb-1">Luxury</p>
-              <p className="font-heading text-3xl font-bold text-foreground">2,000 DH</p>
+              <p className="font-heading text-3xl font-bold text-foreground">2,000 MAD</p>
               <p className="font-body text-xs text-muted-foreground">per person (~€185)</p>
             </div>
           </div>
@@ -239,7 +239,7 @@ const BestSaharaTour = () => {
         <div className="bg-secondary rounded-xl p-4 mb-10">
           <p className="font-body text-sm text-secondary-foreground">
             <AlertTriangle size={12} className="inline text-accent mr-1" />
-            <strong>Price warning:</strong> Be wary of tours advertised under 500 DH — they often skip major stops, use uncomfortable vehicles, or have hidden costs for "optional" activities that should be included.
+            <strong>Price warning:</strong> Be wary of tours advertised under 500 MAD — they often skip major stops, use uncomfortable vehicles, or have hidden costs for "optional" activities that should be included.
           </p>
         </div>
 
@@ -313,7 +313,7 @@ const BestSaharaTour = () => {
             <h3 className="font-body text-sm font-semibold text-destructive uppercase tracking-wider mb-3">❌ Not Included</h3>
             <ul className="space-y-2">
               {[
-                "Lunches (expect ~40-60 DH per meal)",
+                "Lunches (expect ~40-60 MAD per meal)",
                 "Drinks and snacks",
                 "Tips for driver/guide (optional)",
                 "Personal expenses and souvenirs",
@@ -449,7 +449,7 @@ const BestSaharaTour = () => {
             "Ask your driver to stop at the panoramic viewpoints — they know all the best photo spots that aren't on any map.",
             "The luxury camp upgrade is worth it for couples — private tent, real bed, and a hot shower after a dusty day.",
             "Download offline maps before the trip — there's no cell service in much of the desert.",
-            "Tip your camel handler separately (20-50 DH) — they're usually local Berber families, not the tour company.",
+            "Tip your camel handler separately (20-50 MAD) — they're usually local Berber families, not the tour company.",
             "Bring a small daypack for the camel trek — your main luggage stays in the vehicle.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2 font-body text-sm text-muted-foreground">
