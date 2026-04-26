@@ -59,7 +59,7 @@ const Essaouira = () => {
 
          {/* Price card    */}
         {/* <div className="max-w-md mx-auto bg-card rounded-2xl p-6 shadow-warm mb-12 text-center">
-          <p className="font-heading text-4xl font-bold text-primary">200 DH</p>
+          <p className="font-heading text-4xl font-bold text-primary">200 MAD</p>
           <p className="font-body text-sm text-muted-foreground">per person · Full Day · Pay on Arrival</p>
           <a
             href="#booking-widget"
@@ -137,7 +137,7 @@ const Essaouira = () => {
             <h3 className="font-heading text-lg font-bold text-foreground mb-4">Not Included</h3>
             <ul className="space-y-3">
               {[
-                "Lunch (fresh seafood available ~60-100 DH)",
+                "Lunch (fresh seafood available ~60-100 MAD)",
                 "Personal expenses & souvenirs",
                 "Tips for the guide",
                 "Drinks",
@@ -170,7 +170,7 @@ const Essaouira = () => {
 
       <BookingFormSection
         title="Book Your Essaouira Day Trip"
-        lockedTour="Essaouira Day Trip (200 DH)"
+        lockedTour="Essaouira Day Trip (200 MAD)"
       />
     </>
   );

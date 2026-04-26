@@ -20,7 +20,7 @@ const things = [
     shortDesc: "The #1 must-do in Morocco.",
     longDesc:
       "The ultimate Morocco bucket-list adventure. Ride camels into the golden dunes of Erg Chebbi, sleep under a sky full of stars at a traditional Berber camp, and explore ancient kasbahs along the way. The 3-day tour from Marrakech takes you through the High Atlas Mountains, past the UNESCO World Heritage site of Ait Ben Haddou, through the dramatic Todra Gorge, and finally into the vast Sahara Desert. It's the single most unforgettable thing you can do in Morocco.",
-    tips: "Book at least a few days in advance during peak season (Oct-Apr). Standard package from 800 DH, luxury from 2,000 DH per person.",
+    tips: "Book at least a few days in advance during peak season (Oct-Apr). Standard package from 800 MAD, luxury from 2,000 MAD per person.",
     duration: "3 days / 2 nights",
   },
   {
@@ -44,7 +44,7 @@ const things = [
     shortDesc: "Desert magic, just 30 minutes away.",
     longDesc:
       "Don't have 3 days for the Sahara? The Agafay Desert delivers a taste of the desert experience just 30 minutes from Marrakech. This rocky lunar landscape offers quad biking across vast plains, camel rides at sunset, and glamping under the stars. Many travelers combine it with a sunset dinner — imagine eating traditional Moroccan food under fairy lights with the Atlas Mountains as your backdrop. It's particularly popular for couples and anyone short on time.",
-    tips: "The sunset dinner + overnight camp combo is the best value. Available as half-day, full-day, or overnight experience. From 400 DH per person.",
+    tips: "The sunset dinner + overnight camp combo is the best value. Available as half-day, full-day, or overnight experience. From 400 MAD per person.",
     duration: "Half day to overnight",
   },
   {
@@ -56,7 +56,7 @@ const things = [
     shortDesc: "Escape to cool mountain air.",
     longDesc:
       "Just 60 km from Marrakech, the Imlil Valley in the High Atlas Mountains feels like another world. Walk through traditional Berber villages where life has barely changed in centuries, follow trails past walnut groves and terraced fields to hidden waterfalls, and enjoy a traditional tagine lunch with panoramic mountain views. On clear days, you can see the peak of Mount Toubkal (4,167m) — North Africa's highest mountain. The drive itself is stunning, winding through deep valleys and past colorful markets.",
-    tips: "Wear comfortable shoes with grip. The walk is moderate — suitable for most fitness levels. Spring and autumn are the best seasons. Just 150 DH per person.",
+    tips: "Wear comfortable shoes with grip. The walk is moderate — suitable for most fitness levels. Spring and autumn are the best seasons. Just 150 MAD per person.",
     duration: "Full day (8:00 AM - 5:00 PM)",
   },
   {
@@ -68,7 +68,7 @@ const things = [
     shortDesc: "An oasis of art and color.",
     longDesc:
       "The Jardin Majorelle is Marrakech's most famous garden — a stunning art deco oasis created by French painter Jacques Majorelle in the 1920s and later lovingly restored by fashion designer Yves Saint Laurent. The garden's signature cobalt blue buildings are set among towering bamboo groves, exotic cacti, and lily ponds. Next door, the Musée Yves Saint Laurent Marrakech showcases the designer's iconic creations. Together, they offer a peaceful escape from the medina's intensity and a fascinating glimpse into Marrakech's creative history.",
-    tips: "Go early morning (opening time) to avoid crowds. Tickets: 70 DH for the garden, 30 DH for the Berber Museum inside. The YSL Museum is a separate ticket (100 DH).",
+    tips: "Go early morning (opening time) to avoid crowds. Tickets: 70 MAD for the garden, 30 MAD for the Berber Museum inside. The YSL Museum is a separate ticket (100 MAD).",
     duration: "2-3 hours",
   },
   {
@@ -80,7 +80,7 @@ const things = [
     shortDesc: "Morocco's most spectacular waterfalls.",
     longDesc:
       "Cascading 110 meters through lush olive groves, the Ouzoud Waterfalls are Morocco's most impressive natural wonder. The falls are surrounded by walking trails where you'll encounter wild Barbary macaques swinging through the trees. At the bottom, you can take a small boat ride right up to the base of the falls — the mist is incredibly refreshing on a hot day. Local restaurants perched on the cliffside serve tagine and fresh juice with unbeatable views. It's about 2.5 hours from Marrakech, making it a perfect day trip.",
-    tips: "Wear shoes that can get wet. The path down is steep in places. Barbary macaques are friendly but don't feed them. Best visited spring through autumn. Just 200 DH per person.",
+    tips: "Wear shoes that can get wet. The path down is steep in places. Barbary macaques are friendly but don't feed them. Best visited spring through autumn. Just 200 MAD per person.",
     duration: "Full day (8:00 AM - 6:00 PM)",
   },
   {
@@ -92,7 +92,7 @@ const things = [
     shortDesc: "A green valley at the foot of the Atlas.",
     longDesc:
       "The Ourika Valley is the closest mountain escape from Marrakech — just 45 minutes south. A winding road follows the Ourika River through a lush green valley dotted with Berber villages. The highlight is the waterfall walk — a series of seven cascades that you can hike up to (the first two are easy, the higher ones more challenging). Along the way, visit a traditional Berber home, see an argan oil cooperative, and enjoy a mountain tagine lunch by the river. In summer, locals come here to escape the Marrakech heat.",
-    tips: "Easier than Imlil — great for families with kids. The river can be strong after rain, so check conditions. Argan oil here is authentic and much cheaper than in the medina. 150 DH per person.",
+    tips: "Easier than Imlil — great for families with kids. The river can be strong after rain, so check conditions. Argan oil here is authentic and much cheaper than in the medina. 150 MAD per person.",
     duration: "Full day (9:00 AM - 5:00 PM)",
   },
   {
@@ -104,7 +104,7 @@ const things = [
     shortDesc: "Atlantic breezes and fresh seafood.",
     longDesc:
       "Essaouira is Morocco's most charming coastal town — a UNESCO-listed medina of blue-shuttered buildings, art galleries, and a bustling fishing port. The 2.5-hour drive from Marrakech passes through argan tree forests (watch goats climbing the trees!). In Essaouira, wander the car-free medina, visit artisan workshops, eat the freshest seafood you've ever had at the port grill stalls, and walk along the windswept beach. The town has a completely different vibe to Marrakech — relaxed, artistic, and bohemian. It's also famous for its windsurfing and kitesurfing.",
-    tips: "Essaouira is windy year-round (it's called the 'City of Wind'). Bring a jacket even in summer. The port fish grill is a must — choose your fish and they'll grill it fresh. 200 DH per person.",
+    tips: "Essaouira is windy year-round (it's called the 'City of Wind'). Bring a jacket even in summer. The port fish grill is a must — choose your fish and they'll grill it fresh. 200 MAD per person.",
     duration: "Full day (8:00 AM - 7:00 PM)",
   },
   {
@@ -128,7 +128,7 @@ const things = [
     shortDesc: "See Morocco from the sky.",
     longDesc:
       "Floating above the Marrakech countryside at dawn is pure magic. As the sun rises, you'll drift over traditional Berber villages, olive groves, and the vast Agafay Desert, with the snow-capped Atlas Mountains filling the horizon. The balloon rises to about 300-500 meters, giving you a completely new perspective on the Moroccan landscape. The flight lasts about 1 hour, and most packages include hotel pickup, a traditional Berber breakfast after landing, and sometimes a short camel ride. It's the most romantic activity in Marrakech.",
-    tips: "Book at least 2-3 days in advance. Flights depend on weather and are sometimes cancelled for wind — operators will reschedule. Dress warmly, it's cold at altitude before sunrise. Expect to pay 1,500-2,500 DH per person.",
+    tips: "Book at least 2-3 days in advance. Flights depend on weather and are sometimes cancelled for wind — operators will reschedule. Dress warmly, it's cold at altitude before sunrise. Expect to pay 1,500-2,500 MAD per person.",
     duration: "4 hours total (1 hour flight)",
   },
 ];
