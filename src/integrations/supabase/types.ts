@@ -23,6 +23,7 @@ export type Database = {
           name: string
           phone: string
           preferred_date: string | null
+          price: string | null
           tour: string
         }
         Insert: {
@@ -33,6 +34,7 @@ export type Database = {
           name: string
           phone?: string
           preferred_date?: string | null
+          price?: string | null
           tour: string
         }
         Update: {
@@ -43,6 +45,7 @@ export type Database = {
           name?: string
           phone?: string
           preferred_date?: string | null
+          price?: string | null
           tour?: string
         }
         Relationships: []
