@@ -12,7 +12,6 @@ import {
   X,
   Users,
   Shield,
-} from "lucide-react";
 
 const BestSaharaTour = () => {
   const toc = [
@@ -157,8 +156,8 @@ const BestSaharaTour = () => {
               type: "Private Tour",
               desc: "Same itinerary as the shared tour but with your own vehicle and driver. Perfect for couples, families, or anyone wanting flexibility to stop wherever they want. Usually 2-3x the price of shared.",
             },
-          ].map((t, i) => (
-            <div key={i} className={`bg-card rounded-xl p-5 shadow-warm ${t.recommended ? "border-2 border-accent" : ""}`}>
+            ].map((t) => (
+            <div key={t.type} className={`bg-card rounded-xl p-5 shadow-warm ${t.recommended ? "border-2 border-accent" : ""}`}>
               <div className="flex items-start justify-between mb-1">
                 <h3 className="font-heading text-base font-bold text-foreground">{t.type}</h3>
                 {t.recommended && (
@@ -199,8 +198,8 @@ const BestSaharaTour = () => {
               desc: "Wake before dawn (around 5:30 AM) and climb the dune near camp for an unforgettable sunrise — the sky turns from deep purple to gold as light spills over the dunes. After breakfast, ride camels back to Merzouga and begin the scenic return via a different route through the Anti-Atlas. Arrive back in Marrakech by 8-9 PM.",
               time: "~10 hours return journey",
             },
-          ].map((item, i) => (
-            <div key={i} className="bg-card rounded-xl p-6 shadow-warm">
+            ].map((item) => (
+            <div key={item.day} className="bg-card rounded-xl p-6 shadow-warm">
               <p className="font-body text-xs font-semibold text-primary uppercase tracking-wider mb-1">{item.day}</p>
               <h3 className="font-heading text-lg font-bold text-foreground mb-1">{item.title}</h3>
               <div className="flex items-center gap-2 text-muted-foreground font-body text-xs mb-3">
@@ -383,8 +382,8 @@ const BestSaharaTour = () => {
               temp: "40–50°C days, 25–30°C nights",
               verdict: "Not recommended. Extreme heat makes the experience uncomfortable.",
             },
-          ].map((s, i) => (
-            <div key={i} className="bg-card rounded-lg p-4 shadow-warm">
+            ].map((s) => (
+            <div key={s.season} className="bg-card rounded-lg p-4 shadow-warm">
               <div className="flex items-center justify-between mb-1">
                 <h3 className="font-body text-sm font-bold text-foreground">{s.season}</h3>
                 <span className="font-body text-xs text-muted-foreground">{s.temp}</span>
@@ -429,8 +428,8 @@ const BestSaharaTour = () => {
               trap: "Fake 'Sahara' tours to Zagora",
               avoid: "Zagora is technically pre-Saharan desert with much smaller dunes. The real Sahara experience is at Erg Chebbi (Merzouga) — make sure your tour goes there.",
             },
-          ].map((item, i) => (
-            <div key={i} className="bg-card rounded-xl p-5 shadow-warm">
+            ].map((item) => (
+            <div key={item.trap} className="bg-card rounded-xl p-5 shadow-warm">
               <h3 className="font-body text-sm font-bold text-foreground mb-1">⚠️ {item.trap}</h3>
               <p className="font-body text-sm text-muted-foreground">{item.avoid}</p>
             </div>
@@ -451,8 +450,8 @@ const BestSaharaTour = () => {
             "Download offline maps before the trip — there's no cell service in much of the desert.",
             "Tip your camel handler separately (20-50 DH) — they're usually local Berber families, not the tour company.",
             "Bring a small daypack for the camel trek — your main luggage stays in the vehicle.",
-          ].map((tip, i) => (
-            <div key={i} className="flex items-start gap-2 font-body text-sm text-muted-foreground">
+            ].map((tip) => (
+            <div key={tip} className="flex items-start gap-2 font-body text-sm text-muted-foreground">
               <AlertTriangle size={14} className="text-accent mt-0.5 shrink-0" />
               {tip}
             </div>
@@ -489,8 +488,8 @@ const BestSaharaTour = () => {
               q: "What's the cancellation policy?",
               a: "Free cancellation up to 24 hours before departure. No questions asked, full refund.",
             },
-          ].map((item, i) => (
-            <div key={i} className="bg-card rounded-xl p-5 shadow-warm">
+            ].map((item) => (
+            <div key={item.q} className="bg-card rounded-xl p-5 shadow-warm">
               <h3 className="font-heading text-base font-bold text-foreground mb-2">{item.q}</h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.a}</p>
             </div>

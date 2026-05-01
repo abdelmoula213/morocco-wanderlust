@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import ouzoudImage from "@/assets/ouzoud-waterfalls.jpg";
 import BookingFormSection from "@/components/BookingFormSection";
-import { CheckCircle, MapPin, Clock, X, Droplets, Camera, TreePine, Sun } from "lucide-react";
+import { CheckCircle, MapPin, X } from "lucide-react";
 
 const OuzoudWaterfalls = () => {
   return (
@@ -71,8 +71,8 @@ const OuzoudWaterfalls = () => {
               { time: "11:00", title: "Guided Waterfall Tour", desc: "Your guide takes you along the main viewing trails, explaining the geology and local history. Spot Barbary macaques in the trees." },
               { time: "12:30", title: "Free Time & Lunch", desc: "Enjoy free time to explore, swim in the natural pools, take a boat ride under the falls, or relax at a riverside restaurant (lunch at your own expense)." },
               { time: "15:00", title: "Return to Marrakech", desc: "Depart the waterfalls and drive back to Marrakech, arriving around 5:00 PM." },
-            ].map((step, i) => (
-              <div key={i} className="flex gap-4">
+            ].map((step) => (
+              <div key={step.time} className="flex gap-4">
                 <div className="flex flex-col items-center">
                   <span className="font-heading text-sm font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">{step.time}</span>
                   {i < 5 && <div className="w-px flex-1 bg-border mt-2" />}

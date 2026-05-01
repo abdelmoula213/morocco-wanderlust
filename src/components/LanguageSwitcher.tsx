@@ -59,6 +59,28 @@ const LanguageSwitcher = () => {
       script.async = true;
       document.body.appendChild(script);
     }
+
+    // Only hide the visible banner — never remove the hidden engine iframe
+    // (removing .skiptranslate iframe breaks Google Translate entirely)
+    const hideBanner = () => {
+      document
+        .querySelectorAll<HTMLElement>(
+          ".goog-te-banner-frame, iframe.goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame",
+        )
+        .forEach((el) => {
+          el.style.display = "none";
+          el.style.visibility = "hidden";
+        });
+      if (document.body.style.top) document.body.style.top = "0px";
+    };
+    const observer = new MutationObserver(hideBanner);
+    observer.observe(document.body, { childList: true, subtree: true });
+    const interval = window.setInterval(hideBanner, 1000);
+
+    return () => {
+      observer.disconnect();
+      window.clearInterval(interval);
+    };
   }, []);
 
   const changeLanguage = (lang: string) => {

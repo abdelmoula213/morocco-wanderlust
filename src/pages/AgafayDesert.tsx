@@ -6,7 +6,7 @@ import hotAirBalloonImage from "@/assets/hot-air-balloon.jpg";
 import quadBikingImage from "@/assets/quad-biking.jpg";
 
 import BookingFormSection from "@/components/BookingFormSection";
-import { CheckCircle, MapPin, Clock, Shield } from "lucide-react";
+import { CheckCircle, MapPin } from "lucide-react";
 
 const standardIncludes = ["Quad biking", "Camel ride", "Sunset experience", "Camp dinner"];
 const luxuryIncludes = ["Quad biking", "Camel ride", "Sunset experience", "Camp dinner", "Access to swimming pool"];

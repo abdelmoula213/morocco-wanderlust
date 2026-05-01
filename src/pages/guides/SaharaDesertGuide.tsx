@@ -2,16 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import saharaImage from "@/assets/sahara-desert.jpg";
 import aitBenHaddouImage from "@/assets/ait-ben-haddou.jpg";
-import {
-  CheckCircle,
-  Clock,
-  MapPin,
-  Phone,
-  Star,
-  Users,
-  X,
-  AlertTriangle,
-} from "lucide-react";
+import { CheckCircle, Clock, Phone, Star, Users, X, AlertTriangle } from "lucide-react";
 
 const SaharaDesertGuide = () => {
   return (
@@ -93,8 +84,8 @@ const SaharaDesertGuide = () => {
               { title: "What to Pack (Complete List)", id: "what-to-pack" },
               { title: "Tips for Photographers", id: "photography-tips" },
               { title: "Frequently Asked Questions", id: "faq" },
-            ].map((item, i) => (
-              <li key={i}>
+            ].map((item) => (
+              <li key={item.id}>
                 <a
                   href={`#${item.id}`}
                   className="font-body text-sm text-primary hover:underline cursor-pointer"
@@ -241,11 +232,11 @@ const SaharaDesertGuide = () => {
               "Arrive Marrakech by evening",
             ],
           },
-        ].map((day, i) => (
-          <div key={i} className="mb-12">
+        ].map((day) => (
+          <div key={day.day} className="mb-12">
             <div
               className="flex items-center gap-3 mb-4"
-              id={i === 0 ? "day-1" : i === 1 ? "day-2" : "day-3"}
+              id={`day-${i + 1}`}
             >
               <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold shrink-0">
                 {i + 1}
@@ -264,8 +255,8 @@ const SaharaDesertGuide = () => {
             </div>
 
             <div className="ml-[60px] space-y-4">
-              {day.sections.map((s, j) => (
-                <div key={j}>
+              {day.sections.map((s) => (
+                <div key={s.subtitle}>
                   <h4 className="font-heading text-base font-bold text-foreground mb-2">
                     {s.subtitle}
                   </h4>
@@ -558,9 +549,9 @@ const SaharaDesertGuide = () => {
             "Use a wide-angle lens for dune landscapes, telephoto for camel caravan shots",
             "Night photography is incredible — bring a tripod for Milky Way shots",
             "Protect your camera in a sealed bag during windy conditions",
-          ].map((tip, i) => (
+          ].map((tip) => (
             <div
-              key={i}
+              key={tip}
               className="flex items-start gap-2 font-body text-sm text-muted-foreground"
             >
               <AlertTriangle
@@ -601,8 +592,8 @@ const SaharaDesertGuide = () => {
               q: "Can vegetarians/vegans be accommodated?",
               a: "Yes! Just let us know when booking. Moroccan cuisine naturally includes many vegetable dishes — couscous, vegetable tagines, salads, and fresh bread.",
             },
-          ].map((item, i) => (
-            <div key={i} className="bg-card rounded-xl p-5 shadow-warm">
+          ].map((item) => (
+            <div key={item.q} className="bg-card rounded-xl p-5 shadow-warm">
               <h3 className="font-heading text-base font-bold text-foreground mb-2">
                 {item.q}
               </h3>

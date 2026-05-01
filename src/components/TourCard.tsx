@@ -35,8 +35,8 @@ const TourCard = ({ image, title, description, price, duration, badge, link }: T
       </div>
       <div className="p-5">
         <div className="flex items-center gap-1 mb-2">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} size={12} fill="currentColor" className="text-accent" />
+          {["s1","s2","s3","s4","s5"].map((s) => (
+            <Star key={s} size={12} fill="currentColor" className="text-accent" />
           ))}
           <span className="text-xs text-muted-foreground ml-1">5.0</span>
         </div>

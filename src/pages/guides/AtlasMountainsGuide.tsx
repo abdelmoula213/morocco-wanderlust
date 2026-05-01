@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import atlasImage from "@/assets/atlas-mountains.jpg";
 import ourikaImage from "@/assets/ourika-valley.jpg";
-import { CheckCircle, Clock, MapPin, Phone, Star, AlertTriangle, Users } from "lucide-react";
+import { CheckCircle, Clock, Phone, Star, AlertTriangle, Users } from "lucide-react";
 
 const AtlasMountainsGuide = () => {
   return (
@@ -48,8 +48,8 @@ const AtlasMountainsGuide = () => {
       { title: "How Much Does It Cost?", id: "cost" },
       { title: "Insider Tips", id: "insider-tips" },
       { title: "Frequently Asked Questions", id: "faq" }
-    ].map((item, i) => (
-      <li key={i} className="font-body text-sm text-primary hover:underline cursor-pointer">
+      ].map((item) => (
+      <li key={item.id} className="font-body text-sm text-primary hover:underline cursor-pointer">
         <a href={`#${item.id}`}>{i + 1}. {item.title}</a>
       </li>
     ))}
@@ -238,8 +238,8 @@ const AtlasMountainsGuide = () => {
             { season: "☀️ Summer (June–Aug)", verdict: "Hot in Marrakech, pleasantly cool in the mountains. Ourika is especially refreshing. Waterfall swimming possible." },
             { season: "🍂 Autumn (Sept–Nov)", verdict: "Crisp air, clear skies, golden light. Excellent for photography. Fewer tourists." },
             { season: "❄️ Winter (Dec–Feb)", verdict: "Cold at altitude, possible snow above 2,000m. Beautiful but bring warm clothes. Some trails may be slippery." },
-          ].map((s, i) => (
-            <div key={i} className="bg-card rounded-lg p-4 shadow-warm">
+            ].map((s) => (
+            <div key={s.season} className="bg-card rounded-lg p-4 shadow-warm">
               <h3 className="font-body text-sm font-bold text-foreground">{s.season}</h3>
               <p className="font-body text-sm text-muted-foreground">{s.verdict}</p>
             </div>
@@ -282,8 +282,8 @@ const AtlasMountainsGuide = () => {
             "If visiting Ourika on a Monday, you'll catch the weekly Berber market — great for photos and authentic souvenirs.",
             "Combine Ourika with an afternoon at a hammam back in Marrakech for the ultimate relaxation day.",
             "Ask your guide about local legends and history — the Berber people have fascinating stories.",
-          ].map((tip, i) => (
-            <div key={i} className="flex items-start gap-2 font-body text-sm text-muted-foreground">
+            ].map((tip) => (
+            <div key={tip} className="flex items-start gap-2 font-body text-sm text-muted-foreground">
               <AlertTriangle size={14} className="text-accent mt-0.5 shrink-0" /> {tip}
             </div>
           ))}
@@ -298,8 +298,8 @@ const AtlasMountainsGuide = () => {
             { q: "Can I do both Imlil and Ourika in one day?", a: "We don't recommend it — each trip takes a full day and you'd miss the best parts of both. Better to choose one and enjoy it fully." },
             { q: "Is lunch included?", a: "Lunch is not included in the tour price but is very affordable (50-80 DH for a full tagine meal). The restaurants have amazing views." },
             { q: "What if it rains?", a: "Light rain is fine — the mountains are beautiful in the rain. Heavy rain can make the Ourika waterfalls dangerous, in which case your guide will adjust the route. The tour still runs in all weather." },
-          ].map((item, i) => (
-            <div key={i} className="bg-card rounded-xl p-5 shadow-warm">
+            ].map((item) => (
+            <div key={item.q} className="bg-card rounded-xl p-5 shadow-warm">
               <h3 className="font-heading text-base font-bold text-foreground mb-2">{item.q}</h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.a}</p>
             </div>

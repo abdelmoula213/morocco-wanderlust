@@ -7,7 +7,7 @@ import camelRideImage from "@/assets/camel-ride.jpg";
 import moroccanFoodImage from "@/assets/moroccan-food.jpg";
 import BookingFormSection from "@/components/BookingFormSection";
 
-import { CheckCircle, X, MapPin, Clock, Users, Star, Shield } from "lucide-react";
+import { CheckCircle, MapPin, Clock, Users, Star, Shield } from "lucide-react";
 
 const itinerary = [
   {
@@ -158,8 +158,8 @@ const SaharaDesertTour = () => {
             {/* Itinerary */}
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8">Tour Itinerary</h2>
             <div className="space-y-8 mb-16">
-              {itinerary.map((day, i) => (
-                <div key={i} className="flex gap-4">
+              {itinerary.map((day) => (
+                <div key={day.title} className="flex gap-4">
                   <div className="flex flex-col items-center">
                     <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm shrink-0">
                       {i + 1}
@@ -170,8 +170,8 @@ const SaharaDesertTour = () => {
                     <p className="font-body text-sm font-semibold text-primary uppercase tracking-wider">{day.day}</p>
                     <h3 className="font-heading text-lg font-bold text-foreground mb-3">{day.title}</h3>
                     <ul className="space-y-2">
-                      {day.details.map((d, j) => (
-                        <li key={j} className="flex items-start gap-2 font-body text-sm text-muted-foreground">
+                      {day.details.map((d) => (
+                        <li key={d} className="flex items-start gap-2 font-body text-sm text-muted-foreground">
                           <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" />
                           {d}
                         </li>

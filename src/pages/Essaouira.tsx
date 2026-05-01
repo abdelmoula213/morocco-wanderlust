@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import essaouiraImage from "@/assets/essaouira.jpg";
 import BookingFormSection from "@/components/BookingFormSection";
-import { CheckCircle, MapPin, Clock, X, Wind, Compass, Camera, Fish } from "lucide-react";
+import { CheckCircle, MapPin, X } from "lucide-react";
 
 const Essaouira = () => {
   return (
@@ -99,8 +99,8 @@ const Essaouira = () => {
               { time: "11:45", title: "Medina & Ramparts Tour", desc: "Explore the UNESCO-listed medina, walk along the 18th-century Portuguese ramparts with panoramic ocean views, and browse artisan workshops." },
               { time: "13:00", title: "Fishing Port & Free Time", desc: "Visit the vibrant fishing port, enjoy fresh grilled seafood for lunch (at your own expense), explore the souks, or relax on the beach." },
               { time: "15:30", title: "Return to Marrakech", desc: "Depart Essaouira and drive back to Marrakech, arriving around 5:00–5:30 PM at your hotel." },
-            ].map((step, i) => (
-              <div key={i} className="flex gap-4">
+            ].map((step) => (
+              <div key={step.time} className="flex gap-4">
                 <div className="flex flex-col items-center">
                   <span className="font-heading text-sm font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">{step.time}</span>
                   {i < 5 && <div className="w-px flex-1 bg-border mt-2" />}

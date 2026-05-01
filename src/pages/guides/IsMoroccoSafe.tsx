@@ -1,15 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-morocco.jpg";
-import {
-  CheckCircle,
-  Shield,
-  AlertTriangle,
-  Phone,
-  Star,
-  Users,
-  Clock,
-} from "lucide-react";
+import { CheckCircle, Shield, Phone, Star, Users, Clock } from "lucide-react";
 
 const IsMoroccoSafe = () => {
   return (
@@ -88,8 +80,8 @@ const IsMoroccoSafe = () => {
               },
               { title: "Emergency Contacts", id: "emergency-contacts" },
               { title: "Frequently Asked Questions", id: "faq" },
-            ].map((item, i) => (
-              <li key={i}>
+            ].map((item) => (
+              <li key={item.id}>
                 <a
                   href={`#${item.id}`}
                   className="font-body text-sm text-primary hover:underline cursor-pointer"
@@ -196,8 +188,8 @@ const IsMoroccoSafe = () => {
               rating: "Very Safe",
               desc: "Mountain villages are extremely safe and welcoming. Berber communities are known for their hospitality. The main safety consideration is the hiking terrain — wear appropriate shoes and follow your guide.",
             },
-          ].map((item, i) => (
-            <div key={i} className="bg-card rounded-xl p-5 shadow-warm">
+          ].map((item) => (
+            <div key={item.city} className="bg-card rounded-xl p-5 shadow-warm">
               <div className="flex items-center justify-between mb-2">
                 <h3 className="font-heading text-base font-bold text-foreground">
                   {item.city}
@@ -263,8 +255,8 @@ const IsMoroccoSafe = () => {
               avoid:
                 "Know the currency. 1 dirham = 100 centimes. Bills come in 20, 50, 100, 200. Count your change before walking away.",
             },
-          ].map((item, i) => (
-            <div key={i} className="bg-card rounded-xl p-5 shadow-warm">
+          ].map((item) => (
+            <div key={item.scam} className="bg-card rounded-xl p-5 shadow-warm">
               <h3 className="font-body text-sm font-bold text-foreground mb-1">
                 ⚠️ {item.scam}
               </h3>
@@ -359,8 +351,8 @@ const IsMoroccoSafe = () => {
               safety: "Moderate",
               desc: "Moroccan driving can be chaotic — especially in cities. Mountain roads are winding. We generally recommend hiring a driver/booking tours rather than self-driving unless you're an experienced driver.",
             },
-          ].map((item, i) => (
-            <div key={i} className="bg-card rounded-xl p-5 shadow-warm">
+          ].map((item) => (
+            <div key={item.type} className="bg-card rounded-xl p-5 shadow-warm">
               <div className="flex items-center justify-between mb-2">
                 <h3 className="font-heading text-base font-bold text-foreground">
                   {item.type}
@@ -603,8 +595,8 @@ const IsMoroccoSafe = () => {
               q: "Do I need a visa?",
               a: "Most Western countries (USA, UK, EU, Canada, Australia) get 90 days visa-free on arrival. Just bring a valid passport with at least 6 months validity. Check your country's specific requirements before traveling.",
             },
-          ].map((item, i) => (
-            <div key={i} className="bg-card rounded-xl p-5 shadow-warm">
+          ].map((item) => (
+            <div key={item.q} className="bg-card rounded-xl p-5 shadow-warm">
               <h3 className="font-heading text-base font-bold text-foreground mb-2">
                 {item.q}
               </h3>

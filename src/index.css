@@ -104,13 +104,17 @@
 }
 html {
   scroll-behavior: smooth;
+  margin-top: 0 !important;
 }
-/* Hide Google Translate banner & tooltip */
+.goog-te-banner-frame,
 .goog-te-banner-frame.skiptranslate,
-.goog-te-gadget-icon,
-.goog-logo-link,
+iframe.goog-te-banner-frame,
 #goog-gt-tt,
-.goog-te-balloon-frame { display: none !important; }
-body { top: 0 !important; }
+.goog-te-balloon-frame {
+  display: none !important;
+  visibility: hidden !important;
+}
+body { top: 0 !important; position: static !important; }
+
 .goog-tooltip, .goog-tooltip:hover { display: none !important; }
 .goog-text-highlight { background: transparent !important; box-shadow: none !important; }

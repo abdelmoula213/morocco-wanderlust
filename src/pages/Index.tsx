@@ -10,8 +10,7 @@ import aitBenHaddouImage from "@/assets/ait-ben-haddou.jpg";
 import TourCard from "@/components/TourCard";
 import BookingForm from "@/components/BookingForm";
 import FAQ from "@/components/FAQ";
-import EmbedSocialWidget from "@/components/EmbedSocialWidget";
-import { Shield, Award, MapPin, CheckCircle, ChevronDown, Users, Clock, Phone, Compass } from "lucide-react";
+import { Shield, Award, CheckCircle, ChevronDown, Users, Clock, Phone, Compass } from "lucide-react";
 
 const tours = [
   {
@@ -86,7 +85,7 @@ const Index = () => {
           </div>
 
           <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold text-primary-foreground leading-[1.08] mb-6">
-            Discover Morocco with
+            {"Discover Morocco with "}
             <span className="block text-gradient-gold italic">SEE&KNOW Tours</span>
           </h1>
 
@@ -260,7 +259,6 @@ const Index = () => {
           <FAQ />
         </div>
       </section>
-      <EmbedSocialWidget />
     </>
   );
 };
