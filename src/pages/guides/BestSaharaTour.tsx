@@ -12,7 +12,7 @@ import {
   X,
   Users,
   Shield,
-
+} from  "lucide-react";
 const BestSaharaTour = () => {
   const toc = [
     { id: "why-visit", label: "Why Visit the Sahara Desert?" },
