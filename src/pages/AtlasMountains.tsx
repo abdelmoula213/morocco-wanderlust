@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import atlasImage from "@/assets/atlas-mountains.jpg";
 import BookingFormSection from "@/components/BookingFormSection";
 
-import { CheckCircle, MapPin, Clock, X, Users } from "lucide-react";
+import { CheckCircle, MapPin, Clock, X, Users, Footprints, Mountain, TreePine } from "lucide-react";
 
 const itinerary = [
   {
