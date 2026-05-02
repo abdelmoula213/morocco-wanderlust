@@ -80,7 +80,7 @@ const IsMoroccoSafe = () => {
               },
               { title: "Emergency Contacts", id: "emergency-contacts" },
               { title: "Frequently Asked Questions", id: "faq" },
-            ].map((item) => (
+            ].map((item, i) => (
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}

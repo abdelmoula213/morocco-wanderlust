@@ -84,7 +84,7 @@ const SaharaDesertGuide = () => {
               { title: "What to Pack (Complete List)", id: "what-to-pack" },
               { title: "Tips for Photographers", id: "photography-tips" },
               { title: "Frequently Asked Questions", id: "faq" },
-            ].map((item) => (
+            ].map((item, i) => (
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
@@ -232,7 +232,7 @@ const SaharaDesertGuide = () => {
               "Arrive Marrakech by evening",
             ],
           },
-        ].map((day) => (
+        ].map((day, i) => (
           <div key={day.day} className="mb-12">
             <div
               className="flex items-center gap-3 mb-4"

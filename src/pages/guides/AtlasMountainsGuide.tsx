@@ -48,7 +48,7 @@ const AtlasMountainsGuide = () => {
       { title: "How Much Does It Cost?", id: "cost" },
       { title: "Insider Tips", id: "insider-tips" },
       { title: "Frequently Asked Questions", id: "faq" }
-      ].map((item) => (
+      ].map((item, i) => (
       <li key={item.id} className="font-body text-sm text-primary hover:underline cursor-pointer">
         <a href={`#${item.id}`}>{i + 1}. {item.title}</a>
       </li>
