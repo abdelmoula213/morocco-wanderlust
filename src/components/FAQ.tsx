@@ -45,7 +45,7 @@ const FAQ = () => {
 
   return (
     <div className="max-w-3xl mx-auto">
-      {faqs.map((faq) => (
+      {faqs.map((faq, i) => (
         <div key={faq.q} className="border-b border-border">
           <button
             onClick={() => setOpen(open === i ? null : i)}
