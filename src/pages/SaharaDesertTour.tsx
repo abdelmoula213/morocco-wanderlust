@@ -158,7 +158,7 @@ const SaharaDesertTour = () => {
             {/* Itinerary */}
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8">Tour Itinerary</h2>
             <div className="space-y-8 mb-16">
-              {itinerary.map((day) => (
+              {itinerary.map((day, i) => (
                 <div key={day.title} className="flex gap-4">
                   <div className="flex flex-col items-center">
                     <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm shrink-0">

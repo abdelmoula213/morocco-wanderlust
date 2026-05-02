@@ -107,7 +107,7 @@ const AtlasMountains = () => {
         {/* Itinerary */}
         <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8">Full Day Itinerary</h2>
         <div className="space-y-6 mb-16">
-          {itinerary.map((step) => (
+          {itinerary.map((step, i) => (
             <div key={step.time} className="flex gap-4">
               <div className="flex flex-col items-center">
                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm shrink-0">
