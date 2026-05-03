@@ -77,6 +77,75 @@ export type Database = {
         }
         Relationships: []
       }
+      tours: {
+        Row: {
+          created_at: string
+          currency: string
+          description: string | null
+          display_order: number
+          duration: string | null
+          gallery: Json
+          hero_image: string | null
+          highlights: Json
+          id: string
+          included: Json
+          is_active: boolean
+          itinerary: Json
+          location: string | null
+          not_included: Json
+          price: number | null
+          price_label: string | null
+          slug: string
+          subtitle: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          currency?: string
+          description?: string | null
+          display_order?: number
+          duration?: string | null
+          gallery?: Json
+          hero_image?: string | null
+          highlights?: Json
+          id?: string
+          included?: Json
+          is_active?: boolean
+          itinerary?: Json
+          location?: string | null
+          not_included?: Json
+          price?: number | null
+          price_label?: string | null
+          slug: string
+          subtitle?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          currency?: string
+          description?: string | null
+          display_order?: number
+          duration?: string | null
+          gallery?: Json
+          hero_image?: string | null
+          highlights?: Json
+          id?: string
+          included?: Json
+          is_active?: boolean
+          itinerary?: Json
+          location?: string | null
+          not_included?: Json
+          price?: number | null
+          price_label?: string | null
+          slug?: string
+          subtitle?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
