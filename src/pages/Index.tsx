@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import heroImage from "@/assets/hero-morocco.jpg";
 import saharaImage from "@/assets/sahara-desert.jpg";
 import agafayImage from "@/assets/agafay-desert.jpg";
@@ -11,68 +12,47 @@ import TourCard from "@/components/TourCard";
 import BookingForm from "@/components/BookingForm";
 import FAQ from "@/components/FAQ";
 import { Shield, Award, CheckCircle, ChevronDown, Users, Clock, Phone, Compass } from "lucide-react";
-
-const tours = [
-  {
-    image: saharaImage,
-    title: "3-Day Sahara Desert Tour",
-    description: "Marrakech → Ait Ben Haddou → Ouarzazate → Merzouga. Camel trek, night in Sahara camp.",
-    price: "From 800 DH",
-    duration: "3 Days / 2 Nights",
-    badge: "Most Popular",
-    link: "/sahara-desert-tour",
-  },
-  {
-    image: agafayImage,
-    title: "Agafay Desert Experience",
-    description: "Quad biking, camel rides, sunset dinner & camp. Just 30 min from Marrakech.",
-    price: "From 400 DH",
-    duration: "Half Day / Full Day",
-    badge: "Same-Day Booking",
-    link: "/agafay-desert",
-  },
-  {
-    image: atlasImage,
-    title: "Imlil Day Tour",
-    description: "Guided mountain walk, waterfalls & Berber villages in the Atlas Mountains.",
-    price: "150 DH",
-    duration: "Full Day",
-    link: "/atlas-mountains",
-  },
-  {
-    image: ouzoudImage,
-    title: "Ouzoud Waterfalls Tour",
-    description: "Morocco's most spectacular waterfalls — guided tour & free time for photos.",
-    price: "200 DH",
-    duration: "Full Day",
-    link: "/ouzoud-waterfalls",
-  },
-  {
-    image: ourikaImage,
-    title: "Ourika Valley Tour",
-    description: "Green valley escape — guided tour, waterfall walk & stunning nature.",
-    price: "150 DH",
-    duration: "Full Day",
-    link: "/ourika-valley",
-  },
-  {
-    image: essaouiraImage,
-    title: "Essaouira Day Trip",
-    description: "Atlantic coastal escape — medina, port & free time by the sea.",
-    price: "200 DH",
-    duration: "Full Day",
-    link: "/essaouira",
-  },
-];
+import { SUPPORTED_LANGS } from "@/i18n";
+import { useLang, useLocalizedPath } from "@/i18n/useLang";
 
 const Index = () => {
+  const { t } = useTranslation();
+  const lang = useLang();
+  const lp = useLocalizedPath();
+
+  const tours = [
+    { image: saharaImage, key: "sahara", price: "From 800 DH", link: "/sahara-desert-tour" },
+    { image: agafayImage, key: "agafay", price: "From 400 DH", link: "/agafay-desert" },
+    { image: atlasImage, key: "atlas", price: "150 DH", link: "/atlas-mountains" },
+    { image: ouzoudImage, key: "ouzoud", price: "200 DH", link: "/ouzoud-waterfalls" },
+    { image: ourikaImage, key: "ourika", price: "150 DH", link: "/ourika-valley" },
+    { image: essaouiraImage, key: "essaouira", price: "200 DH", link: "/essaouira" },
+  ] as const;
+
+  const why = [
+    { icon: Shield, key: "licensed" },
+    { icon: Users, key: "guides" },
+    { icon: Award, key: "price" },
+    { icon: Phone, key: "support" },
+    { icon: CheckCircle, key: "cancel" },
+    { icon: Clock, key: "pay" },
+  ] as const;
+
+  const origin = typeof window !== "undefined" ? window.location.origin : "";
+
   return (
     <>
       <Helmet>
-        <title>SK Morocco – Tours & Travel from Marrakech | Desert, Mountains & Coast</title>
-        <meta name="description" content="Discover Morocco with SK Morocco. Book Sahara desert tours, Agafay adventures, Atlas Mountains treks, Essaouira & Ouzoud day trips from Marrakech. Pay on arrival." />
-        <meta name="keywords" content="Morocco tours, Morocco travel, Marrakech tours, Sahara desert tour, Atlas Mountains trek, Agafay desert, Essaouira day trip, Ouzoud waterfalls, Ourika Valley, camel rides, desert camp, Morocco adventure, Moroccan experiences, Morocco excursions, book Morocco tour, SK Morocco, Morocco day trips, Morocco travel agency" />
+        <html lang={lang} dir={lang === "ar" ? "rtl" : "ltr"} />
+        <title>{t("home.meta.title")}</title>
+        <meta name="description" content={t("home.meta.description")} />
+        <link rel="canonical" href={`${origin}/${lang}`} />
+        {SUPPORTED_LANGS.map((l) => (
+          <link key={l} rel="alternate" hrefLang={l} href={`${origin}/${l}`} />
+        ))}
+        <link rel="alternate" hrefLang="x-default" href={`${origin}/en`} />
       </Helmet>
+
       {/* ===== HERO ===== */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero">
         <img src={heroImage} alt="Morocco Sahara Desert with Atlas Mountains" className="absolute inset-0 w-full h-full object-cover" />
@@ -81,30 +61,30 @@ const Index = () => {
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
           <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 text-primary-foreground text-xs font-semibold font-body px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
             <Compass size={12} />
-            Full-Service Moroccan Travel Agency · Marrakech
+            {t("home.hero.badge")}
           </div>
 
           <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold text-primary-foreground leading-[1.08] mb-6">
-            {"Discover Morocco with "}
-            <span className="block text-gradient-gold italic">SEE&KNOW Tours</span>
+            {t("home.hero.title1")}{" "}
+            <span className="block text-gradient-gold italic">{t("home.hero.title2")}</span>
           </h1>
 
           <p className="font-body text-lg md:text-xl text-primary-foreground/85 max-w-2xl mx-auto leading-relaxed mb-8">
-            From Sahara Desert to Atlas Mountains and Atlantic Coast. Desert tours, mountain trips, coastal escapes & cultural experiences.
+            {t("home.hero.subtitle")}
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {["Best Direct Price", "Pay on Arrival", "Free Cancellation", "Hotel Pickup"].map((badge) => (
+            {(["price", "pay", "cancel", "pickup"] as const).map((badge) => (
               <div key={badge} className="flex items-center gap-1.5 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-primary-foreground text-xs font-body px-3 py-1.5 rounded-full">
                 <CheckCircle size={11} className="text-accent" />
-                {badge}
+                {t(`home.hero.badges.${badge}`)}
               </div>
             ))}
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a href="#tours" className="bg-primary text-primary-foreground font-semibold font-body text-base px-10 py-4 rounded-full hover:shadow-warm-lg hover:scale-105 transition-all duration-300">
-              Explore Tours
+              {t("home.hero.ctaTours")}
             </a>
             <a
               href="https://wa.me/212766776545?text=Hello!%20I%20want%20to%20book%20a%20tour%20with%20SEE%26KNOW."
@@ -112,19 +92,21 @@ const Index = () => {
               rel="noopener noreferrer"
               className="bg-primary-foreground/15 backdrop-blur-sm border border-primary-foreground/40 text-primary-foreground font-semibold font-body text-base px-10 py-4 rounded-full hover:bg-primary-foreground/25 transition-all duration-300"
             >
-              💬 Book on WhatsApp
+              {t("home.hero.ctaWhatsapp")}
             </a>
           </div>
 
           <div className="mt-12 flex flex-col sm:flex-row justify-center gap-8">
             {[
-              { label: "Happy Travelers", value: "5,000+" },
-              { label: "Google Rating", value: "⭐ 4.9/5" },
-              { label: "Years Experience", value: "10+" },
+              { key: "travelers", value: "5,000+" },
+              { key: "rating", value: "⭐ 4.9/5" },
+              { key: "experience", value: "10+" },
             ].map((stat) => (
-              <div key={stat.label} className="text-center">
+              <div key={stat.key} className="text-center">
                 <div className="font-heading text-3xl font-bold text-primary-foreground">{stat.value}</div>
-                <div className="font-body text-xs text-primary-foreground/60 uppercase tracking-widest">{stat.label}</div>
+                <div className="font-body text-xs text-primary-foreground/60 uppercase tracking-widest">
+                  {t(`home.hero.stats.${stat.key}`)}
+                </div>
               </div>
             ))}
           </div>
@@ -139,18 +121,28 @@ const Index = () => {
       <section className="py-20 bg-background" id="tours">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
-            <p className="font-body text-sm font-semibold text-primary uppercase tracking-widest mb-2">Our Experiences</p>
-            <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-4">
-              Explore Morocco with Us
-            </h2>
-            <p className="font-body text-muted-foreground max-w-xl mx-auto">
-              Multi-day desert adventures, day trips from Marrakech, and unique cultural experiences — all at the best direct price.
-            </p>
+            <p className="font-body text-sm font-semibold text-primary uppercase tracking-widest mb-2">{t("home.tours.kicker")}</p>
+            <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-4">{t("home.tours.title")}</h2>
+            <p className="font-body text-muted-foreground max-w-xl mx-auto">{t("home.tours.subtitle")}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {tours.map((tour) => (
-              <TourCard key={tour.title} {...tour} />
+              <TourCard
+                key={tour.key}
+                image={tour.image}
+                title={t(`home.tours.items.${tour.key}.title`)}
+                description={t(`home.tours.items.${tour.key}.description`)}
+                price={tour.price}
+                duration={t(`home.tours.items.${tour.key}.duration`)}
+                badge={
+                  tour.key === "sahara" || tour.key === "agafay"
+                    ? t(`home.tours.items.${tour.key}.badge`)
+                    : undefined
+                }
+                link={lp(tour.link)}
+                viewDetailsLabel={t("home.tours.viewDetails")}
+              />
             ))}
           </div>
         </div>
@@ -160,27 +152,22 @@ const Index = () => {
       <section className="py-20 bg-warm-gradient">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
-            <p className="font-body text-sm font-semibold text-primary uppercase tracking-widest mb-2">Trust & Quality</p>
-            <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-4">
-              Why Travel with SEE&KNOW?
-            </h2>
+            <p className="font-body text-sm font-semibold text-primary uppercase tracking-widest mb-2">{t("home.why.kicker")}</p>
+            <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-4">{t("home.why.title")}</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: Shield, title: "Licensed Agency", desc: "Officially licensed Moroccan travel agency with years of proven experience and thousands of satisfied customers." },
-              { icon: Users, title: "Professional Guides", desc: "Experienced local drivers and professional multilingual guides who know Morocco inside and out." },
-              { icon: Award, title: "Best Direct Price", desc: "Book direct for the best price — no platform commissions. Save 20-30% compared to booking platforms." },
-              { icon: Phone, title: "24/7 WhatsApp Support", desc: "Instant communication before, during, and after your tour. We're always just a message away." },
-              { icon: CheckCircle, title: "Free Cancellation", desc: "Plans change — cancel up to 24 hours before for a full refund. No questions asked." },
-              { icon: Clock, title: "Pay on Arrival", desc: "No prepayment required. Reserve your spot and pay when the tour starts. Complete peace of mind." },
-            ].map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-card p-8 rounded-2xl shadow-warm hover:shadow-warm-lg hover:-translate-y-1 transition-all duration-300 text-center">
+            {why.map(({ icon: Icon, key }) => (
+              <div key={key} className="bg-card p-8 rounded-2xl shadow-warm hover:shadow-warm-lg hover:-translate-y-1 transition-all duration-300 text-center">
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-terracotta-light mb-4">
                   <Icon size={24} className="text-primary" />
                 </div>
-                <h3 className="font-heading text-lg font-bold text-card-foreground mb-2">{title}</h3>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                <h3 className="font-heading text-lg font-bold text-card-foreground mb-2">
+                  {t(`home.why.items.${key}.title`)}
+                </h3>
+                <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                  {t(`home.why.items.${key}.desc`)}
+                </p>
               </div>
             ))}
           </div>
@@ -193,12 +180,12 @@ const Index = () => {
         <div className="absolute inset-0 bg-foreground/75" />
         <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="font-body text-sm font-semibold text-accent uppercase tracking-widest mb-3">Featured Tour</p>
+            <p className="font-body text-sm font-semibold text-accent uppercase tracking-widest mb-3">{t("home.highlight.kicker")}</p>
             <h2 className="font-heading text-3xl md:text-5xl font-bold text-primary-foreground mb-6">
-              3-Day Sahara Desert Tour from Marrakech
+              {t("home.highlight.title")}
             </h2>
             <p className="font-body text-primary-foreground/80 text-lg leading-relaxed mb-6">
-              Experience the ultimate Morocco adventure — from the ancient Kasbah of Ait Ben Haddou through the Todra Gorge to a magical night under the stars in Merzouga Sahara Desert.
+              {t("home.highlight.description")}
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
               {["Ait Ben Haddou", "Ouarzazate", "Todra Gorge", "Merzouga", "Camel Trek", "Sahara Camp"].map((tag) => (
@@ -210,18 +197,18 @@ const Index = () => {
             <div className="flex flex-wrap gap-6 mb-8">
               <div>
                 <p className="font-heading text-3xl font-bold text-accent">800 DH</p>
-                <p className="font-body text-xs text-primary-foreground/60">Standard Package</p>
+                <p className="font-body text-xs text-primary-foreground/60">{t("home.highlight.standard")}</p>
               </div>
               <div>
                 <p className="font-heading text-3xl font-bold text-primary-foreground">2,000 DH</p>
-                <p className="font-body text-xs text-primary-foreground/60">Luxury Package</p>
+                <p className="font-body text-xs text-primary-foreground/60">{t("home.highlight.luxury")}</p>
               </div>
             </div>
             <a
-              href="/sahara-desert-tour"
+              href={lp("/sahara-desert-tour")}
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold font-body px-8 py-3.5 rounded-full hover:shadow-warm-lg hover:scale-105 transition-all duration-300"
             >
-              View Full Itinerary →
+              {t("home.highlight.cta")}
             </a>
           </div>
         </div>
@@ -232,13 +219,11 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-10">
-              <p className="font-body text-sm font-semibold text-primary uppercase tracking-widest mb-2">Book Now</p>
+              <p className="font-body text-sm font-semibold text-primary uppercase tracking-widest mb-2">{t("home.booking.kicker")}</p>
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-3">
-                Ready for Your Morocco Adventure?
+                {t("home.booking.title")}
               </h2>
-              <p className="font-body text-muted-foreground">
-                Fill in the form and we'll confirm your booking within 1 hour on WhatsApp.
-              </p>
+              <p className="font-body text-muted-foreground">{t("home.booking.subtitle")}</p>
             </div>
             <div className="bg-card rounded-2xl p-8 shadow-warm">
               <BookingForm />
@@ -251,9 +236,9 @@ const Index = () => {
       <section className="py-20 bg-warm-gradient">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
-            <p className="font-body text-sm font-semibold text-primary uppercase tracking-widest mb-2">FAQ</p>
+            <p className="font-body text-sm font-semibold text-primary uppercase tracking-widest mb-2">{t("home.faq.kicker")}</p>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Frequently Asked Questions
+              {t("home.faq.title")}
             </h2>
           </div>
           <FAQ />
