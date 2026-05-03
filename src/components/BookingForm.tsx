@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Send, CheckCircle, Loader2, Wallet } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -86,39 +86,38 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
     );
   };
 
-  // ---- Live total price ----
-  const guestCount = useMemo(() => {
-    if (formData.guests === "10+") return 10;
-    const n = parseInt(formData.guests, 10);
-    return isNaN(n) ? 0 : n;
-  }, [formData.guests]);
+  // ---- Live total price (computed every render, no memoization) ----
+  const guestCount =
+    formData.guests === "10+"
+      ? 10
+      : (() => {
+          const n = parseInt(formData.guests, 10);
+          return isNaN(n) ? 0 : n;
+        })();
 
-  const tourPrice = useMemo(() => {
-    if (lockedTour) return extractPrice(lockedTour);
-    const opt = options.find((o) => o.value === formData.tour);
-    return opt?.price ?? extractPrice(opt?.value ?? formData.tour);
-  }, [lockedTour, options, formData.tour]);
+  const currentTourValue = lockedTour ?? formData.tour;
+  const selectedOption = options.find((o) => o.value === currentTourValue);
+  const tourPrice =
+    selectedOption?.price ?? extractPrice(selectedOption?.value ?? currentTourValue);
 
   // Effective add-ons: explicit prop wins, otherwise infer from selected tour value.
-  const effectiveAddOns = useMemo<AddOn[]>(() => {
-    if (addOns && addOns.length > 0) return addOns;
-    const currentTour = lockedTour ?? formData.tour;
-    if (!currentTour) return [];
-    const match = TOUR_ADDONS.find((t) => t.match.test(currentTour));
-    return match?.addOns ?? [];
-  }, [addOns, lockedTour, formData.tour]);
+  const effectiveAddOns: AddOn[] =
+    addOns && addOns.length > 0
+      ? addOns
+      : currentTourValue
+      ? TOUR_ADDONS.find((t) => t.match.test(currentTourValue))?.addOns ?? []
+      : [];
 
-  const addOnsTotalPerPerson = useMemo(() => {
-    if (!effectiveAddOns.length) return 0;
-    return effectiveAddOns
-      .filter((a) => selectedAddOns.includes(a.id))
-      .reduce((sum, a) => sum + (a.price ?? extractPrice(a.label)), 0);
-  }, [effectiveAddOns, selectedAddOns]);
+  const addOnsTotalPerPerson = effectiveAddOns
+    .filter((a) => selectedAddOns.includes(a.id))
+    .reduce((sum, a) => sum + (a.price ?? extractPrice(a.label)), 0);
 
-  const totalPrice = useMemo(
-    () => (tourPrice + addOnsTotalPerPerson) * guestCount,
-    [tourPrice, addOnsTotalPerPerson, guestCount],
-  );
+  const totalPrice = (tourPrice + addOnsTotalPerPerson) * guestCount;
+
+  // Reset add-on selection when the tour changes (new tour = different add-ons)
+  useEffect(() => {
+    setSelectedAddOns([]);
+  }, [currentTourValue]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
