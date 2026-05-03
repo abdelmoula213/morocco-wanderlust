@@ -106,15 +106,8 @@ html {
   scroll-behavior: smooth;
   margin-top: 0 !important;
 }
-.goog-te-banner-frame,
-.goog-te-banner-frame.skiptranslate,
-iframe.goog-te-banner-frame,
-#goog-gt-tt,
-.goog-te-balloon-frame {
-  display: none !important;
-  visibility: hidden !important;
+/* RTL adjustments for Arabic */
+html[dir="rtl"] body {
+  font-family: "DM Sans", "Tajawal", "Noto Sans Arabic", sans-serif;
 }
-body { top: 0 !important; position: static !important; }
 
-.goog-tooltip, .goog-tooltip:hover { display: none !important; }
-.goog-text-highlight { background: transparent !important; box-shadow: none !important; }
