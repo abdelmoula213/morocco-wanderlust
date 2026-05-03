@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "home": "Home",
+    "sahara": "Sahara Tour",
+    "agafay": "Agafay",
+    "imlil": "Imlil",
+    "ouzoud": "Ouzoud",
+    "ourika": "Ourika",
+    "essaouira": "Essaouira",
+    "guides": "Guides",
+    "bookNow": "Book Now",
+    "bookNowWhatsapp": "Book Now on WhatsApp",
+    "changeLanguage": "Change language"
+  },
+  "home": {
+    "meta": {
+      "title": "SK Morocco – Tours & Travel from Marrakech | Desert, Mountains & Coast",
+      "description": "Discover Morocco with SK Morocco. Book Sahara desert tours, Agafay adventures, Atlas Mountains treks, Essaouira & Ouzoud day trips from Marrakech. Pay on arrival."
+    },
+    "hero": {
+      "badge": "Full-Service Moroccan Travel Agency · Marrakech",
+      "title1": "Discover Morocco with",
+      "title2": "SEE&KNOW Tours",
+      "subtitle": "From Sahara Desert to Atlas Mountains and Atlantic Coast. Desert tours, mountain trips, coastal escapes & cultural experiences.",
+      "ctaTours": "Explore Tours",
+      "ctaWhatsapp": "💬 Book on WhatsApp",
+      "badges": {
+        "price": "Best Direct Price",
+        "pay": "Pay on Arrival",
+        "cancel": "Free Cancellation",
+        "pickup": "Hotel Pickup"
+      },
+      "stats": {
+        "travelers": "Happy Travelers",
+        "rating": "Google Rating",
+        "experience": "Years Experience"
+      }
+    },
+    "tours": {
+      "kicker": "Our Experiences",
+      "title": "Explore Morocco with Us",
+      "subtitle": "Multi-day desert adventures, day trips from Marrakech, and unique cultural experiences — all at the best direct price.",
+      "viewDetails": "View Details →",
+      "items": {
+        "sahara": { "title": "3-Day Sahara Desert Tour", "description": "Marrakech → Ait Ben Haddou → Ouarzazate → Merzouga. Camel trek, night in Sahara camp.", "duration": "3 Days / 2 Nights", "badge": "Most Popular" },
+        "agafay": { "title": "Agafay Desert Experience", "description": "Quad biking, camel rides, sunset dinner & camp. Just 30 min from Marrakech.", "duration": "Half Day / Full Day", "badge": "Same-Day Booking" },
+        "atlas": { "title": "Imlil Day Tour", "description": "Guided mountain walk, waterfalls & Berber villages in the Atlas Mountains.", "duration": "Full Day" },
+        "ouzoud": { "title": "Ouzoud Waterfalls Tour", "description": "Morocco's most spectacular waterfalls — guided tour & free time for photos.", "duration": "Full Day" },
+        "ourika": { "title": "Ourika Valley Tour", "description": "Green valley escape — guided tour, waterfall walk & stunning nature.", "duration": "Full Day" },
+        "essaouira": { "title": "Essaouira Day Trip", "description": "Atlantic coastal escape — medina, port & free time by the sea.", "duration": "Full Day" }
+      }
+    },
+    "why": {
+      "kicker": "Trust & Quality",
+      "title": "Why Travel with SEE&KNOW?",
+      "items": {
+        "licensed": { "title": "Licensed Agency", "desc": "Officially licensed Moroccan travel agency with years of proven experience and thousands of satisfied customers." },
+        "guides": { "title": "Professional Guides", "desc": "Experienced local drivers and professional multilingual guides who know Morocco inside and out." },
+        "price": { "title": "Best Direct Price", "desc": "Book direct for the best price — no platform commissions. Save 20-30% compared to booking platforms." },
+        "support": { "title": "24/7 WhatsApp Support", "desc": "Instant communication before, during, and after your tour. We're always just a message away." },
+        "cancel": { "title": "Free Cancellation", "desc": "Plans change — cancel up to 24 hours before for a full refund. No questions asked." },
+        "pay": { "title": "Pay on Arrival", "desc": "No prepayment required. Reserve your spot and pay when the tour starts. Complete peace of mind." }
+      }
+    },
+    "highlight": {
+      "kicker": "Featured Tour",
+      "title": "3-Day Sahara Desert Tour from Marrakech",
+      "description": "Experience the ultimate Morocco adventure — from the ancient Kasbah of Ait Ben Haddou through the Todra Gorge to a magical night under the stars in Merzouga Sahara Desert.",
+      "standard": "Standard Package",
+      "luxury": "Luxury Package",
+      "cta": "View Full Itinerary →"
+    },
+    "booking": {
+      "kicker": "Book Now",
+      "title": "Ready for Your Morocco Adventure?",
+      "subtitle": "Fill in the form and we'll confirm your booking within 1 hour on WhatsApp."
+    },
+    "faq": {
+      "kicker": "FAQ",
+      "title": "Frequently Asked Questions"
+    }
+  },
+  "faq": {
+    "items": [
+      { "q": "How do I book a tour?", "a": "You can book directly through WhatsApp, our booking form, or by contacting us via email. No deposit required — pay on arrival!" },
+      { "q": "Is hotel pickup included?", "a": "Yes! All our tours include free hotel pickup and drop-off from anywhere in Marrakech." },
+      { "q": "What is the difference between Standard and Luxury packages?", "a": "The difference is the category and comfort level of the accommodation. Standard includes standard desert camps or hotels, while Luxury includes premium camps or hotels with enhanced comfort. All other services (transport, camel trek, activities) remain the same." },
+      { "q": "Is lunch or dinner included in day tours?", "a": "Day tours (Imlil, Ouzoud, Ourika, Essaouira) are tour-only — lunch and dinner are NOT included. You may purchase meals independently along the route. The Sahara and Agafay tours include meals as specified in each package." },
+      { "q": "What is your cancellation policy?", "a": "Free cancellation up to 24 hours before the tour. Cancel anytime via WhatsApp for a full refund." },
+      { "q": "What payment methods do you accept?", "a": "We accept cash (MAD, EUR, USD, GBP), credit cards, and PayPal. Payment is made on arrival — no prepayment needed." },
+      { "q": "Are your tours suitable for children?", "a": "Most tours are family-friendly. The Sahara tour is suitable for ages 4+, and the Agafay quad bikes for ages 16+. Contact us for specific tour details." },
+      { "q": "What should I bring?", "a": "Comfortable clothing, sunscreen, sunglasses, a camera, and a warm layer for evenings. We provide everything else including helmets for quad biking." },
+      { "q": "Why book directly instead of through platforms?", "a": "Booking direct gives you the best price (no commission fees), direct WhatsApp support, flexible changes, and pay-on-arrival convenience." }
+    ]
+  },
+  "footer": {
+    "ctaTitle": "Ready to Explore Morocco?",
+    "ctaSubtitle": "Book today and pay on arrival. Free cancellation available.",
+    "ctaButton": "💬 Chat on WhatsApp",
+    "location": "Marrakech, Morocco",
+    "about": "Full-service Moroccan travel agency offering desert tours, mountain trips, coastal escapes, and cultural experiences across Morocco.",
+    "reviews": "4.9/5 · 2,400+ reviews",
+    "tours": "Our Tours",
+    "whyTitle": "Why Choose Us",
+    "why": [
+      "✓ Licensed travel agency",
+      "✓ Best direct price guarantee",
+      "✓ Pay on arrival",
+      "✓ Free cancellation",
+      "✓ 24/7 WhatsApp support",
+      "✓ Professional local guides"
+    ],
+    "contact": "Contact Us",
+    "whatsappLabel": "WhatsApp & Phone",
+    "operating": "Operating across Morocco",
+    "rights": "© 2025 SEE&KNOW Tours & Travels. All rights reserved. · Marrakech, Morocco",
+    "tagline": "Morocco Desert Tours · Sahara Tour from Marrakech · Agafay Desert · Atlas Mountains"
+  }
+}
