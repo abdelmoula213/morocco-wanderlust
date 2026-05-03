@@ -9,10 +9,9 @@ interface TourCardProps {
   duration: string;
   badge?: string;
   link: string;
-  viewDetailsLabel?: string;
 }
 
-const TourCard = ({ image, title, description, price, duration, badge, link, viewDetailsLabel }: TourCardProps) => {
+const TourCard = ({ image, title, description, price, duration, badge, link }: TourCardProps) => {
   return (
     <Link
       to={link}
@@ -50,7 +49,7 @@ const TourCard = ({ image, title, description, price, duration, badge, link, vie
         <div className="flex items-center justify-between">
           <span className="font-body text-xs text-muted-foreground">⏱ {duration}</span>
           <span className="font-body text-sm font-semibold text-primary group-hover:underline">
-            {viewDetailsLabel ?? "View Details →"}
+            View Details →
           </span>
         </div>
       </div>

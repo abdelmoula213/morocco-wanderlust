@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import SaharaDesertTour from "./pages/SaharaDesertTour";
@@ -20,49 +20,30 @@ import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import { LangLayout, RootLangRedirect } from "./i18n/LangProvider";
-import { isLang, DEFAULT_LANG } from "./i18n";
 
 const queryClient = new QueryClient();
 
-/** Redirect any non-language-prefixed legacy URL to the default language. */
-const LegacyRedirect = () => {
-  const { pathname, search, hash } = useLocation();
-  return <Navigate to={`/${DEFAULT_LANG}${pathname}${search}${hash}`} replace />;
-};
-
-const LocalizedRoutes = () => (
-  <LangLayout>
-    <Routes>
-      <Route index element={<Index />} />
-      <Route path="sahara-desert-tour" element={<SaharaDesertTour />} />
-      <Route path="agafay-desert" element={<AgafayDesert />} />
-      <Route path="atlas-mountains" element={<AtlasMountains />} />
-      <Route path="ouzoud-waterfalls" element={<OuzoudWaterfalls />} />
-      <Route path="ourika-valley" element={<OurikaValley />} />
-      <Route path="essaouira" element={<Essaouira />} />
-      <Route path="guides" element={<GuidesIndex />} />
-      <Route path="guides/best-sahara-desert-tour-marrakech" element={<BestSaharaTour />} />
-      <Route path="guides/3-days-sahara-desert-tour-guide" element={<SaharaDesertGuide />} />
-      <Route path="guides/top-10-things-to-do-marrakech" element={<TopThingsMarrakech />} />
-      <Route path="guides/atlas-mountains-day-trip-guide" element={<AtlasMountainsGuide />} />
-      <Route path="guides/is-morocco-safe-for-tourists" element={<IsMoroccoSafe />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  </LangLayout>
-);
-
 const App = () => (
   <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
+  <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Navbar />
         <main>
           <Routes>
-            <Route path="/" element={<RootLangRedirect />} />
-            <Route path="/:lang/*" element={<LocalizedRoutes />} />
-            {/* Legacy unprefixed paths → redirect to default language */}
-            <Route path="*" element={<LegacyRedirect />} />
+            <Route path="/" element={<Index />} />
+            <Route path="/sahara-desert-tour" element={<SaharaDesertTour />} />
+            <Route path="/agafay-desert" element={<AgafayDesert />} />
+            <Route path="/atlas-mountains" element={<AtlasMountains />} />
+            <Route path="/ouzoud-waterfalls" element={<OuzoudWaterfalls />} />
+            <Route path="/ourika-valley" element={<OurikaValley />} />
+            <Route path="/essaouira" element={<Essaouira />} />
+            <Route path="/guides" element={<GuidesIndex />} />
+            <Route path="/guides/best-sahara-desert-tour-marrakech" element={<BestSaharaTour />} />
+            <Route path="/guides/3-days-sahara-desert-tour-guide" element={<SaharaDesertGuide />} />
+            <Route path="/guides/top-10-things-to-do-marrakech" element={<TopThingsMarrakech />} />
+            <Route path="/guides/atlas-mountains-day-trip-guide" element={<AtlasMountainsGuide />} />
+            <Route path="/guides/is-morocco-safe-for-tourists" element={<IsMoroccoSafe />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
@@ -70,7 +51,7 @@ const App = () => (
       </BrowserRouter>
       <Analytics />
       <SpeedInsights />
-    </QueryClientProvider>
+  </QueryClientProvider>
   </HelmetProvider>
 );
 
