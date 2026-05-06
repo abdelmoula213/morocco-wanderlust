@@ -122,6 +122,14 @@ const BookingForm = ({ lockedTour, tourOptions, addOns }: BookingFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+
+    // Validate phone: must start with + followed by 8-15 digits (E.164)
+    const phoneClean = formData.phone.replace(/[\s\-().]/g, "");
+    if (!/^\+\d{8,15}$/.test(phoneClean)) {
+      setError("Please enter a valid phone number starting with + and country code (e.g. +212600000000).");
+      return;
+    }
+
     setLoading(true);
 
     const tourToSave = lockedTour ?? formData.tour;
@@ -242,18 +250,25 @@ Message: ${formData.message || "None"}`;
         {/* ✅ Nouveau champ téléphone */}
         <div>
           <label className="block font-body text-sm font-medium text-foreground mb-1">
-            Phone Number *
+            Phone Number * <span className="text-muted-foreground font-normal">(with country code, e.g. +212…)</span>
           </label>
           <input
-            type="number"
+            type="tel"
             required
+            inputMode="tel"
             maxLength={20}
+            pattern="^\+[0-9\s\-().]{8,20}$"
+            title="Include your country code, starting with + (e.g. +212600000000)"
             value={formData.phone}
-            onChange={(e) =>
-              setFormData({ ...formData, phone: e.target.value })
-            }
+            onChange={(e) => {
+              let v = e.target.value.replace(/[^\d+\s\-().]/g, "");
+              // Ensure single leading +
+              if (v && !v.startsWith("+")) v = "+" + v.replace(/\+/g, "");
+              else v = "+" + v.slice(1).replace(/\+/g, "");
+              setFormData({ ...formData, phone: v });
+            }}
             className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-            placeholder="Your phone number"
+            placeholder="+212 6 00 00 00 00"
           />
         </div>
       </div>
