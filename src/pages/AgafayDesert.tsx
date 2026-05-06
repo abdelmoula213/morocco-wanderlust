@@ -158,8 +158,7 @@ const AgafayDesert = () => {
         title="Book Your Agafay Desert Experience"
         subtitle="Choose your experience type — we'll confirm by email"
         tourOptions={[
-          { value: "Agafay Desert - Standard (400 DH)", label: "Standard - 400 DH per person" },
-          { value: "Agafay Desert - Luxury (700 DH)", label: "Luxury - 700 DH per person" },
+          { value: "Agafay Desert (250 DH)", label: "Agafay Desert - 250 DH per person" },
         ]}
         addOns={[
           { id: "balloon-first", label: "🎈 Hot Air Balloon — First Departure (+1,400 DH/pers)", price: 1400 },
