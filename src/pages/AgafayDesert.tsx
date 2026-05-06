@@ -9,7 +9,6 @@ import BookingFormSection from "@/components/BookingFormSection";
 import { CheckCircle, MapPin } from "lucide-react";
 
 const standardIncludes = ["Quad biking", "Camel ride", "Sunset experience", "Camp dinner"];
-const luxuryIncludes = ["Quad biking", "Camel ride", "Sunset experience", "Camp dinner", "Access to swimming pool"];
 
 const AgafayDesert = () => {
   return (
@@ -48,13 +47,13 @@ const AgafayDesert = () => {
         <div>
           <div>
             {/* Package Comparison */}
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8">Choose Your Package</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8">Your Package</h2>
+            <div className="grid grid-cols-1 gap-6 mb-12 max-w-md mx-auto">
               {/* Standard */}
               <div className="bg-card rounded-2xl p-6 shadow-warm border border-border">
                 <p className="font-body text-xs font-semibold text-primary uppercase tracking-widest mb-2">Standard</p>
                 <div className="mb-4">
-                  <span className="font-heading text-4xl font-bold text-foreground">400 DH</span>
+                  <span className="font-heading text-4xl font-bold text-foreground">250 DH</span>
                   <span className="font-body text-sm text-muted-foreground ml-1">/ person</span>
                 </div>
                 <ul className="space-y-3 mb-6">
@@ -66,32 +65,8 @@ const AgafayDesert = () => {
                 </ul>
                 <a
                   href="#booking-widget"
-                  className="w-full flex items-center justify-center gap-2 bg-secondary text-secondary-foreground font-semibold py-3 rounded-lg hover:bg-secondary/80 transition-colors font-body text-sm">
-                  📅 Book Standard
-                </a>
-              </div>
-
-              {/* Luxury */}
-              <div className="bg-card rounded-2xl p-6 shadow-warm-lg border-2 border-accent relative">
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-xs font-bold px-4 py-1 rounded-full">
-                  Recommended
-                </div>
-                <p className="font-body text-xs font-semibold text-accent-foreground uppercase tracking-widest mb-2">Luxury</p>
-                <div className="mb-4">
-                  <span className="font-heading text-4xl font-bold text-foreground">700 DH</span>
-                  <span className="font-body text-sm text-muted-foreground ml-1">/ person</span>
-                </div>
-                <ul className="space-y-3 mb-6">
-                  {luxuryIncludes.map((item) =>
-                  <li key={item} className="flex items-start gap-2 font-body text-sm text-foreground">
-                      <CheckCircle size={14} className="text-accent mt-0.5 shrink-0" /> {item}
-                    </li>
-                  )}
-                </ul>
-                <a
-                  href="#booking-widget"
                   className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3 rounded-lg hover:bg-primary/90 transition-colors font-body text-sm">
-                  📅 Book Luxury
+                  📅 Book Now
                 </a>
               </div>
             </div>
