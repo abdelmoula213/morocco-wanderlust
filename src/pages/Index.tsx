@@ -26,7 +26,7 @@ const tours = [
     image: agafayImage,
     title: "Agafay Desert Experience",
     description: "Quad biking, camel rides, sunset dinner & camp. Just 30 min from Marrakech.",
-    price: "From 400 DH",
+    price: "From 250 DH",
     duration: "Half Day / Full Day",
     badge: "Same-Day Booking",
     link: "/agafay-desert",
