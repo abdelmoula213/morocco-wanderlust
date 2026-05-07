@@ -50,138 +50,15 @@ export type Database = {
         }
         Relationships: []
       }
-      reviews: {
-        Row: {
-          comment: string
-          created_at: string
-          id: string
-          rating: number
-          reviewer_name: string
-          tour_slug: string
-        }
-        Insert: {
-          comment: string
-          created_at?: string
-          id?: string
-          rating: number
-          reviewer_name: string
-          tour_slug: string
-        }
-        Update: {
-          comment?: string
-          created_at?: string
-          id?: string
-          rating?: number
-          reviewer_name?: string
-          tour_slug?: string
-        }
-        Relationships: []
-      }
-      tours: {
-        Row: {
-          created_at: string
-          currency: string
-          description: string | null
-          display_order: number
-          duration: string | null
-          gallery: Json
-          hero_image: string | null
-          highlights: Json
-          id: string
-          included: Json
-          is_active: boolean
-          itinerary: Json
-          location: string | null
-          not_included: Json
-          price: number | null
-          price_label: string | null
-          slug: string
-          subtitle: string | null
-          title: string
-          updated_at: string
-        }
-        Insert: {
-          created_at?: string
-          currency?: string
-          description?: string | null
-          display_order?: number
-          duration?: string | null
-          gallery?: Json
-          hero_image?: string | null
-          highlights?: Json
-          id?: string
-          included?: Json
-          is_active?: boolean
-          itinerary?: Json
-          location?: string | null
-          not_included?: Json
-          price?: number | null
-          price_label?: string | null
-          slug: string
-          subtitle?: string | null
-          title: string
-          updated_at?: string
-        }
-        Update: {
-          created_at?: string
-          currency?: string
-          description?: string | null
-          display_order?: number
-          duration?: string | null
-          gallery?: Json
-          hero_image?: string | null
-          highlights?: Json
-          id?: string
-          included?: Json
-          is_active?: boolean
-          itinerary?: Json
-          location?: string | null
-          not_included?: Json
-          price?: number | null
-          price_label?: string | null
-          slug?: string
-          subtitle?: string | null
-          title?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      user_roles: {
-        Row: {
-          created_at: string
-          id: string
-          role: Database["public"]["Enums"]["app_role"]
-          user_id: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          role: Database["public"]["Enums"]["app_role"]
-          user_id: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          role?: Database["public"]["Enums"]["app_role"]
-          user_id?: string
-        }
-        Relationships: []
-      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      has_role: {
-        Args: {
-          _role: Database["public"]["Enums"]["app_role"]
-          _user_id: string
-        }
-        Returns: boolean
-      }
+      [_ in never]: never
     }
     Enums: {
-      app_role: "admin" | "moderator" | "user"
+      [_ in never]: never
     }
     CompositeTypes: {
       [_ in never]: never
@@ -308,8 +185,6 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {
-      app_role: ["admin", "moderator", "user"],
-    },
+    Enums: {},
   },
 } as const
