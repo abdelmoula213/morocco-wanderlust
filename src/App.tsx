@@ -1,25 +1,28 @@
+import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
-import SaharaDesertTour from "./pages/SaharaDesertTour";
-import AgafayDesert from "./pages/AgafayDesert";
-import AtlasMountains from "./pages/AtlasMountains";
-import OuzoudWaterfalls from "./pages/OuzoudWaterfalls";
-import OurikaValley from "./pages/OurikaValley";
-import Essaouira from "./pages/Essaouira";
-import NotFound from "./pages/NotFound";
-import BestSaharaTour from "./pages/guides/BestSaharaTour";
-import SaharaDesertGuide from "./pages/guides/SaharaDesertGuide";
-import TopThingsMarrakech from "./pages/guides/TopThingsMarrakech";
-import AtlasMountainsGuide from "./pages/guides/AtlasMountainsGuide";
-import IsMoroccoSafe from "./pages/guides/IsMoroccoSafe";
-import GuidesIndex from "./pages/guides/GuidesIndex";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+
+// Lazy-load non-landing routes to shrink initial JS bundle and improve TTI
+const SaharaDesertTour = lazy(() => import("./pages/SaharaDesertTour"));
+const AgafayDesert = lazy(() => import("./pages/AgafayDesert"));
+const AtlasMountains = lazy(() => import("./pages/AtlasMountains"));
+const OuzoudWaterfalls = lazy(() => import("./pages/OuzoudWaterfalls"));
+const OurikaValley = lazy(() => import("./pages/OurikaValley"));
+const Essaouira = lazy(() => import("./pages/Essaouira"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const BestSaharaTour = lazy(() => import("./pages/guides/BestSaharaTour"));
+const SaharaDesertGuide = lazy(() => import("./pages/guides/SaharaDesertGuide"));
+const TopThingsMarrakech = lazy(() => import("./pages/guides/TopThingsMarrakech"));
+const AtlasMountainsGuide = lazy(() => import("./pages/guides/AtlasMountainsGuide"));
+const IsMoroccoSafe = lazy(() => import("./pages/guides/IsMoroccoSafe"));
+const GuidesIndex = lazy(() => import("./pages/guides/GuidesIndex"));
 
 const queryClient = new QueryClient();
 
