@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-heading text-2xl font-bold text-primary-foreground">Ready to Explore Morocco?</p>
-            <p className="font-body text-sm text-primary-foreground/85">Book today and pay on arrival. Free cancellation available.</p>
+            <p className="font-body text-sm text-primary-foreground/95">Book today and pay on arrival. Free cancellation available.</p>
           </div>
           <a
             href="https://wa.me/212766776545"
@@ -82,7 +82,7 @@ const Footer = () => {
                   <Phone size={16} className="text-accent mt-0.5 shrink-0" />
                   <div>
                     <p className="font-body text-sm text-primary-foreground/80 group-hover:text-accent transition-colors">+212 766-776545</p>
-                    <p className="font-body text-xs text-primary-foreground/40">WhatsApp & Phone</p>
+                    <p className="font-body text-xs text-primary-foreground/75">WhatsApp & Phone</p>
                   </div>
                 </a>
               </li>
@@ -90,7 +90,7 @@ const Footer = () => {
                 <MapPin size={16} className="text-accent mt-0.5 shrink-0" />
                 <div>
                   <p className="font-body text-sm text-primary-foreground/80">Marrakech, Morocco</p>
-                  <p className="font-body text-xs text-primary-foreground/40">Operating across Morocco</p>
+                  <p className="font-body text-xs text-primary-foreground/75">Operating across Morocco</p>
                 </div>
               </li>
             </ul>
@@ -100,10 +100,10 @@ const Footer = () => {
 
       <div className="border-t border-primary-foreground/10 py-6">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="font-body text-xs text-primary-foreground/40">
+          <p className="font-body text-xs text-primary-foreground/75">
             © 2025 SEE&KNOW Tours & Travels. All rights reserved. · Marrakech, Morocco
           </p>
-          <p className="font-body text-xs text-primary-foreground/40">
+          <p className="font-body text-xs text-primary-foreground/75">
             Morocco Desert Tours · Sahara Tour from Marrakech · Agafay Desert · Atlas Mountains
           </p>
         </div>
