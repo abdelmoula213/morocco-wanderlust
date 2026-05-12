@@ -289,6 +289,7 @@ Message: ${formData.message || "None"}`;
           </label>
           <select
             required
+            aria-label="Select tour"
             value={formData.tour}
             onChange={(e) => { setFormData({ ...formData, tour: e.target.value }); setSelectedAddOns([]); }}
             className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
