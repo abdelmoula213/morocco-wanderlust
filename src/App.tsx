@@ -32,22 +32,24 @@ const App = () => (
       <BrowserRouter>
         <Navbar />
         <main>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/sahara-desert-tour" element={<SaharaDesertTour />} />
-            <Route path="/agafay-desert" element={<AgafayDesert />} />
-            <Route path="/atlas-mountains" element={<AtlasMountains />} />
-            <Route path="/ouzoud-waterfalls" element={<OuzoudWaterfalls />} />
-            <Route path="/ourika-valley" element={<OurikaValley />} />
-            <Route path="/essaouira" element={<Essaouira />} />
-            <Route path="/guides" element={<GuidesIndex />} />
-            <Route path="/guides/best-sahara-desert-tour-marrakech" element={<BestSaharaTour />} />
-            <Route path="/guides/3-days-sahara-desert-tour-guide" element={<SaharaDesertGuide />} />
-            <Route path="/guides/top-10-things-to-do-marrakech" element={<TopThingsMarrakech />} />
-            <Route path="/guides/atlas-mountains-day-trip-guide" element={<AtlasMountainsGuide />} />
-            <Route path="/guides/is-morocco-safe-for-tourists" element={<IsMoroccoSafe />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Suspense fallback={<div style={{ minHeight: "60vh" }} />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/sahara-desert-tour" element={<SaharaDesertTour />} />
+              <Route path="/agafay-desert" element={<AgafayDesert />} />
+              <Route path="/atlas-mountains" element={<AtlasMountains />} />
+              <Route path="/ouzoud-waterfalls" element={<OuzoudWaterfalls />} />
+              <Route path="/ourika-valley" element={<OurikaValley />} />
+              <Route path="/essaouira" element={<Essaouira />} />
+              <Route path="/guides" element={<GuidesIndex />} />
+              <Route path="/guides/best-sahara-desert-tour-marrakech" element={<BestSaharaTour />} />
+              <Route path="/guides/3-days-sahara-desert-tour-guide" element={<SaharaDesertGuide />} />
+              <Route path="/guides/top-10-things-to-do-marrakech" element={<TopThingsMarrakech />} />
+              <Route path="/guides/atlas-mountains-day-trip-guide" element={<AtlasMountainsGuide />} />
+              <Route path="/guides/is-morocco-safe-for-tourists" element={<IsMoroccoSafe />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
         <WhatsAppButton />
