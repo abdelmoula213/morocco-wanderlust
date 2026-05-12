@@ -42,7 +42,7 @@ const Footer = () => {
 
           {/* Tours */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Our Tours</h4>
+            <h3 className="font-heading text-lg font-semibold mb-4">Our Tours</h3>
             <ul className="space-y-2">
               {[
                 { to: "/sahara-desert-tour", label: "3-Day Sahara Tour" },
@@ -62,7 +62,7 @@ const Footer = () => {
 
           {/* Info */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Why Choose Us</h4>
+            <h3 className="font-heading text-lg font-semibold mb-4">Why Choose Us</h3>
             <ul className="space-y-2 font-body text-sm text-primary-foreground/60">
               <li>✓ Licensed travel agency</li>
               <li>✓ Best direct price guarantee</li>
@@ -75,7 +75,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Contact Us</h4>
+            <h3 className="font-heading text-lg font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-4">
               <li>
                 <a href="https://wa.me/212766776545" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 group">
