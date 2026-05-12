@@ -314,6 +314,7 @@ Message: ${formData.message || "None"}`;
           <input
             type="date"
             required
+            aria-label="Preferred date"
             value={formData.date}
             min={new Date().toISOString().split("T")[0]}
             onChange={(e) => setFormData({ ...formData, date: e.target.value })}
@@ -326,6 +327,7 @@ Message: ${formData.message || "None"}`;
             Number of Guests
           </label>
           <select
+            aria-label="Number of guests"
             value={formData.guests}
             onChange={(e) =>
               setFormData({ ...formData, guests: e.target.value })
