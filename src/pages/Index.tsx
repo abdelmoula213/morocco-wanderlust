@@ -75,7 +75,7 @@ const Index = () => {
       </Helmet>
       {/* ===== HERO ===== */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero">
-        <img src={heroImage} alt="Morocco Sahara Desert with Atlas Mountains" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={heroImage} alt="Morocco Sahara Desert with Atlas Mountains" className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" decoding="async" />
         <div className="bg-hero-overlay absolute inset-0" />
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
