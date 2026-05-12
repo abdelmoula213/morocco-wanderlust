@@ -35,15 +35,22 @@ Deno.serve(async (req) => {
     if (!MICROSOFT_EXCEL_API_KEY) throw new Error("MICROSOFT_EXCEL_API_KEY is not configured");
     if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) throw new Error("Supabase env not configured");
 
+    // Prevent Excel formula injection: prefix risky leading chars with a single quote
+    const sanitizeCell = (v: string): string => {
+      if (!v) return v;
+      const first = v.charAt(0);
+      return ["=", "+", "-", "@", "\t", "\r"].includes(first) ? "'" + v : v;
+    };
+
     const body = (await req.json()) as BookingPayload;
-    const name = (body.name ?? "").toString().slice(0, 200);
-    const phone = (body.phone ?? "").toString().slice(0, 50);
-    const tour = (body.tour ?? "").toString().slice(0, 300);
-    const preferredDate = (body.preferred_date ?? "").toString().slice(0, 50);
-    const guests = (body.guests ?? "").toString().slice(0, 20);
-    const message = (body.message ?? "").toString().slice(0, 2000);
+    const name = sanitizeCell((body.name ?? "").toString().slice(0, 200));
+    const phone = sanitizeCell((body.phone ?? "").toString().slice(0, 50));
+    const tour = sanitizeCell((body.tour ?? "").toString().slice(0, 300));
+    const preferredDate = sanitizeCell((body.preferred_date ?? "").toString().slice(0, 50));
+    const guests = sanitizeCell((body.guests ?? "").toString().slice(0, 20));
+    const message = sanitizeCell((body.message ?? "").toString().slice(0, 2000));
     const total = typeof body.total === "number" && isFinite(body.total) ? body.total : 0;
-    const price = (body.price ?? "").toString().slice(0, 500);
+    const price = sanitizeCell((body.price ?? "").toString().slice(0, 500));
 
     if (!name || !phone || !tour) {
       return new Response(JSON.stringify({ error: "name, phone, tour are required" }), {
