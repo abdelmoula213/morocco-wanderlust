@@ -27,21 +27,35 @@
   <meta name="twitter:title" content="SEE&amp;KNOW Tours &amp; Travels Morocco">
   <meta property="og:description" content="Discover Morocco with SEE&amp;KNOW. Sahara desert tours, Agafay adventures, Atlas Mountains trips, Essaouira and Ouzoud day tours. Book direct &amp; pay on arrival.">
   <meta name="twitter:description" content="Discover Morocco with SEE&amp;KNOW. Sahara desert tours, Agafay adventures, Atlas Mountains trips, Essaouira and Ouzoud day tours. Book direct &amp; pay on arrival.">
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel Code (deferred to reduce unused JS impact on LCP) -->
   <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1714662192850618');
-  fbq('track', 'PageView');
-  fbq("track", "ViewContent");
-  fbq('track', 'Contact');
-  fbq('track', 'Lead');
+  (function(){
+    function loadFbPixel(){
+      if (window.__fbPixelLoaded) return;
+      window.__fbPixelLoaded = true;
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1714662192850618');
+      fbq('track', 'PageView');
+      fbq('track', 'ViewContent');
+      fbq('track', 'Contact');
+      fbq('track', 'Lead');
+    }
+    if (document.readyState === 'complete') {
+      setTimeout(loadFbPixel, 2000);
+    } else {
+      window.addEventListener('load', function(){ setTimeout(loadFbPixel, 2000); });
+    }
+    ['scroll','mousemove','touchstart','keydown'].forEach(function(ev){
+      window.addEventListener(ev, loadFbPixel, { once: true, passive: true });
+    });
+  })();
   </script>
 <!-- End Meta Pixel Code -->
 </head>
