@@ -55,8 +55,6 @@ const App = () => (
         <Footer />
         <WhatsAppButton />
       </BrowserRouter>
-      <Analytics />
-      <SpeedInsights />
   </QueryClientProvider>
   </HelmetProvider>
 );
