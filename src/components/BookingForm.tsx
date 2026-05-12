@@ -289,6 +289,7 @@ Message: ${formData.message || "None"}`;
           </label>
           <select
             required
+            aria-label="Select tour"
             value={formData.tour}
             onChange={(e) => { setFormData({ ...formData, tour: e.target.value }); setSelectedAddOns([]); }}
             className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
@@ -313,6 +314,7 @@ Message: ${formData.message || "None"}`;
           <input
             type="date"
             required
+            aria-label="Preferred date"
             value={formData.date}
             min={new Date().toISOString().split("T")[0]}
             onChange={(e) => setFormData({ ...formData, date: e.target.value })}
@@ -325,6 +327,7 @@ Message: ${formData.message || "None"}`;
             Number of Guests
           </label>
           <select
+            aria-label="Number of guests"
             value={formData.guests}
             onChange={(e) =>
               setFormData({ ...formData, guests: e.target.value })

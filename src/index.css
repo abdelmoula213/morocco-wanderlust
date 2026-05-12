@@ -15,14 +15,14 @@
     --popover: 0 0% 100%;
     --popover-foreground: 20 15% 15%;
 
-    --primary: 18 76% 48%;
+    --primary: 18 78% 38%;
     --primary-foreground: 30 25% 97%;
 
     --secondary: 30 30% 93%;
     --secondary-foreground: 20 15% 20%;
 
     --muted: 30 15% 94%;
-    --muted-foreground: 20 8% 45%;
+    --muted-foreground: 20 10% 35%;
 
     --accent: 38 92% 50%;
     --accent-foreground: 20 15% 10%;
@@ -32,13 +32,13 @@
 
     --border: 30 15% 88%;
     --input: 30 15% 88%;
-    --ring: 18 76% 48%;
+    --ring: 18 78% 38%;
 
     --radius: 0.75rem;
 
     --sand: 35 40% 90%;
     --sand-foreground: 30 20% 30%;
-    --terracotta: 18 76% 48%;
+    --terracotta: 18 78% 38%;
     --terracotta-light: 18 76% 95%;
     --gold: 38 92% 50%;
     --gold-light: 38 80% 92%;
