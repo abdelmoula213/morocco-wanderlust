@@ -6,8 +6,9 @@ import Index from "./pages/Index";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
+// Vercel Analytics/Speed Insights removed: app is hosted on Lovable, so the
+// /_vercel/* script endpoints 404 and produce console errors that hurt the
+// Lighthouse "best practices" score. Re-add only if migrating to Vercel.
 
 // Lazy-load non-landing routes to shrink initial JS bundle and improve TTI
 const SaharaDesertTour = lazy(() => import("./pages/SaharaDesertTour"));
@@ -54,8 +55,6 @@ const App = () => (
         <Footer />
         <WhatsAppButton />
       </BrowserRouter>
-      <Analytics />
-      <SpeedInsights />
   </QueryClientProvider>
   </HelmetProvider>
 );
