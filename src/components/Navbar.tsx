@@ -43,7 +43,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="SEE&KNOW" className="h-10 w-10 rounded-full object-cover" />
+            <img src={logo} alt="SEE&KNOW" width={40} height={40} fetchPriority="high" decoding="async" className="h-10 w-10 rounded-full object-cover" />
             <div className="flex flex-col">
               <span className="font-heading text-lg font-bold text-primary-foreground leading-none">See & Know</span>
               <span className="font-body text-[9px] tracking-[0.2em] uppercase text-primary-foreground/70">Tours & Travels</span>
