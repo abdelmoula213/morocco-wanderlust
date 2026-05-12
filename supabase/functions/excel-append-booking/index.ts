@@ -35,6 +35,13 @@ Deno.serve(async (req) => {
     if (!MICROSOFT_EXCEL_API_KEY) throw new Error("MICROSOFT_EXCEL_API_KEY is not configured");
     if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) throw new Error("Supabase env not configured");
 
+    // Prevent Excel formula injection: prefix risky leading chars with a single quote
+    const sanitizeCell = (v: string): string => {
+      if (!v) return v;
+      const first = v.charAt(0);
+      return ["=", "+", "-", "@", "\t", "\r"].includes(first) ? "'" + v : v;
+    };
+
     const body = (await req.json()) as BookingPayload;
     const name = (body.name ?? "").toString().slice(0, 200);
     const phone = (body.phone ?? "").toString().slice(0, 50);
@@ -99,7 +106,7 @@ Deno.serve(async (req) => {
       method: "POST",
       headers,
       body: JSON.stringify({
-        values: [[submittedAt, name, phone, tour, preferredDate, guests, message, "New", total, price]],
+        values: [[submittedAt, sanitizeCell(name), sanitizeCell(phone), sanitizeCell(tour), sanitizeCell(preferredDate), sanitizeCell(guests), sanitizeCell(message), "New", total, sanitizeCell(price)]],
       }),
     });
 
